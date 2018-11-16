@@ -7,28 +7,29 @@ dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 cameraNoiseMat = '/groups/ahrens/ahrenslab/Ziqiang/gainMat/gainMat20180208'
 
 
-def update_table(update_ods = False):
-    '''
-    Update Voltron Log_DRN_Exp.csv
-    run when new data is added
-    '''
-    if update_ods:
-        dat_xls_file = pd.read_excel(dat_folder+'Voltron Log_DRN_Exp.xlsx')
-        dat_xls_file = dat_xls_file.dropna(how='all').reset_index()
-        dat_xls_file['folder'] = dat_xls_file['folder'].astype('int').astype('str')
-        dat_xls_file['finished'] = False
-        dat_xls_file.to_csv(dat_folder + 'Voltron Log_DRN_Exp.csv')
-    return None
-
+# def update_table(update_ods = False):
+#     '''
+#     Update Voltron Log_DRN_Exp.csv
+#     run when new data is added
+#     '''
+#     if update_ods:
+#         dat_xls_file = pd.read_excel(dat_folder+'Voltron Log_DRN_Exp.xlsx')
+#         dat_xls_file = dat_xls_file.dropna(how='all').reset_index()
+#         dat_xls_file['folder'] = dat_xls_file['folder'].astype('int').astype('str')
+#         dat_xls_file['finished'] = False
+#         dat_xls_file.to_csv('../Voltron Log_DRN_Exp.csv')
+#     return None
 
 def monitor_process():
     '''
     Update Voltron Log_DRN_Exp.csv
     monitor process of processing
     '''
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
     if 'index' in dat_xls_file.columns:
         dat_xls_file = dat_xls_file.drop('index', axis=1)
+    dat_xls_file['folder'] = dat_xls_file['folder'].astype(int).apply(str)
+
     if not 'spikes' in dat_xls_file.columns:
         dat_xls_file['spikes']=False
     if not 'subvolt' in dat_xls_file.columns:
@@ -59,25 +60,26 @@ def monitor_process():
         if os.path.exists(save_folder+'/Data/finished_subvolt.tmp'):
             dat_xls_file.at[index, 'subvolt'] = True
     print(dat_xls_file.sum(numeric_only=True))
-    dat_xls_file.to_csv(dat_folder + 'Voltron Log_DRN_Exp.csv')
-    # save a local copy
-    dat_xls_file.to_csv('Voltron Log_DRN_Exp.csv')
+    dat_xls_file.to_csv('../Voltron Log_DRN_Exp.csv')
     return None
+
 
 def swim():
     '''
     Processing swim using TK's code
     '''
     from fish_proc.utils.ep import process_swim
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for _, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
-        swim_chFit = f'/nrs/ahrens/Takashi/0{folder}/{fish}.10chFlt'
+        swim_chFit = f'/nrs/ahrens/Takashi/{folder}/{fish}.10chFlt'
         save_folder = dat_folder + f'{folder}/{fish}/'
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
         if not os.path.exists(save_folder+'/swim'):
+            print(f'checking file {folder}/{fish}')
             try:
                 process_swim(swim_chFit, save_folder)
             except IOError:
@@ -91,14 +93,16 @@ def pixel_denoise():
     Generate files -- imgDNoMotion.tif, motion_fix_.npy
     '''
     from fish_proc.pipeline.preprocess import pixel_denoise, pixel_denoise_img_seq
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
-        image_folder = f'/nrs/ahrens/Takashi/0{folder}/{fish}/'
+        image_folder = row['rootDir'] + f'{folder}/{fish}/'
         fish_folder = dat_folder + f'{folder}/{fish}/'
         save_folder = dat_folder + f'{folder}/{fish}/Data'
-        if os.path.exists(fish_folder):
+
+        if os.path.exists(image_folder):
             print(f'checking file {folder}/{fish}')
             if not os.path.exists(save_folder+'/'):
                 os.makedirs(save_folder)
@@ -131,10 +135,8 @@ def registration(is_largefile=True):
     from pathlib import Path
     from fish_proc.pipeline.preprocess import motion_correction
     from skimage.io import imread, imsave
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
-    if 'index' in dat_xls_file.columns:
-        dat_xls_file = dat_xls_file.drop('index', axis=1)
-    dat_xls_file['folder'] = dat_xls_file['folder'].astype(int).apply(str)
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
@@ -183,8 +185,9 @@ def video_detrend():
     from pathlib import Path
     from multiprocessing import cpu_count
     from skimage.io import imsave, imread
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
@@ -227,8 +230,9 @@ def local_pca():
     from fish_proc.pipeline.denoise import denose_2dsvd
     from pathlib import Path
     from skimage.external.tifffile import imsave, imread
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
@@ -279,7 +283,8 @@ def demix_middle_data():
 
     sns.set(font_scale=2)
     sns.set_style("white")
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
@@ -395,10 +400,12 @@ def demix_middle_data():
 
 
 def demix_components():
-    dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
         demix_middle_data_with_mask(row)
     return None
+
 
 def demix_middle_data_with_mask(row):
     import matplotlib.pyplot as plt
@@ -532,10 +539,4 @@ if __name__ == '__main__':
     if len(sys.argv)>1:
         eval(sys.argv[1]+"()")
     else:
-        update_table(update_ods = False)
-        # swim()
-        # pixel_denoise()
-        # registration()
-        # video_detrend()
-        # local_pca()
-        # demix_middle_data()
+        monitor_process()
