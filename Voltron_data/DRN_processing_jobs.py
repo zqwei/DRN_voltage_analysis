@@ -399,15 +399,15 @@ def demix_middle_data():
     return None
 
 
-def demix_components():
+def demix_components(ext=''):
     dat_xls_file = pd.read_csv('../Voltron Log_DRN_Exp.csv', index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
-        demix_middle_data_with_mask(row)
+        demix_middle_data_with_mask(row, ext=ext)
     return None
 
 
-def demix_middle_data_with_mask(row):
+def demix_middle_data_with_mask(row, ext=''):
     import matplotlib.pyplot as plt
     import seaborn as sns
     from pathlib import Path
@@ -422,7 +422,7 @@ def demix_middle_data_with_mask(row):
 
     folder = row['folder']
     fish = row['fish']
-    image_folder = f'/nrs/ahrens/Takashi/0{folder}/{fish}/'
+    image_folder = f'/nrs/ahrens/Takashi/{folder}/{fish}/'
     save_folder = dat_folder + f'{folder}/{fish}/Data'
     save_image_folder = dat_folder + f'{folder}/{fish}/Results'
     if not os.path.exists(save_image_folder):
@@ -430,12 +430,12 @@ def demix_middle_data_with_mask(row):
     print('=====================================')
     print(save_folder)
 
-    if os.path.isfile(save_folder+'/finished_demix_with_mask.tmp'):
+    if os.path.isfile(save_folder+f'/finished_demix{ext}.tmp'):
         return None
 
     # if not os.path.isfile(save_folder+'/proc_demix_with_mask.tmp'):
     if True:
-        Path(save_folder+'/proc_demix_with_mask.tmp').touch()
+        Path(save_folder+f'/proc_demix{ext}.tmp').touch()
         _ = np.load(f'{save_folder}/Y_2dnorm.npz')
         Y_d_ave= _['Y_d_ave']
         Y_d_std= _['Y_d_std']
@@ -497,13 +497,13 @@ def demix_middle_data_with_mask(row):
                                    TF=False, fudge_factor=1, text=False, bg=False, max_iter=60,
                                    max_iter_fin=100, update_after=20)
 
-        with open(f'{save_folder}/period_Y_demix_with_mask_rlt.pkl', 'wb') as f:
+        with open(f'{save_folder}/period_Y_demix{ext}_rlt.pkl', 'wb') as f:
             pickle.dump(rlt_, f)
 
         print('Result file saved?')
-        print(os.path.isfile(f'{save_folder}/period_Y_demix_with_mask_rlt.pkl'))
+        print(os.path.isfile(f'{save_folder}/period_Y_demix{ext}_rlt.pkl'))
 
-        with open(f'{save_folder}/period_Y_demix_with_mask_rlt.pkl', 'rb') as f:
+        with open(f'{save_folder}/period_Y_demix{ext}_rlt.pkl', 'rb') as f:
             rlt_ = pickle.load(f)
 
         if not os.path.isfile(f'{save_folder}/Y_trend_ave.npy'):
@@ -529,14 +529,17 @@ def demix_middle_data_with_mask(row):
         plt.imshow(A_comp.reshape(d2, d1).T, cmap=plt.cm.nipy_spectral_r, alpha=0.7)
         plt.axis('off')
         plt.tight_layout()
-        plt.savefig(f'{save_image_folder}/Demixed_components_with_mask.png')
+        plt.savefig(f'{save_image_folder}/Demixed_components{ext}.png')
         plt.close()
-        Path(save_folder+'/finished_demix_with_mask.tmp').touch()
+        Path(save_folder+'/finished_demix{ext}.tmp').touch()
     return None
 
 
 if __name__ == '__main__':
     if len(sys.argv)>1:
-        eval(sys.argv[1]+"()")
+        ext = ''
+        if len(sys.argv)>2:
+            ext = sys.argv[2]
+        eval(sys.argv[1]+f"({ext})")
     else:
         monitor_process()
