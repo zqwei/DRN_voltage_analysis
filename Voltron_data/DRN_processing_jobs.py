@@ -433,8 +433,7 @@ def demix_middle_data_with_mask(row, ext=''):
     if os.path.isfile(save_folder+f'/finished_demix{ext}.tmp'):
         return None
 
-    # if not os.path.isfile(save_folder+'/proc_demix_with_mask.tmp'):
-    if True:
+    if not os.path.isfile(save_folder+f'/proc_demix{ext}.tmp'):
         Path(save_folder+f'/proc_demix{ext}.tmp').touch()
         _ = np.load(f'{save_folder}/Y_2dnorm.npz')
         Y_d_ave= _['Y_d_ave']
@@ -531,7 +530,7 @@ def demix_middle_data_with_mask(row, ext=''):
         plt.tight_layout()
         plt.savefig(f'{save_image_folder}/Demixed_components{ext}.png')
         plt.close()
-        Path(save_folder+'/finished_demix{ext}.tmp').touch()
+        Path(save_folder+f'/finished_demix{ext}.tmp').touch()
     return None
 
 
