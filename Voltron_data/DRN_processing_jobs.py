@@ -28,14 +28,13 @@ def monitor_process():
     dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
     if 'index' in dat_xls_file.columns:
         dat_xls_file = dat_xls_file.drop('index', axis=1)
-    dat_xls_file['folder'] = dat_xls_file['folder'].astype(int).apply(str)
+    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     if not 'spikes' in dat_xls_file.columns:
         dat_xls_file['spikes']=False
     if not 'subvolt' in dat_xls_file.columns:
         dat_xls_file['subvolt']=False
 
-    dat_xls_file['folder'] = dat_xls_file['folder'].astype(int).apply(str)
     for index, row in dat_xls_file.iterrows():
         # check swim:
         folder = row['folder']
@@ -43,22 +42,24 @@ def monitor_process():
         save_folder = dat_folder + f'{folder}/{fish}/'
         if os.path.exists(save_folder+'/swim'):
             dat_xls_file.at[index, 'swim'] = True
-        if os.path.isfile(save_folder + '/Data/motion_fix_.npy'):
+        if os.path.isfile(save_folder + 'Data/motion_fix_.npy'):
             dat_xls_file.at[index, 'pixeldenoise'] = True
-        if os.path.isfile(save_folder+'/Data/finished_registr.tmp'):
+        if os.path.isfile(save_folder+'Data/finished_registr.tmp'):
             dat_xls_file.at[index, 'registration'] = True
-        if os.path.isfile(save_folder+'/Data/finished_detrend.tmp'):
+        if os.path.isfile(save_folder+'Data/finished_detrend.tmp'):
             dat_xls_file.at[index, 'detrend'] = True
-        if os.path.isfile(save_folder+'/Data/finished_local_denoise.tmp'):
+        if os.path.isfile(save_folder+'Data/finished_local_denoise.tmp'):
             dat_xls_file.at[index, 'localdenoise'] = True
-        if os.path.isfile(save_folder+'/Data/finished_demix.tmp'):
+        if os.path.isfile(save_folder+'Data/finished_demix.tmp'):
             dat_xls_file.at[index, 'demix'] = True
-        if os.path.isfile(save_folder+'/Data/finished_voltr.tmp'):
+        if os.path.isfile(save_folder+'Data/finished_voltr.tmp'):
             dat_xls_file.at[index, 'voltr'] = True
-        if os.path.exists(save_folder+'/Data/finished_spikes.tmp'):
+        if os.path.exists(save_folder+'Data/finished_spikes.tmp'):
             dat_xls_file.at[index, 'spikes'] = True
-        if os.path.exists(save_folder+'/Data/finished_subvolt.tmp'):
+        if os.path.exists(save_folder+'Data/finished_subvolt.tmp'):
             dat_xls_file.at[index, 'subvolt'] = True
+        else:
+            print(save_folder+'Data/finished_subvolt.tmp')
     print(dat_xls_file.sum(numeric_only=True))
     dat_xls_file.to_csv('Voltron_Log_DRN_Exp.csv')
     return None
