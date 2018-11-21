@@ -3,7 +3,7 @@ import pandas as pd
 import os, sys
 from trefide.temporal import TrendFilter
 
-dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/'
+dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 
 def single_x(voltr, window_length=41):
     from fish_proc.spikeDetectionNN.utils import roll_scale
@@ -69,10 +69,10 @@ def tf_filter(_):
 def plot_components(A_, Y_trend_ave, fext='', save_folder='', save_image_folder=''):
     import matplotlib.pyplot as plt
     import seaborn as sns
-    
+
     sns.set(font_scale=2)
     sns.set_style("white")
-    
+
     d1, d2 = Y_trend_ave.shape
     A_comp = np.zeros(A_.shape[0])
     A_comp[A_.sum(axis=-1)>0] = np.argmax(A_[A_.sum(axis=-1)>0, :], axis=-1) + 1
@@ -111,10 +111,9 @@ def voltron(row, fext='', is_mask=False):
     from skimage.external.tifffile import imread
     from fish_proc.utils.demix import recompute_C_matrix, pos_sig_correction
     import pickle
-    
+
     folder = row['folder']
     fish = row['fish']
-    image_folder = f'/nrs/ahrens/Takashi/0{folder}/{fish}/'
     save_folder = dat_folder + f'{folder}/{fish}/Data'
     save_image_folder = dat_folder + f'{folder}/{fish}/Results'
 
@@ -129,7 +128,7 @@ def voltron(row, fext='', is_mask=False):
     if not os.path.isfile(f'{save_folder}/period_Y_demix{fext}_rlt.pkl'):
         print('Components file does not exist.')
         return None
-    
+
     if os.path.isfile(save_folder+f'/proc_voltr{fext}.tmp'):
         print('File is already in processing.')
         return None
@@ -233,11 +232,11 @@ def voltr2spike(row, fext=''):
 
     if os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
         return None
-    
+
     # if os.path.isfile(save_folder+f'/proc_spikes{fext}.tmp'):
     #     print('SPike file is already in processing.')
     #     return None
-    
+
     Path(save_folder+f'/proc_spikes{fext}.tmp').touch()
     _ = np.load(f'{save_folder}/Voltr_raw{fext}.npz')
     A_ = _['A_']
@@ -264,11 +263,11 @@ def voltr2subvolt(row, fext=''):
 
     if os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
         return None
-    
+
     if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
         print(f'Spike file is not ready for {save_folder}')
         return None
-    
+
     # if os.path.isfile(save_folder+f'/proc_subvolt{fext}.tmp'):
     #     print('SubVolt file is already in processing.')
     #     return None
@@ -304,7 +303,8 @@ if __name__ == "__main__":
     if len(sys.argv)>1:
         eval(sys.argv[1]+"()")
     else:
-        dat_xls_file = pd.read_csv(dat_folder + 'Voltron Log_DRN_Exp.csv', index_col=0)
+        dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+        dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
         for index, row in dat_xls_file.iterrows():
             voltron(row, fext='', is_mask=False)
             voltr2spike(row, fext='')
