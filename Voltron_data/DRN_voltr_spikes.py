@@ -305,7 +305,15 @@ if __name__ == "__main__":
     else:
         dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
         dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
+        fext = ''
         for index, row in dat_xls_file.iterrows():
-            voltron(row, fext='', is_mask=False)
-            voltr2spike(row, fext='')
-            voltr2subvolt(row, fext='')
+            folder = row['folder']
+            fish = row['fish']
+            save_folder = dat_folder + f'{folder}/{fish}/Data'
+            save_image_folder = dat_folder + f'{folder}/{fish}/Results'
+            if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
+                voltron(row, fext=fext, is_mask=True)
+            if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
+                voltr2spike(row, fext=fext)
+            if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
+                voltr2subvolt(row, fext=fext)
