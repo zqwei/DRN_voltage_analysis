@@ -75,7 +75,7 @@ def swim():
     for _, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
-        swim_chFit = f'/nrs/ahrens/Takashi/{folder}/{fish}.10chFlt'
+        swim_chFit = row['rootDir'] + f'{folder}/{fish}.10chFlt'
         save_folder = dat_folder + f'{folder}/{fish}/'
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
