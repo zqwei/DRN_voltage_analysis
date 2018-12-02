@@ -232,10 +232,14 @@ def voltr2spike(row, fext=''):
 
     if os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
         return None
+    
+    if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
+        print('Voltr file does not exist.')
+        return None
 
-    # if os.path.isfile(save_folder+f'/proc_spikes{fext}.tmp'):
-    #     print('SPike file is already in processing.')
-    #     return None
+    if os.path.isfile(save_folder+f'/proc_spikes{fext}.tmp'):
+        print('SPike file is already in processing.')
+        return None
 
     Path(save_folder+f'/proc_spikes{fext}.tmp').touch()
     _ = np.load(f'{save_folder}/Voltr_raw{fext}.npz')
@@ -263,9 +267,9 @@ def voltr2subvolt(row, fext=''):
 
     if os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
         return None
-
+    
     if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
-        print(f'Spike file is not ready for {save_folder}')
+        print('Spike file does not exist.')
         return None
 
     # if os.path.isfile(save_folder+f'/proc_subvolt{fext}.tmp'):
