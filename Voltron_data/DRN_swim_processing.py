@@ -108,8 +108,9 @@ def trial_power():
         trial_inds  = np.load(swimdir/"trial_inds.npy")[()]
         ntrials     = int(trial_inds.max())
         stimParam=rawdata['stimParam3']+(rawdata['stimParam4']-1)*4;
-        # task_durations=[20,7,10,5,20,15,10,5,20,30,10,5]
-        # ?????
+        # 4 trials per recording
+        # 3 session per trial
+        # 4 epoch per session
         task_durations=[20,7,8,5,20,15,8,5,20,30,8,5]
         trial_index=np.zeros((ntrials,12))
         for i in range(ntrials):
@@ -130,7 +131,7 @@ def trial_power():
             for s in range(1,len(swimStarts)):
                 ch1_partial=rawdata['ch1'][swimStarts[s]:swimEnds[s]]
                 ch2_partial=rawdata['ch2'][swimStarts[s]:swimEnds[s]]
-                bursts     =swimdata['burstBothT'][swimStarts[s]:swimEnds[s]]
+                bursts =swimdata['burstBothT'][swimStarts[s]:swimEnds[s]]
                 ch1_max=(np.abs(ch1_partial-np.median(ch1_partial))).max()
                 ch2_max=(np.abs(ch2_partial-np.median(ch2_partial))).max()
                 trial=int(trial_inds[swimStarts[s]])
