@@ -64,30 +64,6 @@ def monitor_process():
     dat_xls_file.to_csv('Voltron_Log_DRN_Exp.csv')
     return None
 
-
-def swim():
-    '''
-    Processing swim using TK's code
-    '''
-    from fish_proc.utils.ep import process_swim
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
-    dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
-    for _, row in dat_xls_file.iterrows():
-        folder = row['folder']
-        fish = row['fish']
-        swim_chFit = row['rootDir'] + f'{folder}/{fish}.10chFlt'
-        save_folder = dat_folder + f'{folder}/{fish}/'
-        if not os.path.exists(save_folder):
-            os.makedirs(save_folder)
-        if not os.path.exists(save_folder+'/swim'):
-            print(f'checking file {folder}/{fish}')
-            try:
-                process_swim(swim_chFit, save_folder)
-            except IOError:
-                print(f'Check existence of file {swim_chFit}')
-    return None
-
-
 def pixel_denoise():
     '''
     Process pixel denoise
