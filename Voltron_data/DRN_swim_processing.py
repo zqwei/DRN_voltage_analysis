@@ -31,6 +31,7 @@ def swim():
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
         if not os.path.exists(save_folder+'/swim'):
+            os.makedirs(save_folder+'/swim')
             print(f'checking file {folder}/{fish}')
             try:
                 process_swim(swim_chFit, save_folder)

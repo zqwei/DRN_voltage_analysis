@@ -63,9 +63,9 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 61,11222018,Fish2-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 62,11222018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 63,11222018,Fish3-2,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-64,12202018,Fish1-1,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-65,12202018,Fish1-2,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-66,12202018,Fish2-1,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-67,12202018,Fish2-2,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-68,12202018,Fish3-1,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-69,12202018,Fish3-2,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+64,12202018,Fish1-1,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+65,12202018,Fish1-2,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+66,12202018,Fish2-1,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+67,12202018,Fish2-2,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+68,12202018,Fish3-1,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+69,12202018,Fish3-2,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/

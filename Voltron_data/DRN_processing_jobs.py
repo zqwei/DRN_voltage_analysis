@@ -120,6 +120,11 @@ def registration(is_largefile=True):
         fish = row['fish']
         save_folder = dat_folder + f'{folder}/{fish}/Data'
         print(f'checking file {folder}/{fish}')
+        if os.path.isfile(save_folder+'/finished_registr.tmp'):
+            continue
+        if os.path.isfile(save_folder+'/finished_detrend.tmp'):
+            Path(save_folder+'/finished_registr.tmp').touch()
+            continue
         if not os.path.isfile(save_folder+'/imgDMotion.tif') and os.path.isfile(save_folder + '/motion_fix_.npy'):
             if not os.path.isfile(save_folder+'/proc_registr.tmp'):
                 Path(save_folder+'/proc_registr.tmp').touch()
@@ -463,15 +468,23 @@ def demix_middle_data_with_mask(row, ext=''):
         # get local correlation distribution
         Cn, _ = correlation_pnr(mov_, skip_pnr=True)
         get_process_memory();
-
+        
+        is_demix = False
         pass_num = 4
         cut_off_point=np.percentile(Cn.ravel(), [99, 95, 85, 65])
-        rlt_= sup.demix_whole_data(mov_, cut_off_point, length_cut=[10,15,15,15],
-                                   th=[1,1,1,1], pass_num=pass_num, residual_cut = [0.6,0.6,0.6,0.6],
-                                   corr_th_fix=0.3, max_allow_neuron_size=0.05, merge_corr_thr=cut_off_point[-1],
-                                   merge_overlap_thr=0.6, num_plane=1, patch_size=[40, 40], plot_en=False,
-                                   TF=False, fudge_factor=1, text=False, bg=False, max_iter=60,
-                                   max_iter_fin=100, update_after=20)
+        while not is_demix:
+            try:
+                rlt_= sup.demix_whole_data(mov_, cut_off_point[4-pass_num:], length_cut=[10,15,15,15],
+                                           th=[1,1,1,1], pass_num=pass_num, residual_cut = [0.6,0.6,0.6,0.6],
+                                           corr_th_fix=0.3, max_allow_neuron_size=0.05, merge_corr_thr=cut_off_point[-1],
+                                           merge_overlap_thr=0.6, num_plane=1, patch_size=[40, 40], plot_en=False,
+                                           TF=False, fudge_factor=1, text=False, bg=False, max_iter=60,
+                                           max_iter_fin=100, update_after=20)
+                is_demix = True
+            except:
+                print(f'fail at pass_num {pass_num}')
+                is_demix = False
+                pass_num -= 1
 
         with open(f'{save_folder}/period_Y_demix{ext}_rlt.pkl', 'wb') as f:
             pickle.dump(rlt_, f)
