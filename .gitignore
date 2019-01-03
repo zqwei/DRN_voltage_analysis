@@ -1,6 +1,7 @@
 depreciated
 *_Data_Processing
 SVD_error
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
