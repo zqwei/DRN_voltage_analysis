@@ -5,14 +5,14 @@ from trefide.temporal import TrendFilter
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 
-def single_x(voltr, window_length=41):
+def single_x(voltr, window_length=41, win_=50001):
     from fish_proc.spikeDetectionNN.utils import roll_scale
     from fish_proc.spikeDetectionNN.spikeDetector import prepare_sequences_center
     if voltr.ndim>1:
         voltr = voltr.reshape(-1)
     voltr_ = voltr[600:]
     n_spk = np.zeros(len(voltr_)).astype('bool')
-    voltr_ = roll_scale(voltr_, win_=50001)
+    voltr_ = roll_scale(voltr_, win_=win_)
     x_, _ = prepare_sequences_center(voltr_, n_spk, window_length, peak_wid=2)
     return voltr_[np.newaxis, :], np.expand_dims(x_, axis=0)
 

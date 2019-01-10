@@ -51,6 +51,9 @@ def trial_swim_power():
         swimdir = dir_folder/f'{folder}/{fish}/swim'
         if os.path.isfile(swimdir/"trial_inds.npy"):
             continue
+        if not os.path.isfile(swimdir/"rawdata.npy"):
+            print(f'Preprocessing is not done, skip trial_swim_power at {folder}_{fish}')
+            continue
         rawdata=np.load(swimdir/"rawdata.npy")[()]
         swimdata=np.load(swimdir/"swimdata.npy")[()]
         reclen=len(swimdata['fltCh1'])
@@ -103,6 +106,9 @@ def trial_power():
         if os.path.isfile(swimdir/"swim_powers.npy"):
             continue
         if not row['task']=='Raphe memory task':
+            continue
+        if not os.path.isfile(swimdir/"rawdata.npy"):
+            print(f'Preprocessing is not done, skip trial_power at {folder}_{fish}')
             continue
         rawdata     = np.load(swimdir/"rawdata.npy")[()]
         swimdata    = np.load(swimdir/"swimdata.npy")[()]
@@ -173,62 +179,8 @@ def frame_swim_power():
         swimdir = dir_folder/f'{folder}/{fish}/swim'
         if os.path.isfile(swimdir/"frame_stimParams.npy"):
             continue
-        rawdata = np.load(swimdir/"rawdata.npy")[()]
-        swimdata = np.load(swimdir/"swimdata.npy")[()]
-        trial_inds = np.load(swimdir/"trial_inds.npy")[()]
-        reclen=len(swimdata['fltCh1'])
-        frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
-        frame_stimParams=np.zeros((5,len(frame)))
-        frame_stimParams[0,:]=rawdata['stimParam1'][frame]
-        frame_stimParams[2,:]=rawdata['stimParam3'][frame]
-        frame_stimParams[3,:]=rawdata['stimParam4'][frame]
-        frame_stimParams[4,:]=rawdata['stimParam5'][frame]
-        frame_stimParams[:,:3]=frame_stimParams[:,3:6];
-        trial_frame_inds=trial_inds[frame]
-        frame_tcourse=np.zeros((reclen,))
-        frame_inds=np.zeros((len(frame)-1,2))
-        for t in range(len(frame)-1):
-            frame_tcourse[frame[t]:frame[t+1]]=t
-            frame_inds[t,0]=frame[t]
-            frame_inds[t,1]=frame[t+1]-1
-        swimStarts=swimdata['swimStartIndT']
-        swimEnds =swimdata['swimEndIndT']
-        swimDurs =swimEnds-swimStarts
-        frame_swim_tcourse=np.zeros((3,len(frame)))
-        if not np.isscalar(swimStarts):
-            for s in range(1,len(swimStarts)):
-                startI  = swimStarts[s]
-                endI    = swimEnds[s]
-                fstart = int(frame_tcourse[startI])
-                fend   = int(frame_tcourse[endI])
-                ch1_partial=rawdata['ch1'][swimStarts[s]:swimEnds[s]]
-                ch2_partial=rawdata['ch2'][swimStarts[s]:swimEnds[s]]
-                bursts     =swimdata['burstBothT'][swimStarts[s]:swimEnds[s]]
-                ch1_max=(np.abs(ch1_partial-np.median(ch1_partial))).max()
-                ch2_max=(np.abs(ch2_partial-np.median(ch2_partial))).max()
-                if (max(ch1_max,ch2_max)<noise_thre and swimDurs[s]>60 and fstart>0 and fend>0):
-                    swim_pow1=max(swimdata['fltCh1'][startI:endI].sum()-swimdata['back1'][startI:endI].sum(),0)
-                    swim_pow2=max(swimdata['fltCh2'][startI:endI].sum()-swimdata['back2'][startI:endI].sum(),0)
-                    swim_pow_sum=swim_pow1+swim_pow2
-                    frame_swim_tcourse[0,fstart:fend]=swim_pow_sum/(fend-fstart)
-                    frame_swim_tcourse[1,fstart:fend]=swim_pow1/(fend-fstart)
-                    frame_swim_tcourse[2,fstart:fend]=swim_pow2/(fend-fstart)
-        np.save(swimdir/"frame_stimParams.npy",frame_stimParams)
-        np.save(swimdir/"frame_tcourse.npy",frame_tcourse)
-        np.save(swimdir/"trial_frame_inds.npy",trial_frame_inds)
-        np.save(swimdir/"frame_inds.npy",frame_inds);
-        np.save(swimdir/"frame_swim_tcourse.npy",frame_swim_tcourse)
-
-
-def frame_swim_power():
-    '''
-    Calculating frame-by-frame power
-    '''
-    for index, row in dat_xls_file.iterrows():
-        folder = row['folder']
-        fish = row['fish']
-        swimdir = dir_folder/f'{folder}/{fish}/swim'
-        if os.path.isfile(swimdir/"frame_stimParams.npy"):
+        if not os.path.isfile(swimdir/"rawdata.npy"):
+            print(f'Preprocessing is not done, skip frame_swim_power at {folder}_{fish}')
             continue
         rawdata = np.load(swimdir/"rawdata.npy")[()]
         swimdata = np.load(swimdir/"swimdata.npy")[()]
@@ -277,8 +229,73 @@ def frame_swim_power():
         np.save(swimdir/"frame_swim_tcourse.npy",frame_swim_tcourse)
 
 
+def match_swim_frame(swim_pow, startI, endI, fstart, fend, frame_tcourse):
+    d_swim_pow = np.zeros(fend-fstart)
+    for n_t in range(fend-fstart):
+        d_swim_pow[n_t] = swim_pow[frame_tcourse == (fstart + n_t)].mean()
+    return d_swim_pow
+        
+        
+def frame_swim_power_series():
+    '''
+    Calculating frame-by-frame power
+    '''
+    for index, row in dat_xls_file.iterrows():
+        folder = row['folder']
+        fish = row['fish']
+        swimdir = dir_folder/f'{folder}/{fish}/swim'
+        # if os.path.isfile(swimdir/"frame_swim_tcourse_series.npy"):
+        #     continue
+        if not os.path.isfile(swimdir/"rawdata.npy"):
+            print(f'Preprocessing is not done, skip frame_swim_power_series at {folder}_{fish}')
+            continue
+        rawdata = np.load(swimdir/"rawdata.npy")[()]
+        swimdata = np.load(swimdir/"swimdata.npy")[()]
+        trial_inds = np.load(swimdir/"trial_inds.npy")[()]
+        reclen=len(swimdata['fltCh1'])
+        frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
+        frame_stimParams=np.zeros((5,len(frame)))
+        frame_stimParams[0,:]=rawdata['stimParam1'][frame]
+        frame_stimParams[2,:]=rawdata['stimParam3'][frame]
+        frame_stimParams[3,:]=rawdata['stimParam4'][frame]
+        frame_stimParams[4,:]=rawdata['stimParam5'][frame]
+        frame_stimParams[:,:3]=frame_stimParams[:,3:6];
+        trial_frame_inds=trial_inds[frame]
+        frame_tcourse=np.zeros((reclen,))
+        frame_inds=np.zeros((len(frame)-1,2))
+        for t in range(len(frame)-1):
+            frame_tcourse[frame[t]:frame[t+1]]=t
+            frame_inds[t,0]=frame[t]
+            frame_inds[t,1]=frame[t+1]-1
+        swimStarts=swimdata['swimStartIndT']
+        swimEnds =swimdata['swimEndIndT']
+        swimDurs =swimEnds-swimStarts
+        frame_swim_tcourse=np.zeros((3,len(frame)))
+        if not np.isscalar(swimStarts):
+            for s in range(1,len(swimStarts)):
+                startI  = swimStarts[s]
+                endI    = swimEnds[s]
+                fstart = int(frame_tcourse[startI])
+                fend   = int(frame_tcourse[endI])
+                ch1_partial=rawdata['ch1'][swimStarts[s]:swimEnds[s]]
+                ch2_partial=rawdata['ch2'][swimStarts[s]:swimEnds[s]]
+                bursts     =swimdata['burstBothT'][swimStarts[s]:swimEnds[s]]
+                ch1_max=(np.abs(ch1_partial-np.median(ch1_partial))).max()
+                ch2_max=(np.abs(ch2_partial-np.median(ch2_partial))).max()
+                if (max(ch1_max,ch2_max)<noise_thre and swimDurs[s]>60 and fstart>0 and fend>0):
+                    swim_pow1=np.clip(swimdata['fltCh1'][startI:endI]-swimdata['back1'][startI:endI], 0, None)
+                    swim_pow2=np.clip(swimdata['fltCh2'][startI:endI]-swimdata['back2'][startI:endI], 0, None)
+                    swim_pow_sum=swim_pow1+swim_pow2
+                    frame_tcourse_ = frame_tcourse[startI:endI]
+                    frame_swim_tcourse[0,fstart:fend]=match_swim_frame(swim_pow_sum, startI, endI, fstart, fend, frame_tcourse_)
+                    frame_swim_tcourse[1,fstart:fend]=match_swim_frame(swim_pow1, startI, endI, fstart, fend, frame_tcourse_)
+                    frame_swim_tcourse[2,fstart:fend]=match_swim_frame(swim_pow2, startI, endI, fstart, fend, frame_tcourse_)
+        np.save(swimdir/"frame_swim_tcourse_series.npy",frame_swim_tcourse)
+
+
 if __name__ == '__main__':
     swim()
     trial_swim_power()
     trial_power()
     frame_swim_power()
+    frame_swim_power_series()

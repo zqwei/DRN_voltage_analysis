@@ -1,76 +1,76 @@
 Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise,demix,voltr,spikes,subvolt,FineTune,dataToAnalysis,rootDir
-0,3152018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-1,3152018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-2,3152018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-3,3152018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-4,3152018,Fish4-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-5,3292018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-6,3292018,Fish3-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-7,3292018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-8,3292018,Fish4-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-9,4052018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-10,4052018,Fish4-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-11,4122018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-12,4122018,Fish1-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-13,4122018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-14,4122018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-15,4122018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-16,4122018,Fish3-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-17,4122018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-18,4122018,Fish4-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-19,4192018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-20,4192018,Fish1-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-21,4192018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-22,4192018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,/nrs/ahrens/Takashi/
-23,4192018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,/nrs/ahrens/Takashi/
-24,4192018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-25,6282018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-26,6282018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,/nrs/ahrens/Takashi/
-27,6282018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-28,7052018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-29,7052018,Fish1-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-30,7052018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-31,7052018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-32,7122018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-33,7122018,Fish1-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-34,7122018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-35,7122018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-36,7262018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-37,7262018,Fish1-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-38,7262018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-39,7262018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-40,7262018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-41,7262018,Fish3-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-42,7262018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,/nrs/ahrens/Takashi/
-43,7262018,Fish4-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-44,8022018,Fish1-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-45,8022018,Fish1-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,/nrs/ahrens/Takashi/
-46,8022018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-47,8022018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-48,8022018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-49,8022018,Fish3-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-50,8022018,Fish4-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-51,8022018,Fish4-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Takashi/
-52,10182018,Fish2-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-53,10182018,Fish2-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-54,10182018,Fish3-1,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-55,10182018,Fish3-2,Raphe memory task,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-56,11222018,Fish1-1,Gain adadptation,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-57,11222018,Fish1-2,Gain adadptation,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-58,11222018,Fish1-3,Social water,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-59,11222018,Fish2-1,Gain adadptation,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-60,11222018,Fish2-2,Gain adadptation,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-61,11222018,Fish2-3,Social water,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-62,11222018,Fish3-1,Gain adadptation,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-63,11222018,Fish3-2,Social water,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-64,12202018,Fish1-1,Gain adadptation,Raphe,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-65,12202018,Fish1-2,Gain adadptation,Raphe,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-66,12202018,Fish2-1,Gain adadptation,Raphe,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-67,12202018,Fish2-2,Gain adadptation,Raphe,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-68,12202018,Fish3-1,Gain adadptation,Raphe,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-69,12202018,Fish3-2,Gain adadptation,Raphe,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-70,1032019,Fish1-1,Gain adadptation,Raphe,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-71,1032019,Fish1-2,Gain adadptation,Raphe,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-72,1032019,Fish1-3,Gain adadptation,Raphe,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-73,1032019,Fish2-1,Gain adadptation,Raphe,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-74,1032019,Fish2-2,Gain adadptation,Raphe,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+0,03152018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+1,03152018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+2,03152018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+3,03152018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+4,03152018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+5,03292018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+6,03292018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+7,03292018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+8,03292018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+9,04052018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+10,04052018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+11,04122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+12,04122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+13,04122018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+14,04122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+15,04122018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+16,04122018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+17,04122018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+18,04122018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+19,04192018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+20,04192018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+21,04192018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+22,04192018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+23,04192018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+24,04192018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+25,06282018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+26,06282018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+27,06282018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+28,07052018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+29,07052018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+30,07052018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+31,07052018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+32,07122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+33,07122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+34,07122018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+35,07122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+36,07262018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+37,07262018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+38,07262018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+39,07262018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+40,07262018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+41,07262018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+42,07262018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+43,07262018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+44,08022018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+45,08022018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+46,08022018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+47,08022018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+48,08022018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+49,08022018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+50,08022018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+51,08022018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+52,10182018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+53,10182018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+54,10182018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+55,10182018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+56,11222018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+57,11222018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+58,11222018,Fish1-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+59,11222018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+60,11222018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+61,11222018,Fish2-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+62,11222018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+63,11222018,Fish3-2,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+64,12202018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+65,12202018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+66,12202018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+67,12202018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+68,12202018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+69,12202018,Fish3-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+70,01032019,Fish1-1,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+71,01032019,Fish1-2,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+72,01032019,Fish1-3,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+73,01032019,Fish2-1,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+74,01032019,Fish2-2,Gain adadptation,Raphe,False,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
