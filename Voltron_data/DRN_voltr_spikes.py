@@ -313,6 +313,9 @@ if __name__ == "__main__":
         for index, row in dat_xls_file.iterrows():
             folder = row['folder']
             fish = row['fish']
+            task_type = row['task']
+            if task_type[0] == 'S': # skip spike detection on social water task
+                continue
             save_folder = dat_folder + f'{folder}/{fish}/Data'
             save_image_folder = dat_folder + f'{folder}/{fish}/Results'
             if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
