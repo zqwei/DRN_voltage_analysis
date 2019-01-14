@@ -5,7 +5,7 @@ from trefide.temporal import TrendFilter
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 
-def single_x(voltr, window_length=41, win_=10001):
+def single_x(voltr, window_length=41, win_=1001):
     from fish_proc.spikeDetectionNN.utils import roll_scale
     from fish_proc.spikeDetectionNN.spikeDetector import prepare_sequences_center
     if voltr.ndim>1:
