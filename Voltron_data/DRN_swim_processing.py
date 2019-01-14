@@ -36,6 +36,7 @@ def swim():
             try:
                 process_swim(swim_chFit, save_folder)
             except IOError:
+                os.rmdir(save_folder+'/swim')
                 print(f'Check existence of file {swim_chFit}')
     return None
 
@@ -248,6 +249,8 @@ def frame_swim_power_series():
         #     continue
         if not os.path.isfile(swimdir/"rawdata.npy"):
             print(f'Preprocessing is not done, skip frame_swim_power_series at {folder}_{fish}')
+            continue
+        if os.path.isfile(swimdir/"frame_swim_tcourse_series.npy"):
             continue
         rawdata = np.load(swimdir/"rawdata.npy")[()]
         swimdata = np.load(swimdir/"swimdata.npy")[()]
