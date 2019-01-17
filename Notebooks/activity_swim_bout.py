@@ -5,7 +5,7 @@ from sys import platform
 import os
 import matplotlib.pyplot as plt
 from scipy.signal import medfilt
-from scipy.stats import sem
+from scipy.stats import sem, ranksums
 
 # using Path to handle switches filesystems
 if platform == "linux" or platform == "linux2":
@@ -20,7 +20,7 @@ def mean_spk_sub(row, isplot=False):
     dat_dir = dir_folder/f'{folder}/{fish}/Data/'
     swim_dir = dir_folder/f'{folder}/{fish}/swim/'
     dff = np.load(dat_dir/'Voltr_spikes.npz')['voltrs']
-    dff = dff - np.median(dff, axis=1, keepdims=True)
+    dff = dff - np.nanmedian(dff, axis=1, keepdims=True)
     spk = np.load(dat_dir/'Voltr_spikes.npz')['spk']
     num_cell = spk.shape[0]
     spk = np.r_['-1', np.zeros((num_cell, 600)), spk]
@@ -57,38 +57,55 @@ def mean_spk_sub(row, isplot=False):
     
     spk_bout_list = np.zeros((num_cell, 2, 3))
     sub_bout_list = np.zeros((num_cell, 2, 3))
+    stat_spk_bout = np.ones((num_cell, 2, 2))
+    stat_sub_bout = np.ones((num_cell, 2, 2))
 
     for c in range(num_cell):
-        ave_resp_spk = np.zeros((len(swim_starts),n_spk_bin));
-        ave_resp_dff = np.zeros((len(swim_starts),300));
+        ave_resp_spk = np.empty((len(swim_starts),n_spk_bin));
+        ave_resp_spk[:] = np.nan
+        ave_resp_dff = np.empty((len(swim_starts),300));
+        ave_resp_dff[:] = np.nan
         for i in range(len(swim_starts)):
             for n_ in range(n_spk_bin):
                 ss_ = swim_starts[i]+t_spk+n_*t_bin
                 se_ = swim_starts[i]+t_spk+n_*t_bin + t_bin
-                if se_ <0:
+                if se_ <0 or se_<=ss_+1:
                     continue
                 if swim_starts[i]+t_spk+n_*t_bin<0:
                     ss_ = 0
-                ave_resp_spk[i,n_]  = spk[c,ss_:se_].mean()*300
+                if len(spk[c,ss_:se_])>0:
+                    ave_resp_spk[i,n_]  = spk[c,ss_:se_].mean()*300
             sub_ = subvolt[c,(swim_starts[i]-50):(swim_starts[i]+250)]
             ave_resp_dff[i,:len(sub_)] = sub_
-        ave_resp_dff -= ave_resp_dff[:,:30].mean(axis=1)[:,None]
+        ave_resp_dff -= np.nanmean(ave_resp_dff[:,:30], axis=1)[:,None]
 
-        peak_resp = ave_resp_dff.min(axis=-1)
-        cum_resp = ave_resp_dff.sum(axis=-1)
+        peak_resp = np.nanmin(ave_resp_dff, axis=-1)
+        cum_resp = np.nanmean(ave_resp_dff, axis=-1)
         peak_resp_time = np.argmin(ave_resp_dff, axis=-1)
-        ave_resp_spk[np.isnan(ave_resp_spk)] = 0
-        mean_spk = ave_resp_spk[:, :].mean(axis=-1)
+        # ave_resp_spk[np.isnan(ave_resp_spk)] = 0
+        mean_spk = np.nanmean(ave_resp_spk[:, :], axis=-1)
         val_to_plot = cum_resp
         
-        for n_period in range(1, 3):
-            spk_bout_list[c, n_period-1, 0] = mean_spk[((task_period==n_period) & (swim_count<=3))].mean()
-            sub_bout_list[c, n_period-1, 0] = val_to_plot[((task_period==n_period) & (swim_count<=3))].mean()
-            spk_bout_list[c, n_period-1, 1] = mean_spk[((task_period==n_period) & (swim_count<=6) & (swim_count>=3))].mean()
-            sub_bout_list[c, n_period-1, 1] = val_to_plot[((task_period==n_period) & (swim_count<=6) & (swim_count>=3))].mean()
-            spk_bout_list[c, n_period-1, 2] = mean_spk[((task_period==n_period) & (swim_count<=9) & (swim_count>=6))].mean()
-            sub_bout_list[c, n_period-1, 2] = val_to_plot[((task_period==n_period) & (swim_count<=9) & (swim_count>=6))].mean()
         
+        for n_period in range(1, 3):
+            for n_swim in range(3):
+                task_vec = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+1) & (swim_count>3*n_swim))
+                if task_vec.sum()>0:
+                    spk_bout_list[c, n_period-1, n_swim] = mean_spk[task_vec].mean()
+                    sub_bout_list[c, n_period-1, n_swim] = val_to_plot[task_vec].mean()
+                else:
+                    spk_bout_list[c, n_period-1, n_swim] = np.nan
+                    sub_bout_list[c, n_period-1, n_swim] = np.nan
+        
+        for n_period in range(1, 3):
+            for n_swim in range(2):
+                task_vec1 = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+1) & (swim_count>3*n_swim))
+                task_vec2 = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+4) & (swim_count>3*n_swim+3))
+                if task_vec1.sum()>0 and task_vec2.sum()>0:
+                    _, stat_spk_bout[c, n_period-1, n_swim] = ranksums(mean_spk[task_vec1], mean_spk[task_vec2])
+                    _, stat_sub_bout[c, n_period-1, n_swim] = ranksums(val_to_plot[task_vec1], val_to_plot[task_vec2])
+                    stat_spk_bout[c, n_period-1, n_swim] = stat_spk_bout[c, n_period-1, n_swim] * np.sign(mean_spk[task_vec1].mean()-mean_spk[task_vec2].mean())
+                    stat_sub_bout[c, n_period-1, n_swim] = stat_sub_bout[c, n_period-1, n_swim] * np.sign(val_to_plot[task_vec1].mean()-val_to_plot[task_vec2].mean())
         
         if isplot:
             fig, ax = plt.subplots(1, 6, figsize=(28, 3))
@@ -157,7 +174,7 @@ def mean_spk_sub(row, isplot=False):
 
             plt.show()
     
-    return spk_bout_list, sub_bout_list
+    return spk_bout_list, sub_bout_list, stat_spk_bout, stat_sub_bout
         
     
     
