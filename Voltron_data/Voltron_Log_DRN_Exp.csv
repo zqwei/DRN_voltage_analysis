@@ -74,3 +74,6 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 72,01032019,Fish1-3,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 73,01032019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 74,01032019,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+75,01172019,Fish2-1,Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01172019/
+76,01172019,Fish2-2,Gain adadptation+Optovin,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01172019/
+77,01172019,Fish2-3,Gain adadptation+Optovin,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01172019/
