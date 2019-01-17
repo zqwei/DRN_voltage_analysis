@@ -6,6 +6,8 @@ import os
 import matplotlib.pyplot as plt
 from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
+import warnings
+warnings.simplefilter("ignore", category=RuntimeWarning)
 
 # using Path to handle switches filesystems
 if platform == "linux" or platform == "linux2":
@@ -77,7 +79,7 @@ def mean_spk_sub(row, isplot=False):
                     ave_resp_spk[i,n_]  = spk[c,ss_:se_].mean()*300
             sub_ = subvolt[c,(swim_starts[i]-50):(swim_starts[i]+250)]
             ave_resp_dff[i,:len(sub_)] = sub_
-        ave_resp_dff -= np.nanmean(ave_resp_dff[:,:30], axis=1)[:,None]
+        ave_resp_dff -= np.nanmean(ave_resp_dff[:,:30], axis=1)[:,None] # This one could have run-warnining
 
         peak_resp = np.nanmin(ave_resp_dff, axis=-1)
         cum_resp = np.nanmean(ave_resp_dff, axis=-1)
