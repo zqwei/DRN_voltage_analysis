@@ -6,6 +6,7 @@ import os
 import matplotlib.pyplot as plt
 from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
+from utils import bootstrap_p_ABtest
 import warnings
 warnings.simplefilter("ignore", category=RuntimeWarning)
 
@@ -104,8 +105,18 @@ def mean_spk_sub(row, isplot=False):
                 task_vec1 = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+1) & (swim_count>3*n_swim))
                 task_vec2 = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+4) & (swim_count>3*n_swim+3))
                 if task_vec1.sum()>0 and task_vec2.sum()>0:
-                    _, stat_spk_bout[c, n_period-1, n_swim] = ranksums(mean_spk[task_vec1], mean_spk[task_vec2])
-                    _, stat_sub_bout[c, n_period-1, n_swim] = ranksums(val_to_plot[task_vec1], val_to_plot[task_vec2])
+                    test = mean_spk[task_vec1]
+                    ctrl = mean_spk[task_vec2]
+                    test = test[~np.isnan(test)]
+                    ctrl = ctrl[~np.isnan(ctrl)]
+                    stat_spk_bout[c, n_period-1, n_swim] = bootstrap_p_ABtest(test, ctrl)
+                    test = val_to_plot[task_vec1]
+                    ctrl = val_to_plot[task_vec2]
+                    test = test[~np.isnan(test)]
+                    ctrl = ctrl[~np.isnan(ctrl)]
+                    stat_sub_bout[c, n_period-1, n_swim] = bootstrap_p_ABtest(test, ctrl)
+                    # _, stat_spk_bout[c, n_period-1, n_swim] = ranksums(mean_spk[task_vec1], mean_spk[task_vec2])
+                    # _, stat_sub_bout[c, n_period-1, n_swim] = ranksums(val_to_plot[task_vec1], val_to_plot[task_vec2])
                     stat_spk_bout[c, n_period-1, n_swim] = stat_spk_bout[c, n_period-1, n_swim] * np.sign(mean_spk[task_vec1].mean()-mean_spk[task_vec2].mean())
                     stat_sub_bout[c, n_period-1, n_swim] = stat_sub_bout[c, n_period-1, n_swim] * np.sign(val_to_plot[task_vec1].mean()-val_to_plot[task_vec2].mean())
         
@@ -118,7 +129,8 @@ def mean_spk_sub(row, isplot=False):
             #     ax[n_period-1].set_xlabel('average spike rate')
             #     ax[n_period-1].set_ylabel('total inhibition')
             #     ax[n_period-1].set_title(f'task epoch {n_period}')
-
+            print(stat_spk_bout[c, :, :])
+            print(stat_sub_bout[c, :, :])
             for n_period in range(1, 3):
                 x = mean_spk[((task_period==n_period) & (swim_count<=3))].mean()
                 xrr = sem(mean_spk[((task_period==n_period) & (swim_count<=3))])
