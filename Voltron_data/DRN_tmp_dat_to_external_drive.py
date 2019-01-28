@@ -4,12 +4,16 @@ import os, shutil
 
 dat_folder = '/Volumes/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 target_folder = '/Volumes/Ahrens_lab_data_vol_01/Takashi_DRN_project/ProcessedData/'
-dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp_moved_to_tapes.csv', index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
 for index, row in dat_xls_file.iterrows():
     folder = row['folder']
     fish = row['fish']
+    if not row['Plan']:
+        continue
+    if row['moved']:
+        continue
     save_folder = dat_folder + f'{folder}/{fish}/Data/'
     move_folder = target_folder + f'{folder}/{fish}/Data/'
     if not os.path.exists(move_folder):

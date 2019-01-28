@@ -77,9 +77,9 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 75,01172019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 76,01172019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 77,01172019,Fish2-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-78,01242019,Fish1-1,Optovin+Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01242019/
-79,01242019,Fish1-2,Optovin+Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01242019/
-80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01242019/
-81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01242019/
-82,01242019,Fish3-1,Optovin+Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01242019/
-83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/01242019/
+78,01242019,Fish1-1,Optovin+Gain adadptation,Raphe,True,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+79,01242019,Fish1-2,Optovin+Gain adadptation,Raphe,True,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,True,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,True,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+82,01242019,Fish3-1,Optovin+Gain adadptation,Raphe,True,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,True,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
