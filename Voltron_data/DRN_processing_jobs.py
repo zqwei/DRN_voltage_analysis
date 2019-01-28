@@ -531,4 +531,8 @@ if __name__ == '__main__':
             ext = sys.argv[2]
         eval(sys.argv[1]+f"({ext})")
     else:
+        registration()
+        video_detrend()
+        local_pca()
+        demix_components()
         monitor_process()
