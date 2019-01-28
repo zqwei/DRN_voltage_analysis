@@ -188,11 +188,16 @@ def frame_swim_power():
         trial_inds = np.load(swimdir/"trial_inds.npy")[()]
         reclen=len(swimdata['fltCh1'])
         frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
-        frame_stimParams=np.zeros((5,len(frame)))
+        if 'stimParam6' in rawdata.keys():
+            frame_stimParams=np.zeros((6,len(frame)))
+        else:
+            frame_stimParams=np.zeros((5,len(frame)))
         frame_stimParams[0,:]=rawdata['stimParam1'][frame]
         frame_stimParams[2,:]=rawdata['stimParam3'][frame]
         frame_stimParams[3,:]=rawdata['stimParam4'][frame]
         frame_stimParams[4,:]=rawdata['stimParam5'][frame]
+        if 'stimParam6' in rawdata.keys():
+            frame_stimParams[5,:]=rawdata['stimParam6'][frame]
         frame_stimParams[:,:3]=frame_stimParams[:,3:6];
         trial_frame_inds=trial_inds[frame]
         frame_tcourse=np.zeros((reclen,))

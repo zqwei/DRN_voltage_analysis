@@ -60,8 +60,14 @@ def mean_spk_sub(row, isplot=False):
     
     spk_bout_list = np.zeros((num_cell, 2, 3))
     sub_bout_list = np.zeros((num_cell, 2, 3))
-    stat_spk_bout = np.ones((num_cell, 2, 2))
-    stat_sub_bout = np.ones((num_cell, 2, 2))
+    stat_spk_bout = np.empty((num_cell, 2, 2))
+    stat_spk_bout[:] = np.nan
+    stat_sub_bout = np.empty((num_cell, 2, 2))
+    stat_sub_bout[:] = np.nan
+    stat_spk_gain = np.empty(num_cell)
+    stat_spk_gain[:] = np.nan
+    stat_sub_gain = np.empty(num_cell)
+    stat_spk_gain[:] = np.nan
 
     for c in range(num_cell):
         ave_resp_spk = np.empty((len(swim_starts),n_spk_bin));
@@ -99,8 +105,15 @@ def mean_spk_sub(row, isplot=False):
                 else:
                     spk_bout_list[c, n_period-1, n_swim] = np.nan
                     sub_bout_list[c, n_period-1, n_swim] = np.nan
+                    
+        test = mean_spk[task_period==1]
+        ctrl = mean_spk[task_period==2]
+        stat_spk_gain[c] = bootstrap_p_ABtest(test, ctrl)
+        test = val_to_plot[task_period==1]
+        ctrl = val_to_plot[task_period==2]
+        stat_sub_gain[c] = bootstrap_p_ABtest(test, ctrl)
         
-        for n_period in range(1, 3):
+        for n_period in range(1, 3):            
             for n_swim in range(2):
                 task_vec1 = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+1) & (swim_count>3*n_swim))
                 task_vec2 = ((task_period==n_period) & (swim_count<=3*(n_swim+1)+4) & (swim_count>3*n_swim+3))
@@ -117,10 +130,12 @@ def mean_spk_sub(row, isplot=False):
                     stat_sub_bout[c, n_period-1, n_swim] = bootstrap_p_ABtest(test, ctrl)
                     # _, stat_spk_bout[c, n_period-1, n_swim] = ranksums(mean_spk[task_vec1], mean_spk[task_vec2])
                     # _, stat_sub_bout[c, n_period-1, n_swim] = ranksums(val_to_plot[task_vec1], val_to_plot[task_vec2])
-                    stat_spk_bout[c, n_period-1, n_swim] = stat_spk_bout[c, n_period-1, n_swim] * np.sign(mean_spk[task_vec1].mean()-mean_spk[task_vec2].mean())
-                    stat_sub_bout[c, n_period-1, n_swim] = stat_sub_bout[c, n_period-1, n_swim] * np.sign(val_to_plot[task_vec1].mean()-val_to_plot[task_vec2].mean())
+                    # stat_spk_bout[c, n_period-1, n_swim] = stat_spk_bout[c, n_period-1, n_swim] * np.sign(mean_spk[task_vec1].mean()-mean_spk[task_vec2].mean())
+                    # stat_sub_bout[c, n_period-1, n_swim] = stat_sub_bout[c, n_period-1, n_swim] * np.sign(val_to_plot[task_vec1].mean()-val_to_plot[task_vec2].mean())
         
         if isplot:
+            if c>0:
+                continue
             fig, ax = plt.subplots(1, 6, figsize=(28, 3))
             # for n_period in range(1, 3):
             #     ax[n_period-1].plot(mean_spk[((task_period==n_period) & (swim_count<=3))], val_to_plot[((task_period==n_period) & (swim_count<=3))],'ob')
@@ -188,7 +203,7 @@ def mean_spk_sub(row, isplot=False):
 
             plt.show()
     
-    return spk_bout_list, sub_bout_list, stat_spk_bout, stat_sub_bout
+    return spk_bout_list, sub_bout_list, stat_spk_bout, stat_sub_bout, stat_spk_gain, stat_sub_gain
         
     
     

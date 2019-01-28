@@ -24,3 +24,13 @@ for index, row in dat_xls_file.iterrows():
     else:
         shutil.move(save_folder + 'imgDMotion.tif', move_folder + 'imgDMotion.tif')
         print(f'Motion correction data moved from {save_folder}')
+    if not os.path.isfile(save_folder+'Y_d.tif'):
+        print(f'No detrend data at {save_folder}')
+    else:
+        shutil.move(save_folder + 'Y_d.tif', move_folder + 'Y_d.tif')
+        print(f'Detrend data moved from {save_folder}')
+    if not os.path.isfile(save_folder+'Y_svd.tif'):
+        print(f'No denoised data at {save_folder}')
+    else:
+        shutil.move(save_folder + 'Y_svd.tif', move_folder + 'Y_svd.tif')
+        print(f'Denoised data moved from {save_folder}')
