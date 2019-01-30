@@ -10,12 +10,23 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 19,04192018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
 20,04192018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 22,04192018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+32,07122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+33,07122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+35,07122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 38,07262018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 39,07262018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+52,10182018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 54,10182018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+55,10182018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 56,11222018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 57,11222018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 58,11222018,Fish1-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 59,11222018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 60,11222018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+68,12202018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 69,12202018,Fish3-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+74,01032019,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+75,01172019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/

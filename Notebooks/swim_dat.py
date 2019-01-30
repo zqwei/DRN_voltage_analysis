@@ -30,9 +30,15 @@ def valid_swim(row, sig_thres=0.5, ismean=True, isplot=True):
         return False
     frame_stimParams = np.load(swim_dir/'frame_stimParams.npy')
     frame_swim_tcourse = np.load(swim_dir/'frame_swim_tcourse_series.npy')
+    rawdata = np.load(swim_dir/"rawdata.npy")[()]
     swimdata = np.load(swim_dir/"swimdata.npy")[()]
-    swim_starts = (np.where(swimdata['swimStartT']>0)[0]/20).astype('int')
-    swim_ends = (np.where(swimdata['swimEndT']>0)[0]/20).astype('int')
+    reclen=len(swimdata['fltCh1'])
+    frame_tcourse=np.zeros((reclen,))
+    frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
+    for t in range(len(frame)-1):
+        frame_tcourse[frame[t]:frame[t+1]]=t
+    swim_starts = frame_tcourse[np.where(swimdata['swimStartT']>0)[0]].astype('int')
+    swim_ends = frame_tcourse[np.where(swimdata['swimEndT']>0)[0]].astype('int')
     # swim_starts = np.where(np.diff((frame_swim_tcourse[0,:]>0).astype('int'))==1)[0]
     # swim_ends   = np.where(np.diff((frame_swim_tcourse[0,:]>0).astype('int'))==-1)[0]
     swim_ends   = swim_ends[((swim_starts>50) & (swim_starts<(frame_swim_tcourse.shape[1]-250)))]
