@@ -414,6 +414,9 @@ def demix_middle_data_with_mask(row, ext=''):
 
     if os.path.isfile(save_folder+f'/finished_demix{ext}.tmp'):
         return None
+    
+    if not os.path.isfile(save_folder+f'/finished_local_denoise.tmp'):
+        return None
 
     if not os.path.isfile(save_folder+f'/proc_demix{ext}.tmp'):
         Path(save_folder+f'/proc_demix{ext}.tmp').touch()
