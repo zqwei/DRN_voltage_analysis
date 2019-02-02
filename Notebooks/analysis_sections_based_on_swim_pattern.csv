@@ -27,6 +27,6 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 69,12202018,Fish3-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 74,01032019,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
 75,01172019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
