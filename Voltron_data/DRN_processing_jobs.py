@@ -5,27 +5,15 @@ from fish_proc.utils.memory import get_process_memory, clear_variables
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 cameraNoiseMat = '/groups/ahrens/ahrenslab/Ziqiang/gainMat/gainMat20180208'
+dat_csv = '/groups/ahrens/home/weiz/Projects/DRN_voltage_analysis/Voltron_data/Voltron_Log_DRN_Exp.csv'
 
-
-# def update_table(update_ods = False):
-#     '''
-#     Update Voltron Log_DRN_Exp.csv
-#     run when new data is added
-#     '''
-#     if update_ods:
-#         dat_xls_file = pd.read_excel(dat_folder+'Voltron Log_DRN_Exp.xlsx')
-#         dat_xls_file = dat_xls_file.dropna(how='all').reset_index()
-#         dat_xls_file['folder'] = dat_xls_file['folder'].astype('int').astype('str')
-#         dat_xls_file['finished'] = False
-#         dat_xls_file.to_csv('Voltron_Log_DRN_Exp.csv')
-#     return None
 
 def monitor_process():
     '''
     Update Voltron Log_DRN_Exp.csv
     monitor process of processing
     '''
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     if 'index' in dat_xls_file.columns:
         dat_xls_file = dat_xls_file.drop('index', axis=1)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
@@ -61,7 +49,7 @@ def monitor_process():
         else:
             print(save_folder+'Data/finished_subvolt.tmp')
     print(dat_xls_file.sum(numeric_only=True))
-    dat_xls_file.to_csv('Voltron_Log_DRN_Exp.csv')
+    dat_xls_file.to_csv(dat_csv)
     return None
 
 def pixel_denoise():
@@ -70,7 +58,7 @@ def pixel_denoise():
     Generate files -- imgDNoMotion.tif, motion_fix_.npy
     '''
     from fish_proc.pipeline.preprocess import pixel_denoise, pixel_denoise_img_seq
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
@@ -112,7 +100,7 @@ def registration(is_largefile=True):
     from pathlib import Path
     from fish_proc.pipeline.preprocess import motion_correction
     from skimage.io import imread, imsave
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
@@ -167,7 +155,7 @@ def video_detrend():
     from pathlib import Path
     from multiprocessing import cpu_count
     from skimage.io import imsave, imread
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
@@ -212,7 +200,7 @@ def local_pca():
     from fish_proc.pipeline.denoise import denose_2dsvd
     from pathlib import Path
     from skimage.external.tifffile import imsave, imread
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
@@ -265,7 +253,7 @@ def demix_middle_data():
 
     sns.set(font_scale=2)
     sns.set_style("white")
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
@@ -382,7 +370,7 @@ def demix_middle_data():
 
 
 def demix_components(ext=''):
-    dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
+    dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
         demix_middle_data_with_mask(row, ext=ext)
@@ -414,7 +402,7 @@ def demix_middle_data_with_mask(row, ext=''):
 
     if os.path.isfile(save_folder+f'/finished_demix{ext}.tmp'):
         return None
-    
+
     if not os.path.isfile(save_folder+f'/finished_local_denoise.tmp'):
         return None
 
@@ -471,7 +459,7 @@ def demix_middle_data_with_mask(row, ext=''):
         # get local correlation distribution
         Cn, _ = correlation_pnr(mov_, skip_pnr=True)
         get_process_memory();
-        
+
         is_demix = False
         pass_num = 4
         cut_off_point=np.percentile(Cn.ravel(), [99, 95, 85, 65])
