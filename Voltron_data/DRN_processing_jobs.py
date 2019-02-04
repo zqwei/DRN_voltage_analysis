@@ -73,9 +73,14 @@ def pixel_denoise():
                 os.makedirs(save_folder)
             if os.path.exists(save_folder + 'imgDNoMotion.tif'):
                 continue
+            if os.path.exists(save_folder+'/finished_pixel_denoise.tmp'):
+                continue
+            if os.path.exists(save_folder+'/proc_pixel_denoise.tmp'):
+                continue
             if not os.path.isfile(save_folder + '/motion_fix_.npy'):
                 print(f'process file {folder}/{fish}')
                 try:
+                    Path(save_folder+'/proc_pixel_denoise.tmp').touch()
                     if os.path.exists(image_folder+'Registered/raw.tif'):
                         imgD_ = pixel_denoise(image_folder, 'Registered/raw.tif', save_folder, cameraNoiseMat, plot_en=True)
                     else:
@@ -88,8 +93,10 @@ def pixel_denoise():
                     imgD_ = None
                     fix_ = None
                     clear_variables((imgD_, fix_))
+                    Path(save_folder+'/finished_pixel_denoise.tmp').touch()
                 except MemoryError as err:
                     print(f'Memory Error on file {folder}/{fish}: {err}')
+                    os.remove(save_folder+'/proc_pixel_denoise.tmp')
     return None
 
 
@@ -190,8 +197,6 @@ def video_detrend():
                 get_process_memory();
                 os.remove(save_folder+'/Y_d0.npy')
                 os.remove(save_folder+'/Y_d1.npy')
-                # os.remove(save_folder+'/Y_trend0.npy')
-                # os.remove(save_folder+'/Y_trend1.npy')
                 Path(save_folder+'/finished_detrend.tmp').touch()
     return None
 
@@ -522,6 +527,7 @@ if __name__ == '__main__':
             ext = sys.argv[2]
         eval(sys.argv[1]+f"({ext})")
     else:
+        pixel_denoise()
         registration()
         video_detrend()
         local_pca()
