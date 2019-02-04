@@ -177,7 +177,7 @@ def voltron(row, fext='', is_mask=False):
         x_, y_ = np.where(nA_.reshape(d2, d1).T>0)
         len_x = x_.max()-x_.min()
         len_y = y_.max()-y_.min()
-        if len_x/len_y>10 or len_y/len_x>10 or len_x<=3 or len_y<=3:
+        if len_x==0 or len_y==0 or len_x/len_y>10 or len_y/len_x>10 or len_x<=3 or len_y<=3:
             remove_comp[n_] = True
     A_ = A_[:, ~remove_comp]
 
@@ -232,7 +232,7 @@ def voltr2spike(row, fext=''):
 
     if os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
         return None
-    
+
     if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
         print('Voltr file does not exist.')
         return None
@@ -267,7 +267,7 @@ def voltr2subvolt(row, fext=''):
 
     if os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
         return None
-    
+
     if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
         print('Spike file does not exist.')
         return None
