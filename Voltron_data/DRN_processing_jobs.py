@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import os, sys
 from fish_proc.utils.memory import get_process_memory, clear_variables
+from pathlib import Path
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 cameraNoiseMat = '/groups/ahrens/ahrenslab/Ziqiang/gainMat/gainMat20180208'
@@ -64,7 +65,6 @@ def pixel_denoise():
         folder = row['folder']
         fish = row['fish']
         image_folder = row['rootDir'] + f'{folder}/{fish}/'
-        fish_folder = dat_folder + f'{folder}/{fish}/'
         save_folder = dat_folder + f'{folder}/{fish}/Data'
 
         if os.path.exists(image_folder):
@@ -103,8 +103,7 @@ def pixel_denoise():
 def registration(is_largefile=True):
     '''
     Generate imgDMotion.tif
-    '''
-    from pathlib import Path
+    '''    
     from fish_proc.pipeline.preprocess import motion_correction
     from skimage.io import imread, imsave
     dat_xls_file = pd.read_csv(dat_csv, index_col=0)
@@ -163,7 +162,6 @@ def registration(is_largefile=True):
 
 def video_detrend():
     from fish_proc.pipeline.denoise import detrend
-    from pathlib import Path
     from multiprocessing import cpu_count
     from skimage.io import imsave, imread
     dat_xls_file = pd.read_csv(dat_csv, index_col=0)
@@ -211,15 +209,13 @@ def video_detrend():
 
 def local_pca():
     from fish_proc.pipeline.denoise import denose_2dsvd
-    from pathlib import Path
-    from skimage.external.tifffile import imsave, imread
+    from skimage.external.tifffile import imread
     dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
-        image_folder = f'/nrs/ahrens/Takashi/0{folder}/{fish}/'
         save_folder = dat_folder + f'{folder}/{fish}/Data'
         print(f'checking file {folder}/{fish}')
         if os.path.isfile(save_folder+'/finished_local_denoise.tmp'):
@@ -258,7 +254,6 @@ def local_pca():
 def demix_middle_data():
     import matplotlib.pyplot as plt
     import seaborn as sns
-    from pathlib import Path
     from skimage.external.tifffile import imsave, imread
     from fish_proc.demix import superpixel_analysis as sup
     from fish_proc.utils.snr import correlation_pnr
@@ -271,7 +266,6 @@ def demix_middle_data():
     for index, row in dat_xls_file.iterrows():
         folder = row['folder']
         fish = row['fish']
-        image_folder = f'/nrs/ahrens/Takashi/0{folder}/{fish}/'
         save_folder = dat_folder + f'{folder}/{fish}/Data'
         save_image_folder = dat_folder + f'{folder}/{fish}/Results'
         if not os.path.exists(save_image_folder):
@@ -283,7 +277,6 @@ def demix_middle_data():
         if not os.path.isfile(save_folder+'/proc_demix.tmp'):
             Path(save_folder+'/proc_demix.tmp').touch()
             _ = np.load(f'{save_folder}/Y_2dnorm.npz')
-            Y_d_ave= _['Y_d_ave']
             Y_d_std= _['Y_d_std']
             if not os.path.isfile(f'{save_folder}/Y_svd.tif'):
                 Y_svd = []
@@ -377,6 +370,9 @@ def demix_components(ext=''):
         try:
             demix_middle_data_with_mask(row, ext=ext)
         except Exception as err:
+            folder = row['folder']
+            fish = row['fish']
+            save_folder = dat_folder + f'{folder}/{fish}/Data'
             print(f'Demix failed on file {folder}/{fish}: {err}')
             os.remove(save_folder+'/proc_demix{ext}.tmp')
     return None
@@ -397,7 +393,6 @@ def demix_middle_data_with_mask(row, ext=''):
 
     folder = row['folder']
     fish = row['fish']
-    image_folder = f'/nrs/ahrens/Takashi/{folder}/{fish}/'
     save_folder = dat_folder + f'{folder}/{fish}/Data'
     save_image_folder = dat_folder + f'{folder}/{fish}/Results'
     if not os.path.exists(save_image_folder):
@@ -414,7 +409,6 @@ def demix_middle_data_with_mask(row, ext=''):
     if not os.path.isfile(save_folder+f'/proc_demix{ext}.tmp'):
         Path(save_folder+f'/proc_demix{ext}.tmp').touch()
         _ = np.load(f'{save_folder}/Y_2dnorm.npz')
-        Y_d_ave= _['Y_d_ave']
         Y_d_std= _['Y_d_std']
         if not os.path.isfile(f'{save_folder}/Y_svd.tif'):
             Y_svd = []
@@ -497,7 +491,6 @@ def demix_middle_data_with_mask(row, ext=''):
             Y_trend_ave = Y_mean - Y_d_mean
             Y_mean = None
             Y_d_mean = None
-            Y_svd_ = None
             clear_variables((Y_d_mean, Y_mean, mov_))
             np.save(f'{save_folder}/Y_trend_ave', Y_trend_ave)
         else:
