@@ -248,3 +248,4 @@ def valid_swim_mean(row, ismean=True, isplot=True):
     plt.savefig(f'swim_power_mean/{folder}_{fish}.png')
     # plt.close()
     return True
+
