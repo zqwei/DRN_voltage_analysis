@@ -410,6 +410,8 @@ def demix_middle_data_with_mask(row, ext='', ismask=True):
         Path(save_folder+f'/proc_demix{ext}.tmp').touch()
         _ = np.load(f'{save_folder}/Y_2dnorm.npz')
         Y_d_std= _['Y_d_std']
+        
+        # if Y_svd not exist, generate file
         if not os.path.isfile(f'{save_folder}/Y_svd.tif'):
             Y_svd = []
             for n_ in range(10):
@@ -418,63 +420,84 @@ def demix_middle_data_with_mask(row, ext='', ismask=True):
             print(Y_svd.shape)
             imsave(f'{save_folder}/Y_svd.tif', Y_svd.astype('float32'), compress=1)
             print('Concatenate files into a tif file')
-        else:
-            Y_svd = imread(f'{save_folder}/Y_svd.tif').astype('float32')
-
-        for n_ in range(10):
-            if os.path.isfile(f'{save_folder}/Y_2dsvd{n_}.npy'):
-                os.remove(f'{save_folder}/Y_2dsvd{n_}.npy')
-        get_process_memory();
-
-
+            get_process_memory();
+            
+            for n_ in range(10):
+                if os.path.isfile(f'{save_folder}/Y_2dsvd{n_}.npy'):
+                    os.remove(f'{save_folder}/Y_2dsvd{n_}.npy')
+        
+        # save preprocessed data in case of unsuccessful demix 
         # make mask
-        mean_ = Y_svd.mean(axis=-1,keepdims=True)
-        sn, _ = get_noise_fft(Y_svd - mean_,noise_method='logmexp')
-        SNR_ = Y_svd.var(axis=-1)/sn**2
-        std_thres = np.percentile(Y_d_std.ravel(), 80)
-        mask = Y_d_std.squeeze(axis=-1)<=std_thres
-        snr_thres = np.percentile(np.log(SNR_).ravel(), 0)
-        mask = np.logical_or(mask, np.log(SNR_)<snr_thres)
-        mask_out_region = np.logical_not(mask)
-        mask_save = np.where(mask_out_region)
-        np.savez(f'{save_folder}/mask', mask=mask, mask_save=mask_save)
+        if ismask:
+            if not os.path.exists(f'{save_folder}/mask.npz'):
+                try:
+                    Y_svd
+                except NameError:
+                    Y_svd = imread(f'{save_folder}/Y_svd.tif').astype('float32')
+                mean_ = Y_svd.mean(axis=-1,keepdims=True)
+                sn, _ = get_noise_fft(Y_svd - mean_,noise_method='logmexp')
+                SNR_ = Y_svd.var(axis=-1)/sn**2
+                std_thres = np.percentile(Y_d_std.ravel(), 80)
+                mask = Y_d_std.squeeze(axis=-1)<=std_thres
+                snr_thres = np.percentile(np.log(SNR_).ravel(), 0)
+                mask = np.logical_or(mask, np.log(SNR_)<snr_thres)
+                mask_out_region = np.logical_not(mask)
+                mask_save = np.where(mask_out_region)
+                np.savez(f'{save_folder}/mask', mask=mask, mask_save=mask_save)
+            else:
+                _ = np.load(f'{save_folder}/mask.npz')
+                mask = _['mask']
+                mask_save = _['mask_save']
+        else:
+            d1, d2, _ = Y_d_std.shape
+            mask = np.full((d1, d2), False)
+            mask_save = np.where(np.full((d1, d2), True))
 
-        # get data
-        len_Y = Y_svd.shape[-1]
-        mov_ = Y_svd[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), len_Y//3:-len_Y//3]
-        Y_svd = None
-        clear_variables(Y_svd)
-        get_process_memory();
-
-        # get sparse data
-        Y_d_std_ = Y_d_std[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), :]
-        mov_ = mov_*Y_d_std_ + np.random.normal(size=mov_.shape)*0.7
-        mov_ = -mov_.astype('float32')
-        mask_ = mask[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max()]
-        mov_[mask_]=0
+        if not os.path.exists(f'{save_folder}/demix_mov.npz'):
+            try:
+                Y_svd
+            except NameError:
+                Y_svd = imread(f'{save_folder}/Y_svd.tif').astype('float32')
+            # get move data
+            len_Y = Y_svd.shape[-1]
+            mov_ = Y_svd[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), len_Y//3:-len_Y//3]
+            Y_svd = None
+            clear_variables(Y_svd)
+            get_process_memory();    
+            # get sparse data
+            Y_d_std_ = Y_d_std[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), :]
+            mov_ = mov_*Y_d_std_ + np.random.normal(size=mov_.shape)*0.7
+            mov_ = -mov_.astype('float32')
+            mask_ = mask[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max()]
+            mov_[mask_]=0 
+            mov_ = mov_.astype('float32')
+            # get local correlation distribution
+            Cn, _ = correlation_pnr(mov_, skip_pnr=True)
+            np.savez(f'{save_folder}/demix_mov', mov_ = mov_, Cn=Cn)
+        else:
+            _ = np.load(f'{save_folder}/demix_mov.npz')
+            mov_ = _['mov_'].astype('float32')
+            Cn = _['Cn']
+        
         get_process_memory();
         d1, d2, _ = mov_.shape
-
-        # get local correlation distribution
-        Cn, _ = correlation_pnr(mov_, skip_pnr=True)
-        get_process_memory();
 
         is_demix = False
         pass_num = 4
         cut_off_point=np.percentile(Cn.ravel(), [99, 95, 85, 65])
         while not is_demix and pass_num>=0:
-#            try:
-            rlt_= sup.demix_whole_data(mov_, cut_off_point[4-pass_num:], length_cut=[10,15,15,15],
-                                       th=[1,1,1,1], pass_num=pass_num, residual_cut = [0.6,0.6,0.6,0.6],
-                                       corr_th_fix=0.3, max_allow_neuron_size=0.05, merge_corr_thr=cut_off_point[-1],
-                                       merge_overlap_thr=0.6, num_plane=1, patch_size=[40, 40], plot_en=False,
-                                       TF=False, fudge_factor=1, text=False, bg=False, max_iter=60,
-                                       max_iter_fin=100, update_after=20)
-#                is_demix = True
-#            except:
-#                print(f'fail at pass_num {pass_num}')
-#                is_demix = False
-#                pass_num -= 1
+            try:
+                rlt_= sup.demix_whole_data(mov_, cut_off_point[4-pass_num:], length_cut=[10,15,15,15],
+                                           th=[1,1,1,1], pass_num=pass_num, residual_cut = [0.6,0.6,0.6,0.6],
+                                           corr_th_fix=0.3, max_allow_neuron_size=0.05, merge_corr_thr=cut_off_point[-1],
+                                           merge_overlap_thr=0.6, num_plane=1, patch_size=[40, 40], plot_en=False,
+                                           TF=False, fudge_factor=1, text=False, bg=False, max_iter=60,
+                                           max_iter_fin=100, update_after=20)
+                is_demix = True
+            except:
+                print(f'fail at pass_num {pass_num}')
+                is_demix = False
+                pass_num -= 1
 
         with open(f'{save_folder}/period_Y_demix{ext}_rlt.pkl', 'wb') as f:
             pickle.dump(rlt_, f)
@@ -520,9 +543,9 @@ if __name__ == '__main__':
             ext = sys.argv[2]
         eval(sys.argv[1]+f"({ext})")
     else:
-        pixel_denoise()
-        registration()
-        video_detrend()
-        local_pca()
+#        pixel_denoise()
+#        registration()
+#        video_detrend()
+#        local_pca()
         demix_components()
-        monitor_process()
+#        monitor_process()
