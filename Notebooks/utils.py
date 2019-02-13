@@ -1,12 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# def smooth(a, kernel):
+#     b=np.convolve(a,kernel,'same')/np.convolve(np.ones(a.shape),kernel,'same')
+#     return b
+
 def smooth(a, kernel):
-    b=np.convolve(a,kernel,'same')/np.convolve(np.ones(a.shape),kernel,'same')
-    return b
+    return np.convolve(a, kernel, 'full')[kernel.shape[0]//2-1:-kernel.shape[0]//2]
+
+
+def boxcarKernel(sigma=60):
+    kernel = np.ones(sigma)
+    return kernel/kernel.sum()
 
 def gaussKernel(sigma=20):
-    return (1/(np.sqrt(2*np.pi)*sigma))*np.exp(-(np.arange(-sigma*3,sigma*3+1)**2)/(2*sigma**2))
+    kernel = (1/(np.sqrt(2*np.pi)*sigma))*np.exp(-(np.arange(-sigma*3,sigma*3+1)**2)/(2*sigma**2))
+    return kernel/kernel.sum()
 
 def bootstrap_p_ABtest(test, ctrl, is_left=True):
     import bootstrapped.bootstrap as bs
@@ -30,3 +39,8 @@ def cont_mode(data, isplot=False):
     if isplot:
         plt.plot(x, p)
     return x[np.argmax(p)]
+
+def plt_raster(spk_list, c='k', f_=300, t_shift=100):
+    for n, ntrial in enumerate(spk_list):
+        t_ = np.where(ntrial==1)[0]-t_shift
+        plt.plot(t_/f_, np.ones(len(t_))*n, f'.{c}')
