@@ -13,7 +13,7 @@
 * `A_`: spatial component matrix -- nPixel x nComponents
 * `C_`: temporal component matrix -- nComponents x nTimepoints
 * `base_`: "baseline" component matrix -- nComponents x 1
-* `df/f`: $C_/(<C_> + base_ - background)$
+* `df/f`: $C/(C + base - background)$
 
 ### Voltr_spikes.npz
 * `voltrs`: `df/f`
