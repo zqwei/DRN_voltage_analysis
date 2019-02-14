@@ -147,7 +147,7 @@ def valid_swim(row, sig_thres=0.5, ismean=True, isplot=True):
     ax[3].set_xlabel('Frame from swim bout onset')
 
     ax[4].imshow(task_period[:, np.newaxis], aspect='auto', cmap=plt.cm.Set1)
-    plt.show()
+    # plt.show()
     plt.savefig(f'swim_power/{folder}_{fish}.png')
     # plt.close()
     return True
