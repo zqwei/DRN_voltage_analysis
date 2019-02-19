@@ -8,7 +8,7 @@ def sub_process(dff, k_size=51):
     from scipy.signal import medfilt
     subvolt = dff.copy()
     for n, ndff in enumerate(dff):
-        subvolt[n, :] = medfilt(ndff, kernel_size=51)
+        subvolt[n, :] = medfilt(ndff, kernel_size=k_size)
     return subvolt
 
 def sub_input(ave_, c='k', t_min = 0, t_max = 400, t_zero=100, isplot=False):
