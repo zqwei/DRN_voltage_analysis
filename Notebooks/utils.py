@@ -40,7 +40,7 @@ def cont_mode(data, isplot=False):
         plt.plot(x, p)
     return x[np.argmax(p)]
 
-def plt_raster(spk_list, c='k', f_=300, t_shift=100):
+def plt_raster(spk_list, c='k', f_=300, t_shift=100, mz=10):
     for n, ntrial in enumerate(spk_list):
         t_ = np.where(ntrial==1)[0]-t_shift
-        plt.plot(t_/f_, np.ones(len(t_))*n, f'.{c}')
+        plt.plot(t_/f_, np.ones(len(t_))*n, f'.{c}', markersize=mz)
