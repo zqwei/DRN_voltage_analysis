@@ -43,22 +43,26 @@ def valid_swim(row, sig_thres=0.5, ismean=True, isplot=True):
     swim_ends   = swim_ends[((swim_starts>50) & (swim_starts<(frame_swim_tcourse.shape[1]-250)))]
     swim_starts = swim_starts[((swim_starts>50) & (swim_starts<(frame_swim_tcourse.shape[1]-250)))]
 
-    r_swim=np.empty((len(swim_starts),300))
+    r_swim=np.empty((len(swim_starts),350))
     r_swim[:] = 0 #np.nan
-    l_swim=np.empty((len(swim_starts),300))
+    l_swim=np.empty((len(swim_starts),350))
     l_swim[:] = 0 #np.nan
-    visu=np.empty((len(swim_starts),300))
+    visu=np.empty((len(swim_starts),350))
     visu[:] = 0 #np.nan
     swim_len_list = np.zeros(len(swim_starts))
 
     for i in range(len(swim_starts)):
         swim_len = swim_ends[i] - swim_starts[i]
-        if swim_len>250:
-            swim_len = 250
+        if swim_len>300:
+            swim_len = 300
         swim_len_list[i] = swim_len
-        r_swim[i,:swim_len+50]=frame_swim_tcourse[2,(swim_starts[i]-50):(swim_starts[i]+swim_len)]*100000
-        l_swim[i,:swim_len+50]=frame_swim_tcourse[1,(swim_starts[i]-50):(swim_starts[i]+swim_len)]*100000
-        visu[i,:swim_len+50]=-frame_stimParams[0,(swim_starts[i]-50):(swim_starts[i]+swim_len)]*10000
+        if swim_starts[i]+300<len(frame_stimParams[0]):
+            r_swim[i,:]=frame_swim_tcourse[2,(swim_starts[i]-50):(swim_starts[i]+300)]*100000
+            l_swim[i,:]=frame_swim_tcourse[1,(swim_starts[i]-50):(swim_starts[i]+300)]*100000
+            visu[i,:]=-frame_stimParams[0,(swim_starts[i]-50):(swim_starts[i]+300)]*10000
+#         r_swim[i,:swim_len+50]=frame_swim_tcourse[2,(swim_starts[i]-50):(swim_starts[i]+swim_len)]*100000
+#         l_swim[i,:swim_len+50]=frame_swim_tcourse[1,(swim_starts[i]-50):(swim_starts[i]+swim_len)]*100000
+#         visu[i,:swim_len+50]=-frame_stimParams[0,(swim_starts[i]-50):(swim_starts[i]+swim_len)]*10000
 
     # remove no power swim bout
     remove_ind = (r_swim.sum(axis=-1)==0) & (l_swim.sum(axis=-1)==0)

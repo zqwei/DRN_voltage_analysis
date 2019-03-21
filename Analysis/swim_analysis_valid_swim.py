@@ -29,7 +29,7 @@ for f in files:
 plt.close('all')
 valid_swim_list = []
 for index, row in dat_xls_file.iterrows():
-    valid_swim_list.append(valid_swim(row, sig_thres=0.5, isplot=True))
+    valid_swim_list.append(valid_swim(row, sig_thres=0.5, isplot=False))
     plt.close('all')
     
 swim_xls_file = dat_xls_file[valid_swim_list]
