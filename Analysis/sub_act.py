@@ -1,3 +1,11 @@
+"""
+This file uses to compute timing of inhibition and excitaion from subthreshould activity/
+
+Created on 03/22/2019
+@author: Ziqiang Wei
+@email: weiz@janelia.hhmi.org
+"""
+
 from scipy.stats import mannwhitneyu as utest
 from scipy.stats import ranksums
 from scipy.stats import ttest_ind

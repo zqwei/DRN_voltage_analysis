@@ -1,3 +1,11 @@
+"""
+This file supplies the functions to identify valid swims.
+
+Created on 03/21/2019
+@author: Ziqiang Wei
+@email: weiz@janelia.hhmi.org
+"""
+
 import numpy as np
 from pathlib import Path
 import pandas as pd

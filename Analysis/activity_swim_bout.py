@@ -1,3 +1,11 @@
+"""
+This file uses to combine the swim data with the subthreshold activity of cells in the same recordings.
+
+Created on 03/21/2019
+@author: Ziqiang Wei
+@email: weiz@janelia.hhmi.org
+"""
+
 import numpy as np
 from pathlib import Path
 import pandas as pd

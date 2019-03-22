@@ -1,3 +1,11 @@
+"""
+This file compile the valid sessions with gain adaption in behaviors.
+
+Created on 03/21/2019
+@author: Ziqiang Wei
+@email: weiz@janelia.hhmi.org
+"""
+
 import numpy as np
 from pathlib import Path
 import pandas as pd
@@ -33,7 +41,4 @@ for index, row in dat_xls_file.iterrows():
     plt.close('all')
     
 swim_xls_file = dat_xls_file[valid_swim_list]
-
 swim_xls_file.to_csv('depreciated/analysis_sections_based_on_swim_pattern.csv')
-# swim_xls_file = pd.read_csv('analysis_sections_based_on_swim_pattern.csv', index_col=0)
-# swim_xls_file['folder'] = swim_xls_file['folder'].apply(lambda x: f'{x:0>8}')
