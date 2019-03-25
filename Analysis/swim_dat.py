@@ -97,14 +97,14 @@ def valid_swim(row, sig_thres=0.5):
             val, pval= ranksums(r_swim[task_period==1, t_pre+ntime], r_swim[task_period==2, t_pre+ntime])
             gain_stat[ntime] = np.sign(val) * pval
             gain_sig_stat[ntime] = (val>0) and (pval<0.05)
- 
+
     if (gain_sig_stat.mean()<sig_thres) and task_type!='Social water':
         return False
 
-    print(f'{folder} {fish}: average swim difference significance: {mean_}')
+    print(f'{folder} {fish}: average swim difference significance: {gain_sig_stat.mean()}')
 
     np.savez(f'swim_power/{folder}_{fish}_swim_dat', \
-            swim_starts=swim_starts, swim_ends=swim_ends, \
+             swim_starts=swim_starts, swim_ends=swim_ends, \
             r_swim = r_swim, l_swim=l_swim, visu=visu, \
             task_period = task_period, swim_task_index=swim_task_index)
 
