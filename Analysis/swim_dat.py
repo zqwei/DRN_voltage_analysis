@@ -28,12 +28,12 @@ def valid_swim(row, sig_thres=0.5):
     fish = row['fish']
     task_type = row['task'] # task type names
     swim_dir = dir_folder + f'{folder}/{fish}/swim/'
-    if not os.path.exists(swim_dir/'frame_stimParams.npy'):
+    if not os.path.exists(swim_dir+'frame_stimParams.npy'):
         return False
-    frame_stimParams = np.load(swim_dir/'frame_stimParams.npy')
-    frame_swim_tcourse = np.load(swim_dir/'frame_swim_tcourse_series.npy')
-    rawdata = np.load(swim_dir/"rawdata.npy")[()]
-    swimdata = np.load(swim_dir/"swimdata.npy")[()]
+    frame_stimParams = np.load(swim_dir+'frame_stimParams.npy')
+    frame_swim_tcourse = np.load(swim_dir+'frame_swim_tcourse_series.npy')
+    rawdata = np.load(swim_dir+"rawdata.npy")[()]
+    swimdata = np.load(swim_dir+"swimdata.npy")[()]
     reclen=len(swimdata['fltCh1'])
     frame_tcourse=np.zeros((reclen,))
     frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
@@ -110,3 +110,13 @@ def valid_swim(row, sig_thres=0.5):
 
     print('save swim file')
     return True
+
+
+if __name__ == "__main__":
+
+    valid_swim_list = []
+    for index, row in dat_xls_file.iterrows():
+        valid_swim_list.append(valid_swim(row, sig_thres=0.5))
+    
+    swim_xls_file = dat_xls_file[valid_swim_list]
+    swim_xls_file.to_csv('depreciated/analysis_sections_based_on_swim_pattern.csv')
