@@ -104,7 +104,7 @@ def valid_swim(row, sig_thres=0.5):
     print(f'{folder} {fish}: average swim difference significance: {gain_sig_stat.mean()}')
 
     np.savez(f'swim_power/{folder}_{fish}_swim_dat', \
-             swim_starts=swim_starts, swim_ends=swim_ends, \
+            swim_starts=swim_starts, swim_ends=swim_ends, \
             r_swim = r_swim, l_swim=l_swim, visu=visu, \
             task_period = task_period, swim_task_index=swim_task_index)
 
