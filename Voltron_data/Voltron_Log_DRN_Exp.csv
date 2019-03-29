@@ -107,6 +107,15 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 105,02142019,Fish2-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 106,02142019,Fish2-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 107,02142019,Fish2-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-108,03272019,Fish2-1,Gain Adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
-109,03272019,Fish2-2,Delayed feedback,Raphe,True,True,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-110,03272019,Fish2-3,Gain Adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
+108,03272019,Fish2-1,Gain Adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+109,03272019,Fish2-2,Delayed feedback (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+110,03272019,Fish2-3,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+111,03282019,Fish1-1,Delayed feedback (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+112,03282019,Fish1-2,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+113,03282019,Fish1-3,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+114,03282019,Fish2-1,Delayed feedback (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+115,03282019,Fish2-2,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+116,03282019,Fish2-3,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+117,03282019,Fish2-4,Delayed feedback (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+118,03282019,Fish3-1,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+119,03282019,Fish3-2,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
