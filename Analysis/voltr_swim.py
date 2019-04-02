@@ -61,9 +61,9 @@ for _, row in dat_xls_file.iterrows():
     num_cell = dff.shape[0]
     
     trial_valid_ = np.ones(len(swim_starts)).astype('bool')
-    for n, n_swim in enumerate(swim_starts):        
+    for n, n_swim in enumerate(swim_starts[:-1]):        
         # examine the swim with short inter-swim-interval
-        if swim_ends[n] - n_swim < t_sig:    
+        if swim_starts[n+1] - n_swim < t_sig:    
             trial_valid_[n] = False
     
     sub_swim = []
@@ -81,7 +81,7 @@ for _, row in dat_xls_file.iterrows():
         sub_list_ = np.zeros((r_swim.shape[0], t_len))
         spk_list = np.empty((r_swim.shape[0], t_len))
         spk_list[:] = np.nan
-        sub_sig = np.ones((1, t_sig))
+        sub_sig = np.ones(t_sig)
         
         for n, n_swim in enumerate(swim_starts):
             if (n_swim>t_pre) and (n_swim+t_post<len(n_dff)):
