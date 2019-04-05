@@ -119,7 +119,7 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 117,03282019,Fish2-4,Delayed feedback (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 118,03282019,Fish3-1,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 119,03282019,Fish3-2,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-120,04032019,Fish1-Plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-121,04032019,Fish1-Plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-122,04032019,Fish1-Plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-123,04032019,Fish1-Plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+120,04032019,Fish1-plane1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
+121,04032019,Fish1-plane2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
+122,04032019,Fish1-plane1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
+123,04032019,Fish1-plane2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
