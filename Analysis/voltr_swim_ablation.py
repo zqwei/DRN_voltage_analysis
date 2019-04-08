@@ -24,7 +24,7 @@ t_pre = 100 # time window pre-swim
 t_post = 350 # time window post-swim
 t_len = t_pre+t_post
 t_sig = 300 # time used for significance test after swim
-non_spike_thres = 0
+non_spike_thres = 100
 k_spk = boxcarKernel(sigma=61)
 k_sub = 10
 
