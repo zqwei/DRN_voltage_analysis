@@ -2,20 +2,83 @@ import numpy as np
 import pandas as pd
 import os, sys
 from trefide.temporal import TrendFilter
+from matplotlib import pyplot as plt
+
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+
 
 def search_paired_data(row, flist):
     if 'before' not in row['fish']:
         return False
     fish = row['fish'][:-6]
     for _, row_ in flist.iterrows():
+        if row_['folder'] != row['folder']:
+            continue
         if row_['fish'] == fish+'after':
             return True
     return False
 
 
-def align_components(row):
+def align_components(row, check_shift=False):
+    from fish_proc.imageRegistration.imTrans import ImAffine
+    trans = ImAffine()
+    trans.level_iters = [1000, 1000, 100]
+    trans.ss_sigma_factor = 1.0
+    trans.verbosity = 0
+    folder = row['folder']
+    fish = row['fish'][:-6]
+    save_fix = dat_folder + f'{folder}/{fish}before/Data'
+    save_mov = dat_folder + f'{folder}/{fish}after/Data'
+    # print(save_fix)
+    # print(save_mov)
+    fix_ = np.load(save_fix + '/motion_fix_.npy').astype('float32')
+    move_ = np.load(save_mov + '/motion_fix_.npy').astype('float32')
+    # here their shapes are assumed to be identical
+    trans_affine = trans.estimate_translation2d(fix_, move_)
+    trans_mat = trans_affine.affine
+    x, y = trans_mat[0, 2], trans_mat[1, 2]
+    x = int(round(x))
+    y = int(round(y))
+    if check_shift:
+        if x>0:
+            fix_ = fix_[:-x, :]
+            move_ = move_[x:, :]
+        else:
+            fix_ = fix_[-x:, :]
+            move_ = move_[:x, :]
+        if y>0:
+            fix_ = fix_[:, :-y]
+            move_ = move_[:, y:]
+        else:
+            fix_ = fix_[:, -y:]
+            move_ = move_[:, :y]
+        plt.imshow(fix_, cmap=plt.cm.Greens)
+        plt.imshow(move_, cmap=plt.cm.Reds, alpha=0.5)
+        plt.show()
+    return x, y
+
+
+def shift_xy(fix_, move_, x, y):
+    if fix_.ndim ==2:
+        fix_ = fix_[:, :, np.newaxis]
+    if move_.ndim == 2:
+        move_ = move_[:, :, np.newaxis]
+    # shift x
+    if x>0:
+        fix_ = fix_[:-x, :, :]
+        move_ = move_[x:, :, :]
+    else:
+        fix_ = fix_[-x:, :, :]
+        move_ = move_[:x, :, :]
+    # shift y
+    if y>0:
+        fix_ = fix_[:, :-y, :]
+        move_ = move_[:, y:, :]
+    else:
+        fix_ = fix_[:, -y:, :]
+        move_ = move_[:, :y, :]
+    return fix_, move_
 
 
 def single_x(voltr, window_length=41, win_=50001):
@@ -119,34 +182,34 @@ def plot_components(A_, Y_trend_ave, fext='', save_folder='', save_image_folder=
 
 
 
-def voltron(row, fext='', is_mask=False):
+def voltron(row, pix_x, pix_y, fext='', is_mask=False):
     from pathlib import Path
     from skimage.external.tifffile import imread
     from fish_proc.utils.demix import recompute_C_matrix, pos_sig_correction
     import pickle
 
     folder = row['folder']
-    fish = row['fish']
-    save_folder = dat_folder + f'{folder}/{fish}/Data'
-    save_image_folder = dat_folder + f'{folder}/{fish}/Results'
+    fish = row['fish'][:-6]
+    save_folder = dat_folder + f'{folder}/{fish}before/Data'
+    save_image_folder = dat_folder + f'{folder}/{fish}before/Results'
 
-    if not os.path.exists(save_image_folder):
-        os.makedirs(save_image_folder)
-    print('=====================================')
-    print(save_folder)
+#     if not os.path.exists(save_image_folder):
+#         os.makedirs(save_image_folder)
+#     print('=====================================')
+#     print(save_folder)
 
-    if os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
-        return None
+#     if os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
+#         return None
 
-    if not os.path.isfile(f'{save_folder}/period_Y_demix{fext}_rlt.pkl'):
-        print('Components file does not exist.')
-        return None
+#     if not os.path.isfile(f'{save_folder}/period_Y_demix{fext}_rlt.pkl'):
+#         print('Components file does not exist.')
+#         return None
 
-    if os.path.isfile(save_folder+f'/proc_voltr{fext}.tmp'):
-        print('File is already in processing.')
-        return None
+#     if os.path.isfile(save_folder+f'/proc_voltr{fext}.tmp'):
+#         print('File is already in processing.')
+#         return None
 
-    Path(save_folder+f'/proc_voltr{fext}.tmp').touch()
+#     Path(save_folder+f'/proc_voltr{fext}.tmp').touch()
     Y_trend_ave = np.load(f'{save_folder}/Y_trend_ave.npy')
     if is_mask:
         _ = np.load(f'{save_folder}/mask.npz')
@@ -190,27 +253,27 @@ def voltron(row, fext='', is_mask=False):
 
     plot_components(A_, Y_trend_ave, fext=fext, save_folder=save_folder, save_image_folder=save_image_folder)
 
-    print('Start computing voltron data')
-    _ = np.load(f'{save_folder}/Y_2dnorm.npz')
-    Y_d_std= _['Y_d_std']
-    mov = -imread(f'{save_folder}/Y_svd.tif').astype('float32')*Y_d_std
-    mov = mov[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), :]
+#     print('Start computing voltron data')
+#     _ = np.load(f'{save_folder}/Y_2dnorm.npz')
+#     Y_d_std= _['Y_d_std']
+#     mov = -imread(f'{save_folder}/Y_svd.tif').astype('float32')*Y_d_std
+#     mov = mov[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), :]
 
 
-    b = rlt_['fin_rlt']['b']
-    fb = rlt_['fin_rlt']['fb']
-    ff = rlt_['fin_rlt']['ff']
-    dims = mov.shape
-    if fb is not None:
-        b_ = np.matmul(fb, ff.T)+b
-    else:
-        b_ = b
-    mov = pos_sig_correction(mov, -1)
-    mov = mov - b_.reshape((dims[0], dims[1], len(b_)//dims[0]//dims[1]), order='F')
-    C_ = recompute_C_matrix(mov, A_)
-    base_ = recompute_C_matrix(Y_trend_ave[:, :, np.newaxis], A_)
-    np.savez_compressed(f'{save_folder}/Voltr_raw{fext}', A_=A_, C_=C_, base_=base_)
-    Path(save_folder+f'/finished_voltr{fext}.tmp').touch()
+#     b = rlt_['fin_rlt']['b']
+#     fb = rlt_['fin_rlt']['fb']
+#     ff = rlt_['fin_rlt']['ff']
+#     dims = mov.shape
+#     if fb is not None:
+#         b_ = np.matmul(fb, ff.T)+b
+#     else:
+#         b_ = b
+#     mov = pos_sig_correction(mov, -1)
+#     mov = mov - b_.reshape((dims[0], dims[1], len(b_)//dims[0]//dims[1]), order='F')
+#     C_ = recompute_C_matrix(mov, A_)
+#     base_ = recompute_C_matrix(Y_trend_ave[:, :, np.newaxis], A_)
+#     np.savez_compressed(f'{save_folder}/Voltr_raw{fext}', A_=A_, C_=C_, base_=base_)
+#     Path(save_folder+f'/finished_voltr{fext}.tmp').touch()
     return None
 
 
@@ -321,6 +384,8 @@ if __name__ == "__main__":
             ablation_pair = search_paired_data(row, dat_xls_file)
             if not ablation_pair:
                 continue
+            x, y = align_components(row)
+            print([x, y])
 #             folder = row['folder']
 #             fish = row['fish']
 #             task_type = row['task']
