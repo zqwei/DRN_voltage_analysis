@@ -81,6 +81,248 @@ def shift_xy(fix_, move_, x, y):
     return fix_, move_
 
 
+def shift_xy_before(fix_, x, y):
+    if fix_.ndim ==2:
+        fix_ = fix_[:, :, np.newaxis]
+    # shift x
+    if x>0:
+        fix_ = fix_[:-x, :, :]
+    else:
+        fix_ = fix_[-x:, :, :]
+    # shift y
+    if y>0:
+        fix_ = fix_[:, :-y, :]
+    else:
+        fix_ = fix_[:, -y:, :]
+    return fix_
+
+
+def shift_xy_after(move_, x, y):
+    if move_.ndim == 2:
+        move_ = move_[:, :, np.newaxis]
+    # shift x
+    if x>0:
+        move_ = move_[x:, :, :]
+    else:
+        move_ = move_[:x, :, :]
+    # shift y
+    if y>0:
+        move_ = move_[:, y:, :]
+    else:
+        move_ = move_[:, :y, :]
+    return move_
+
+
+def plot_components(A_, Y_trend_ave, fext='', save_image_folder=''):
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    sns.set(font_scale=2)
+    sns.set_style("white")
+
+    d1, d2 = Y_trend_ave.shape
+    A_comp = np.zeros(A_.shape[0])
+    A_comp[A_.sum(axis=-1)>0] = np.argmax(A_[A_.sum(axis=-1)>0, :], axis=-1) + 1
+    plt.figure(figsize=(8,4))
+    plt.imshow(Y_trend_ave, cmap=plt.cm.gray)
+    plt.imshow(A_comp.reshape(d2, d1).T, cmap=plt.cm.nipy_spectral_r, alpha=0.7)
+    for n, nA in enumerate(A_.T):
+        nA = nA.reshape(d2, d1).T
+        pos = np.where(nA>0);
+        pos0 = pos[0];
+        pos1 = pos[1];
+        plt.text(pos1.mean(), pos0.mean(), f"{n}", fontsize=15)
+    plt.title('Components')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig(f'{save_image_folder}/Demixed_components{fext}.png')
+
+    plt.figure(figsize=(8,4))
+    plt.imshow(A_.sum(axis=-1).reshape(d2, d1).T)
+    for n, nA in enumerate(A_.T):
+        nA = nA.reshape(d2, d1).T
+        pos = np.where(nA>0);
+        pos0 = pos[0];
+        pos1 = pos[1];
+        plt.text(pos1.mean(), pos0.mean(), f"{n}", fontsize=15, color='w')
+    plt.title('Components weights')
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig(f'{save_image_folder}/Demixed_components_weights{fext}.png')
+    return None
+
+
+def get_A_stack(save_folder, is_mask=False, check_stack=False):
+    import pickle
+    
+    Y_trend_ave = np.load(f'{save_folder}/Y_trend_ave.npy')
+    if is_mask:
+        _ = np.load(f'{save_folder}/mask.npz')
+        mask = _['mask']
+        mask_save = _['mask_save']
+        Y_trend_ave = Y_trend_ave[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max()]
+    with open(f'{save_folder}/period_Y_demix{fext}_rlt.pkl', 'rb') as f:
+        rlt_ = pickle.load(f)
+    d1, d2 = Y_trend_ave.shape
+
+    mask_ = np.empty((d2, d1))
+    mask_[:] = False
+    if is_mask:
+        pixel = 1
+    else:
+        pixel = 4
+    mask_[:pixel, :]=True
+    mask_[-pixel:,:]=True
+    mask_[:, :pixel]=True
+    mask_[:,-pixel:]=True
+    mask_ = mask_.astype('bool')
+    A = rlt_['fin_rlt']['a'].copy()
+    # remove bounds at pixel size
+    A[mask_.reshape(-1),:]=0
+
+    # remove small size components
+    A_ = A[:, (A>0).sum(axis=0)>40] # min pixel = 40
+
+    # remove stripes
+    # cherry-pick Components
+    remove_comp = np.empty(A_.shape[-1]).astype('bool')
+    remove_comp[:] = False
+    for n_, nA_ in enumerate(A_.T):
+        x_, y_ = np.where(nA_.reshape(d2, d1).T>0)
+        len_x = x_.max()-x_.min()
+        len_y = y_.max()-y_.min()
+        if len_x==0 or len_y==0 or len_x/len_y>10 or len_y/len_x>10 or len_x<=3 or len_y<=3:
+            remove_comp[n_] = True
+    A_ = A_[:, ~remove_comp]
+    d1, d2 = Y_trend_ave.shape
+    A_tmp = []
+    for n, nA in enumerate(A_.T):
+        nA = nA.reshape(d2, d1).T
+        A_tmp.append(nA)
+    A_tmp = np.array(A_tmp).transpose([1, 2, 0])
+    assert np.array_equal(A_tmp.reshape((d1*d2, -1), order='F'), A_) # make sure the array is correctly reshaped
+    
+    if not is_mask:
+        A_stack = A_tmp
+    else:
+        # add mask back to A_stack
+        A_stack = np.zeros((mask.shape[0], mask.shape[1], A_tmp.shape[-1]))
+        for n in range(A_tmp.shape[-1]):
+            A_stack[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), n] = A_tmp[:, :, n]
+    if check_stack:
+        Y_trend_ave = np.load(f'{save_folder}/Y_trend_ave.npy')
+        _ = A_stack.reshape((Y_trend_ave.shape[0]*Y_trend_ave.shape[1], -1), order='F')
+        plot_components(_, Y_trend_ave)
+    return A_stack
+
+
+def get_C_stacks(save_folder, pix_x, pix_y, A_, is_before=True, is_mask=False, fext=''):
+    from pathlib import Path
+    from skimage.external.tifffile import imread
+    import pickle
+    from fish_proc.utils.demix import recompute_C_matrix, pos_sig_correction
+    
+    Y_trend_ave = np.load(f'{save_folder}/Y_trend_ave.npy')
+    _ = np.load(f'{save_folder}/Y_2dnorm.npz')
+    Y_d_std= _['Y_d_std']
+    mov = -imread(f'{save_folder}/Y_svd.tif').astype('float32')*Y_d_std
+    with open(f'{save_folder}/period_Y_demix{fext}_rlt.pkl', 'rb') as f:
+        rlt_ = pickle.load(f)
+    
+    b = rlt_['fin_rlt']['b']
+    fb = rlt_['fin_rlt']['fb']
+    ff = rlt_['fin_rlt']['ff']
+    dims = mov.shape
+    if fb is not None:
+        b_tmp = np.matmul(fb, ff.T)+b
+    else:
+        b_tmp = b
+    
+    b_ = np.zeros((dims[0], dims[1], b_.shape[-1]))
+    
+    if not is_mask:
+        b_ = b_tmp
+    else:
+        _ = np.load(f'{save_folder}/mask.npz')
+        mask = _['mask']
+        mask_save = _['mask_save']
+    
+    for n in range(b_.shape[-1]):
+        
+    
+
+    
+    if is_before:
+        mov = shift_xy_before(mov, pix_x, pix_y)
+    else:
+        mov = shift_xy_after(mov, pix_x, pix_y)
+    
+    mov = pos_sig_correction(mov, -1)
+    mov = mov - b_.reshape((dims[0], dims[1], -1), order='F')
+    C_ = recompute_C_matrix(mov, A_)
+    base_ = recompute_C_matrix(Y_trend_ave[:, :, np.newaxis], A_)
+    np.savez_compressed(f'{save_folder}/Voltr_raw{fext}', A_=A_, C_=C_, base_=base_)
+    Path(save_folder+f'/finished_voltr{fext}.tmp').touch()
+    return None
+
+    
+def voltron(row, pix_x, pix_y, fext='', is_mask=False):
+    from pathlib import Path
+    folder = row['folder']
+    fish = row['fish'][:-6]
+    save_folder_before = dat_folder + f'{folder}/{fish}before/Data'
+    save_image_folder_before = dat_folder + f'{folder}/{fish}before/Results'
+    save_folder_after = dat_folder + f'{folder}/{fish}after/Data'
+    save_image_folder_after = dat_folder + f'{folder}/{fish}after/Results'
+
+    if not os.path.exists(save_image_folder_before):
+        os.makedirs(save_image_folder_before)
+    if not os.path.exists(save_image_folder_after):
+        os.makedirs(save_image_folder_after)
+    print('=====================================')
+    print(save_folder_before)
+    print(save_folder_after)
+
+#     if os.path.isfile(save_folder_after+f'/finished_voltr{fext}.tmp'):
+#         return None
+
+#     if not os.path.isfile(f'{save_folder_before}/period_Y_demix{fext}_rlt.pkl'):
+#         print('Components file does not exist.')
+#         return None
+#     if not os.path.isfile(f'{save_folder_after}/period_Y_demix{fext}_rlt.pkl'):
+#         print('Components file does not exist.')
+#         return None
+
+#     if os.path.isfile(save_folder_before+f'/proc_voltr{fext}.tmp'):
+#         print('File is already in processing.')
+#         return None
+
+#     Path(save_folder_before+f'/proc_voltr{fext}.tmp').touch()
+#     Path(save_folder_after+f'/proc_voltr{fext}.tmp').touch()
+
+    print('Combining the components in before and after ablation')
+
+    A_before = get_A_stack(save_folder_before, is_mask=True, check_stack=False)
+    A_after = get_A_stack(save_folder_after, is_mask=True, check_stack=False)
+    A_before, A_after = shift_xy(A_before, A_after, pix_x, pix_y)
+    d1, d2, _ = A_before.shape
+    A_ = np.concatenate((A_before, A_after), axis=-1)
+    A_ = A_.reshape((d1*d2, -1), order='F')
+    
+    Y_trend_before = np.load(f'{save_folder_before}/Y_trend_ave.npy')
+    Y_trend_after = np.load(f'{save_folder_after}/Y_trend_ave.npy')
+    Y_trend_before, Y_trend_after = shift_xy(Y_trend_before, Y_trend_after, pix_x, pix_y)
+    
+    plot_components(A_, Y_trend_before.squeeze(-1), fext=fext, save_image_folder=save_image_folder_before)
+    plot_components(A_, Y_trend_after.squeeze(-1), fext=fext, save_image_folder=save_image_folder_after)
+
+    print('Start computing voltron data')
+    get_C_stacks(save_folder_before, pix_x, pix_y, A_, is_before=True)
+    get_C_stacks(save_folder_after, pix_x, pix_y, A_, is_before=False)
+
+    return None
+
+
 def single_x(voltr, window_length=41, win_=50001):
     from fish_proc.spikeDetectionNN.utils import roll_scale
     from fish_proc.spikeDetectionNN.spikeDetector import prepare_sequences_center
@@ -140,141 +382,6 @@ def tf_filter(_):
     denoised_voltr = filters.denoise(int_voltr_)
     out = (denoised_voltr_, denoised_voltr)
     return np.asarray(out[0])[np.newaxis,:], np.asarray(out[1])[np.newaxis,:]
-
-
-def plot_components(A_, Y_trend_ave, fext='', save_folder='', save_image_folder=''):
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-
-    sns.set(font_scale=2)
-    sns.set_style("white")
-
-    d1, d2 = Y_trend_ave.shape
-    A_comp = np.zeros(A_.shape[0])
-    A_comp[A_.sum(axis=-1)>0] = np.argmax(A_[A_.sum(axis=-1)>0, :], axis=-1) + 1
-    plt.figure(figsize=(8,4))
-    plt.imshow(Y_trend_ave, cmap=plt.cm.gray)
-    plt.imshow(A_comp.reshape(d2, d1).T, cmap=plt.cm.nipy_spectral_r, alpha=0.7)
-    for n, nA in enumerate(A_.T):
-        nA = nA.reshape(d2, d1).T
-        pos = np.where(nA>0);
-        pos0 = pos[0];
-        pos1 = pos[1];
-        plt.text(pos1.mean(), pos0.mean(), f"{n}", fontsize=15)
-    plt.title('Components')
-    plt.axis('off')
-    plt.tight_layout()
-    plt.savefig(f'{save_image_folder}/Demixed_components{fext}.png')
-
-    plt.figure(figsize=(8,4))
-    plt.imshow(A_.sum(axis=-1).reshape(d2, d1).T)
-    for n, nA in enumerate(A_.T):
-        nA = nA.reshape(d2, d1).T
-        pos = np.where(nA>0);
-        pos0 = pos[0];
-        pos1 = pos[1];
-        plt.text(pos1.mean(), pos0.mean(), f"{n}", fontsize=15, color='w')
-    plt.title('Components weights')
-    plt.axis('off')
-    plt.tight_layout()
-    plt.savefig(f'{save_image_folder}/Demixed_components_weights{fext}.png')
-    return None
-
-
-
-def voltron(row, pix_x, pix_y, fext='', is_mask=False):
-    from pathlib import Path
-    from skimage.external.tifffile import imread
-    from fish_proc.utils.demix import recompute_C_matrix, pos_sig_correction
-    import pickle
-
-    folder = row['folder']
-    fish = row['fish'][:-6]
-    save_folder = dat_folder + f'{folder}/{fish}before/Data'
-    save_image_folder = dat_folder + f'{folder}/{fish}before/Results'
-
-#     if not os.path.exists(save_image_folder):
-#         os.makedirs(save_image_folder)
-#     print('=====================================')
-#     print(save_folder)
-
-#     if os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
-#         return None
-
-#     if not os.path.isfile(f'{save_folder}/period_Y_demix{fext}_rlt.pkl'):
-#         print('Components file does not exist.')
-#         return None
-
-#     if os.path.isfile(save_folder+f'/proc_voltr{fext}.tmp'):
-#         print('File is already in processing.')
-#         return None
-
-#     Path(save_folder+f'/proc_voltr{fext}.tmp').touch()
-    Y_trend_ave = np.load(f'{save_folder}/Y_trend_ave.npy')
-    if is_mask:
-        _ = np.load(f'{save_folder}/mask.npz')
-        mask = _['mask']
-        mask_save = _['mask_save']
-        Y_trend_ave = Y_trend_ave[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max()]
-
-    print('update components images')
-    with open(f'{save_folder}/period_Y_demix{fext}_rlt.pkl', 'rb') as f:
-        rlt_ = pickle.load(f)
-    d1, d2 = Y_trend_ave.shape
-
-    mask_ = np.empty((d2, d1))
-    mask_[:] = False
-    if is_mask:
-        pixel = 1
-    else:
-        pixel = 4
-    mask_[:pixel, :]=True
-    mask_[-pixel:,:]=True
-    mask_[:, :pixel]=True
-    mask_[:,-pixel:]=True
-    mask_ = mask_.astype('bool')
-    A = rlt_['fin_rlt']['a'].copy()
-    # remove bounds at pixel size
-    A[mask_.reshape(-1),:]=0
-
-    # remove small size components
-    A_ = A[:, (A>0).sum(axis=0)>40] # min pixel = 40
-
-    # remove stripes
-    remove_comp = np.empty(A_.shape[-1]).astype('bool')
-    remove_comp[:] = False
-    for n_, nA_ in enumerate(A_.T):
-        x_, y_ = np.where(nA_.reshape(d2, d1).T>0)
-        len_x = x_.max()-x_.min()
-        len_y = y_.max()-y_.min()
-        if len_x==0 or len_y==0 or len_x/len_y>10 or len_y/len_x>10 or len_x<=3 or len_y<=3:
-            remove_comp[n_] = True
-    A_ = A_[:, ~remove_comp]
-
-    plot_components(A_, Y_trend_ave, fext=fext, save_folder=save_folder, save_image_folder=save_image_folder)
-
-#     print('Start computing voltron data')
-#     _ = np.load(f'{save_folder}/Y_2dnorm.npz')
-#     Y_d_std= _['Y_d_std']
-#     mov = -imread(f'{save_folder}/Y_svd.tif').astype('float32')*Y_d_std
-#     mov = mov[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), :]
-
-
-#     b = rlt_['fin_rlt']['b']
-#     fb = rlt_['fin_rlt']['fb']
-#     ff = rlt_['fin_rlt']['ff']
-#     dims = mov.shape
-#     if fb is not None:
-#         b_ = np.matmul(fb, ff.T)+b
-#     else:
-#         b_ = b
-#     mov = pos_sig_correction(mov, -1)
-#     mov = mov - b_.reshape((dims[0], dims[1], len(b_)//dims[0]//dims[1]), order='F')
-#     C_ = recompute_C_matrix(mov, A_)
-#     base_ = recompute_C_matrix(Y_trend_ave[:, :, np.newaxis], A_)
-#     np.savez_compressed(f'{save_folder}/Voltr_raw{fext}', A_=A_, C_=C_, base_=base_)
-#     Path(save_folder+f'/finished_voltr{fext}.tmp').touch()
-    return None
 
 
 def voltr2spike(row, fext=''):
@@ -384,17 +491,14 @@ if __name__ == "__main__":
             ablation_pair = search_paired_data(row, dat_xls_file)
             if not ablation_pair:
                 continue
-            x, y = align_components(row)
-            print([x, y])
-#             folder = row['folder']
-#             fish = row['fish']
-#             task_type = row['task']
-#             if task_type[0] == 'S': # skip spike detection on social water task
-#                 continue
-#             save_folder = dat_folder + f'{folder}/{fish}/Data'
-#             save_image_folder = dat_folder + f'{folder}/{fish}/Results'
-#             if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
-#                 voltron(row, fext=fext, is_mask=True)
+            
+            folder = row['folder']
+            fish = row['fish']
+            task_type = row['task']
+            save_folder = dat_folder + f'{folder}/{fish}/Data'
+            if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
+                x, y = align_components(row)
+                voltron(row, x, y, fext='', is_mask=True)
 #             if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
 #                 voltr2spike(row, fext=fext)
 #             if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
