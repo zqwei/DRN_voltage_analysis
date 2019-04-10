@@ -216,7 +216,7 @@ def get_A_stack(save_folder, is_mask=False, check_stack=False):
     return A_stack
 
 
-def get_C_stacks(save_folder, pix_x, pix_y, A_, is_before=True, is_mask=False, fext=''):
+def get_C_stacks(save_folder, pix_x, pix_y, A_, is_before=True, is_mask=True, fext=''):
     from pathlib import Path
     from skimage.external.tifffile import imread
     import pickle
@@ -238,29 +238,32 @@ def get_C_stacks(save_folder, pix_x, pix_y, A_, is_before=True, is_mask=False, f
     else:
         b_tmp = b
     
-    b_ = np.zeros((dims[0], dims[1], b_.shape[-1]))
-    
     if not is_mask:
-        b_ = b_tmp
+        b_ = b_tmp.reshape((dims[0], dims[1], -1), order='F')
     else:
+        b_ = np.zeros((dims[0], dims[1], b_tmp.shape[-1]), order='F')
         _ = np.load(f'{save_folder}/mask.npz')
         mask = _['mask']
         mask_save = _['mask_save']
-    
-    for n in range(b_.shape[-1]):
-        
-    
+        d1 = mask_save[0].max()-mask_save[0].min()
+        d2 = mask_save[1].max()-mask_save[1].min()
+        assert (d1*d2) == b_tmp.shape[0]
+        for n in range(b_.shape[-1]):
+            b_[mask_save[0].min():mask_save[0].max(), mask_save[1].min():mask_save[1].max(), n] = b_tmp[:, n].reshape((d1, d2), order='F')
 
-    
     if is_before:
         mov = shift_xy_before(mov, pix_x, pix_y)
+        b_ = shift_xy_before(b_, pix_x, pix_y)
+        Y_trend_ave = shift_xy_before(Y_trend_ave, pix_x, pix_y)
     else:
         mov = shift_xy_after(mov, pix_x, pix_y)
+        b_ = shift_xy_after(b_, pix_x, pix_y)
+        Y_trend_ave = shift_xy_after(Y_trend_ave, pix_x, pix_y)
     
     mov = pos_sig_correction(mov, -1)
-    mov = mov - b_.reshape((dims[0], dims[1], -1), order='F')
+    mov = mov - b_
     C_ = recompute_C_matrix(mov, A_)
-    base_ = recompute_C_matrix(Y_trend_ave[:, :, np.newaxis], A_)
+    base_ = recompute_C_matrix(Y_trend_ave, A_)
     np.savez_compressed(f'{save_folder}/Voltr_raw{fext}', A_=A_, C_=C_, base_=base_)
     Path(save_folder+f'/finished_voltr{fext}.tmp').touch()
     return None
@@ -283,22 +286,22 @@ def voltron(row, pix_x, pix_y, fext='', is_mask=False):
     print(save_folder_before)
     print(save_folder_after)
 
-#     if os.path.isfile(save_folder_after+f'/finished_voltr{fext}.tmp'):
-#         return None
+    if os.path.isfile(save_folder_after+f'/finished_voltr{fext}.tmp'):
+        return None
 
-#     if not os.path.isfile(f'{save_folder_before}/period_Y_demix{fext}_rlt.pkl'):
-#         print('Components file does not exist.')
-#         return None
-#     if not os.path.isfile(f'{save_folder_after}/period_Y_demix{fext}_rlt.pkl'):
-#         print('Components file does not exist.')
-#         return None
+    if not os.path.isfile(f'{save_folder_before}/period_Y_demix{fext}_rlt.pkl'):
+        print('Components file does not exist.')
+        return None
+    if not os.path.isfile(f'{save_folder_after}/period_Y_demix{fext}_rlt.pkl'):
+        print('Components file does not exist.')
+        return None
 
-#     if os.path.isfile(save_folder_before+f'/proc_voltr{fext}.tmp'):
-#         print('File is already in processing.')
-#         return None
+    if os.path.isfile(save_folder_before+f'/proc_voltr{fext}.tmp'):
+        print('File is already in processing.')
+        return None
 
-#     Path(save_folder_before+f'/proc_voltr{fext}.tmp').touch()
-#     Path(save_folder_after+f'/proc_voltr{fext}.tmp').touch()
+    Path(save_folder_before+f'/proc_voltr{fext}.tmp').touch()
+    Path(save_folder_after+f'/proc_voltr{fext}.tmp').touch()
 
     print('Combining the components in before and after ablation')
 
@@ -317,8 +320,8 @@ def voltron(row, pix_x, pix_y, fext='', is_mask=False):
     plot_components(A_, Y_trend_after.squeeze(-1), fext=fext, save_image_folder=save_image_folder_after)
 
     print('Start computing voltron data')
-    get_C_stacks(save_folder_before, pix_x, pix_y, A_, is_before=True)
-    get_C_stacks(save_folder_after, pix_x, pix_y, A_, is_before=False)
+    get_C_stacks(save_folder_before, pix_x, pix_y, A_, is_before=True, is_mask=True, fext=fext)
+    get_C_stacks(save_folder_after, pix_x, pix_y, A_, is_before=False, is_mask=True, fext=fext)
 
     return None
 
@@ -449,9 +452,9 @@ def voltr2subvolt(row, fext=''):
         print('Spike file does not exist.')
         return None
 
-    # if os.path.isfile(save_folder+f'/proc_subvolt{fext}.tmp'):
-    #     print('SubVolt file is already in processing.')
-    #     return None
+    if os.path.isfile(save_folder+f'/proc_subvolt{fext}.tmp'):
+        print('SubVolt file is already in processing.')
+        return None
 
     Path(save_folder+f'/proc_subvolt{fext}.tmp').touch()
     print(f'Processing {save_folder}')
@@ -487,11 +490,11 @@ if __name__ == "__main__":
         dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
         dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
         fext = ''
+        
         for index, row in dat_xls_file.iterrows():
             ablation_pair = search_paired_data(row, dat_xls_file)
             if not ablation_pair:
                 continue
-            
             folder = row['folder']
             fish = row['fish']
             task_type = row['task']
@@ -499,7 +502,13 @@ if __name__ == "__main__":
             if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
                 x, y = align_components(row)
                 voltron(row, x, y, fext='', is_mask=True)
-#             if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
-#                 voltr2spike(row, fext=fext)
-#             if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
-#                 voltr2subvolt(row, fext=fext)
+        
+        for index, row in dat_xls_file.iterrows():
+            folder = row['folder']
+            fish = row['fish']
+            task_type = row['task']
+            save_folder = dat_folder + f'{folder}/{fish}/Data'
+            if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
+                voltr2spike(row, fext=fext)
+            if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
+                voltr2subvolt(row, fext=fext)
