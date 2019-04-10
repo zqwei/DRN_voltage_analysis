@@ -97,7 +97,8 @@ def voltr2spike(row):
 
 
 if __name__ == '__main__':
-    vol_file = Path('depreciated/analysis_sections_based_on_swim_pattern.csv')
+    # vol_file = Path('depreciated/analysis_sections_based_on_swim_pattern.csv')
+    vol_file = Path('depreciated/analysis_sections_ablation_unmatched.csv')
     dat_xls_file = pd.read_csv(vol_file, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for _, row in dat_xls_file.iterrows():
