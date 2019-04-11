@@ -114,7 +114,6 @@ def valid_swim(row):
 
 
 if __name__ == "__main__":
-
     valid_swim_list = []
     for index, row in dat_xls_file.iterrows():
         valid_swim_list.append(valid_swim(row))
