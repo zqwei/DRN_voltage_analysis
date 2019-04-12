@@ -135,3 +135,17 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 133,04042019,Fish3-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 134,04042019,Fish3-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
 135,04042019,Fish3-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
+136,04112019,Fish3-plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+137,04112019,Fish3-plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+138,04112019,Fish3-plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+139,04112019,Fish3-plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+140,04112019,Fish4-plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+141,04112019,Fish4-plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+142,04112019,Fish4-plane#3-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+143,04112019,Fish4-plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+144,04112019,Fish4-plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+145,04112019,Fish4-plane#3-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+146,04112019,Fish5-plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+147,04112019,Fish5-plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+148,04112019,Fish5-plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+149,04112019,Fish5-plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
