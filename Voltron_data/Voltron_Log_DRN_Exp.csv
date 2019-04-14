@@ -1,151 +1,151 @@
-Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise,demix,voltr,spikes,subvolt,FineTune,dataToAnalysis,rootDir
-0,03152018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-1,03152018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-2,03152018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-3,03152018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-4,03152018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-5,03292018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-6,03292018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-7,03292018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-8,03292018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-9,04052018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-10,04052018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-11,04122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-12,04122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-13,04122018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-14,04122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-15,04122018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-16,04122018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-17,04122018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-18,04122018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-19,04192018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-20,04192018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-21,04192018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-22,04192018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
-23,04192018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
-24,04192018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-25,06282018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-26,06282018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
-27,06282018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-28,07052018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-29,07052018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-30,07052018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-31,07052018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-32,07122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-33,07122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-34,07122018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-35,07122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-36,07262018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-37,07262018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-38,07262018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-39,07262018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-40,07262018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-41,07262018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-42,07262018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
-43,07262018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-44,08022018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-45,08022018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
-46,08022018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-47,08022018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-48,08022018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-49,08022018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-50,08022018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-51,08022018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-52,10182018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-53,10182018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-54,10182018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-55,10182018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-56,11222018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-57,11222018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-58,11222018,Fish1-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-59,11222018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-60,11222018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-61,11222018,Fish2-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-62,11222018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-63,11222018,Fish3-2,Social water,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-64,12202018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-65,12202018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-66,12202018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-67,12202018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-68,12202018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-69,12202018,Fish3-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-70,01032019,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-71,01032019,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-72,01032019,Fish1-3,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-73,01032019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-74,01032019,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
-75,01172019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-76,01172019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-77,01172019,Fish2-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-78,01242019,Fish1-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-79,01242019,Fish1-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-82,01242019,Fish3-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-84,01312019,Fish1-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-85,01312019,Fish1-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-86,01312019,Fish1-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-87,01312019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-88,01312019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-89,01312019,Fish2-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-90,01312019,Fish3-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-91,01312019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-92,01312019,Fish3-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-93,01312019,Fish4-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-94,01312019,Fish4-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-95,02072019,Fish1-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-96,02072019,Fish1-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-97,02072019,Fish2-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-98,02072019,Fish2-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-99,02072019,Fish2-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-100,02072019,Fish3-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-101,02072019,Fish3-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-102,02072019,Fish3-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-103,02142019,Fish1-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-104,02142019,Fish1-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-105,02142019,Fish2-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-106,02142019,Fish2-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-107,02142019,Fish2-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-108,03272019,Fish2-1,Gain Adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-109,03272019,Fish2-2,Delayed feedback (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-110,03272019,Fish2-3,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-111,03282019,Fish1-1,Delayed feedback (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-112,03282019,Fish1-2,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-113,03282019,Fish1-3,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-114,03282019,Fish2-1,Delayed feedback (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-115,03282019,Fish2-2,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-116,03282019,Fish2-3,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-117,03282019,Fish2-4,Delayed feedback (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-118,03282019,Fish3-1,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-119,03282019,Fish3-2,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-120,04032019,Fish1-plane1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-121,04032019,Fish1-plane2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-122,04032019,Fish1-plane1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-123,04032019,Fish1-plane2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-124,04042019,Fish1-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-125,04042019,Fish1-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-126,04042019,Fish1-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-127,04042019,Fish1-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-128,04042019,Fish2-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-129,04042019,Fish2-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-130,04042019,Fish2-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-131,04042019,Fish2-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-132,04042019,Fish3-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-133,04042019,Fish3-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-134,04042019,Fish3-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-135,04042019,Fish3-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,False,True,/nrs/ahrens/Takashi/
-136,04112019,Fish3-plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-137,04112019,Fish3-plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-138,04112019,Fish3-plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-139,04112019,Fish3-plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-140,04112019,Fish4-plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-141,04112019,Fish4-plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-142,04112019,Fish4-plane#3-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-143,04112019,Fish4-plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-144,04112019,Fish4-plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-145,04112019,Fish4-plane#3-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-146,04112019,Fish5-plane#1-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-147,04112019,Fish5-plane#2-before,Gain adaptation (before ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-148,04112019,Fish5-plane#1-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-149,04112019,Fish5-plane#2-after,Gain adaptation (after ablation),Raphe,False,False,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise,demix,voltr,spikes,subvolt,rootDir
+0,03152018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+1,03152018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+2,03152018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+3,03152018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+4,03152018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+5,03292018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+6,03292018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+7,03292018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+8,03292018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+9,04052018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+10,04052018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+11,04122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+12,04122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+13,04122018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+14,04122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+15,04122018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+16,04122018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+17,04122018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+18,04122018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+19,04192018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+20,04192018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+21,04192018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+22,04192018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+23,04192018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+24,04192018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+25,06282018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+26,06282018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+27,06282018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+28,07052018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+29,07052018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+30,07052018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+31,07052018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+32,07122018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+33,07122018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+34,07122018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+35,07122018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+36,07262018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+37,07262018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+38,07262018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+39,07262018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+40,07262018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+41,07262018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+42,07262018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+43,07262018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+44,08022018,Fish1-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+45,08022018,Fish1-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+46,08022018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+47,08022018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+48,08022018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+49,08022018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+50,08022018,Fish4-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+51,08022018,Fish4-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+52,10182018,Fish2-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+53,10182018,Fish2-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+54,10182018,Fish3-1,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+55,10182018,Fish3-2,Raphe memory task,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+56,11222018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+57,11222018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+58,11222018,Fish1-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+59,11222018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+60,11222018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+61,11222018,Fish2-3,Social water,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+62,11222018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+63,11222018,Fish3-2,Social water,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+64,12202018,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+65,12202018,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+66,12202018,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+67,12202018,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+68,12202018,Fish3-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+69,12202018,Fish3-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+70,01032019,Fish1-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+71,01032019,Fish1-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+72,01032019,Fish1-3,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+73,01032019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+74,01032019,Fish2-2,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Ziqiang/Takashi_DRN_project/RawData/
+75,01172019,Fish2-1,Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+76,01172019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+77,01172019,Fish2-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+78,01242019,Fish1-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+79,01242019,Fish1-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+80,01242019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+81,01242019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+82,01242019,Fish3-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+83,01242019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+84,01312019,Fish1-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+85,01312019,Fish1-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+86,01312019,Fish1-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+87,01312019,Fish2-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+88,01312019,Fish2-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+89,01312019,Fish2-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+90,01312019,Fish3-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+91,01312019,Fish3-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+92,01312019,Fish3-3,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+93,01312019,Fish4-1,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+94,01312019,Fish4-2,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+95,02072019,Fish1-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+96,02072019,Fish1-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+97,02072019,Fish2-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+98,02072019,Fish2-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+99,02072019,Fish2-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+100,02072019,Fish3-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+101,02072019,Fish3-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+102,02072019,Fish3-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+103,02142019,Fish1-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+104,02142019,Fish1-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+105,02142019,Fish2-4,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+106,02142019,Fish2-5,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+107,02142019,Fish2-6,Optovin+Gain adadptation,Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+108,03272019,Fish2-1,Gain Adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+109,03272019,Fish2-2,Delayed feedback (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+110,03272019,Fish2-3,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+111,03282019,Fish1-1,Delayed feedback (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+112,03282019,Fish1-2,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+113,03282019,Fish1-3,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+114,03282019,Fish2-1,Delayed feedback (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+115,03282019,Fish2-2,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+116,03282019,Fish2-3,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+117,03282019,Fish2-4,Delayed feedback (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+118,03282019,Fish3-1,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+119,03282019,Fish3-2,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+120,04032019,Fish1-plane1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+121,04032019,Fish1-plane2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+122,04032019,Fish1-plane1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+123,04032019,Fish1-plane2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+124,04042019,Fish1-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+125,04042019,Fish1-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+126,04042019,Fish1-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+127,04042019,Fish1-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+128,04042019,Fish2-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+129,04042019,Fish2-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+130,04042019,Fish2-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+131,04042019,Fish2-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+132,04042019,Fish3-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+133,04042019,Fish3-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+134,04042019,Fish3-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+135,04042019,Fish3-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+136,04112019,Fish3-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+137,04112019,Fish3-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+138,04112019,Fish3-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+139,04112019,Fish3-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+140,04112019,Fish4-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+141,04112019,Fish4-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+142,04112019,Fish4-plane#3-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+143,04112019,Fish4-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+144,04112019,Fish4-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+145,04112019,Fish4-plane#3-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+146,04112019,Fish5-plane#1-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+147,04112019,Fish5-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+148,04112019,Fish5-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+149,04112019,Fish5-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
