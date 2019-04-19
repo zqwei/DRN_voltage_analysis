@@ -31,6 +31,7 @@ k_sub = 10
 for _, row in dat_xls_file.iterrows():
     folder = row['folder']
     fish = row['fish']
+    
     dat_dir = dir_folder+f'{folder}/{fish}/Data/'
     dff = np.load(dat_dir+'Voltr_spikes.npz')['voltrs']
     spk = np.load(dat_dir+'Voltr_spikes.npz')['spk']
