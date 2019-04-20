@@ -22,6 +22,16 @@ dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
 non_spike_thres = 100
 cell_shape_thres = 1.3
+plot_ = False
+
+def spk_shape(spk_list, dff):
+    spk_ = []
+    for t_ in spk_list:
+        if t_+30<len(dff):
+            spk_.append(dff[t_-30:t_+30])
+    spk_ = np.array(spk_)
+    return spk_.mean(axis=0)
+
 
 for _, row in dat_xls_file.iterrows():
     folder = row['folder']
