@@ -47,22 +47,6 @@ def trial_swim_power(folder, fish, dir_folder):
     blocklist[1,:] = [trial_inds==0][0][:,None].T;
     blockpowers=ep.calc_blockpowers(swimdata,blocklist)
     np.save(swimdir/"blockpowers",blockpowers);
-    totblock=(blocklist.max()).astype('i4');
-    plt.figure(1,figsize=(16,5))
-    plt.subplot(131)
-    plt.bar(np.arange(1,totblock+1,1),blockpowers[0,]);
-    plt.title('Left')
-    plt.xlim(0,totblock+1)
-    plt.subplot(132)
-    plt.bar(np.arange(1,totblock+1,1),blockpowers[1,]);
-    plt.title('Right')
-    plt.xlim(0,totblock+1)
-    plt.subplot(133)
-    plt.bar(np.arange(1,totblock+1,1),blockpowers[2,]);
-    plt.title('Sum')
-    plt.xlim(0,totblock+1)
-    plt.savefig(swimdir/"trial power.png")
-
 
 def frame_swim_power(folder, fish, dir_folder):
     swimdir = dir_folder/f'{folder}/{fish}/swim'
