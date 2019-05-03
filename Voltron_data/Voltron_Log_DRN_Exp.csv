@@ -149,3 +149,7 @@ Exp No,folder,fish,task,area,swim,pixeldenoise,registration,detrend,localdenoise
 147,04112019,Fish5-plane#2-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
 148,04112019,Fish5-plane#1-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
 149,04112019,Fish5-plane#2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+150,05022019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Raphe,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+151,05022019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Raphe,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+152,05022019,Fish3-1-swimonly_visualonly,Swimonly_Visualonly,Raphe,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+153,05022019,Fish3-2-swimonly_visualonly,Swimonly_Visualonly,Raphe,False,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
