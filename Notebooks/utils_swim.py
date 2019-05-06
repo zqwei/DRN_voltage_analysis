@@ -48,6 +48,7 @@ def trial_swim_power(folder, fish, dir_folder):
     blockpowers=ep.calc_blockpowers(swimdata,blocklist)
     np.save(swimdir/"blockpowers",blockpowers);
 
+
 def frame_swim_power(folder, fish, dir_folder):
     swimdir = dir_folder/f'{folder}/{fish}/swim'
     rawdata = np.load(swimdir/"rawdata.npy")[()]
