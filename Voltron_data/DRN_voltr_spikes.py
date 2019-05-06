@@ -314,7 +314,7 @@ if __name__ == "__main__":
             folder = row['folder']
             fish = row['fish']
             task_type = row['task']
-            if task_type[0] == 'S': # skip spike detection on social water task
+            if 'Social' in task_type[0]: # skip spike detection on social water task
                 continue
             save_folder = dat_folder + f'{folder}/{fish}/Data'
             save_image_folder = dat_folder + f'{folder}/{fish}/Results'
