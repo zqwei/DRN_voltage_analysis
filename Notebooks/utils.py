@@ -6,7 +6,14 @@ import matplotlib.pyplot as plt
 #     return b
 
 def smooth(a, kernel):
-    return np.convolve(a, kernel, 'full')[kernel.shape[0]//2-1:-kernel.shape[0]//2]
+    return np.convolve(a, kernel, 'full')[kernel.shape[0]//2:-(kernel.shape[0]//2)]
+
+
+def test_smooth(kernel):
+    x = np.zeros(1001)
+    x[30] = 1
+    y = smooth(x, kernel)
+    assert np.argmax(y)==30 # this is not working for boxcar kernel
 
 
 def boxcarKernel(sigma=60):
