@@ -33,7 +33,7 @@ def valid_swim(row):
     swimdata = np.load(swim_dir+"swimdata.npy", allow_pickle=True)[()]
     reclen=len(swimdata['fltCh1'])
     frame_tcourse=np.zeros((reclen,))
-    frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
+    frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]+1
     task_tcourse = np.zeros(len(frame))
     for t in range(len(frame)-1):
         frame_tcourse[frame[t]:frame[t+1]]=t
@@ -76,7 +76,9 @@ def valid_swim(row):
     swim_starts = swim_starts[~remove_ind]
     swim_ends = swim_ends[~remove_ind]
     
-    swim_task_index =  task_tcourse[swim_starts]
+    swim_task_index = np.zeros(len(swim_starts))
+    for n in range(len(swim_starts)):
+        swim_task_index[n] =  np.median(task_tcourse[swim_starts[n]:swim_ends[n]])
     swim_len_list = swim_len_list[~remove_ind]
 
     # remove no swim fish
