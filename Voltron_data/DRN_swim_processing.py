@@ -55,8 +55,8 @@ def trial_swim_power():
         if not os.path.isfile(swimdir/"rawdata.npy"):
             print(f'Preprocessing is not done, skip trial_swim_power at {folder}_{fish}')
             continue
-        rawdata=np.load(swimdir/"rawdata.npy")[()]
-        swimdata=np.load(swimdir/"swimdata.npy")[()]
+        rawdata=np.load(swimdir/"rawdata.npy", allow_pickle=True)[()]
+        swimdata=np.load(swimdir/"swimdata.npy", allow_pickle=True)[()]
         reclen=len(swimdata['fltCh1'])
         trial_inds=np.zeros((reclen,))
         rawdata['stimParam3'][:50]=0
@@ -70,7 +70,7 @@ def trial_swim_power():
         trial_inds[end_stimParam[-1]:]=len(end_stimParam)+1
         trial_inds[trial_inds==trial_inds.max()]=0
         if os.path.isfile(swimdir/"ex_inds.npy"):
-            ex_inds=np.load(swimdir/"ex_inds.npy")[()]
+            ex_inds=np.load(swimdir/"ex_inds.npy", allow_pickle=True)[()]
             for i in range(len(ex_inds)):
                 trial_inds[trial_inds==(ex_inds[i]+1)]=0
         np.save(swimdir/"trial_inds",trial_inds);
@@ -111,9 +111,9 @@ def trial_power():
         if not os.path.isfile(swimdir/"rawdata.npy"):
             print(f'Preprocessing is not done, skip trial_power at {folder}_{fish}')
             continue
-        rawdata     = np.load(swimdir/"rawdata.npy")[()]
-        swimdata    = np.load(swimdir/"swimdata.npy")[()]
-        trial_inds  = np.load(swimdir/"trial_inds.npy")[()]
+        rawdata     = np.load(swimdir/"rawdata.npy", allow_pickle=True)[()]
+        swimdata    = np.load(swimdir/"swimdata.npy", allow_pickle=True)[()]
+        trial_inds  = np.load(swimdir/"trial_inds.npy", allow_pickle=True)[()]
         ntrials     = int(trial_inds.max())
         stimParam=rawdata['stimParam3']+(rawdata['stimParam4']-1)*4;
         # 4 trials per recording
@@ -183,9 +183,9 @@ def frame_swim_power():
         if not os.path.isfile(swimdir/"rawdata.npy"):
             print(f'Preprocessing is not done, skip frame_swim_power at {folder}_{fish}')
             continue
-        rawdata = np.load(swimdir/"rawdata.npy")[()]
-        swimdata = np.load(swimdir/"swimdata.npy")[()]
-        trial_inds = np.load(swimdir/"trial_inds.npy")[()]
+        rawdata = np.load(swimdir/"rawdata.npy", allow_pickle=True)[()]
+        swimdata = np.load(swimdir/"swimdata.npy", allow_pickle=True)[()]
+        trial_inds = np.load(swimdir/"trial_inds.npy", allow_pickle=True)[()]
         reclen=len(swimdata['fltCh1'])
         frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
         if 'stimParam6' in rawdata.keys():
@@ -257,9 +257,9 @@ def frame_swim_power_series():
             continue
         if os.path.isfile(swimdir/"frame_swim_tcourse_series.npy"):
             continue
-        rawdata = np.load(swimdir/"rawdata.npy")[()]
-        swimdata = np.load(swimdir/"swimdata.npy")[()]
-        trial_inds = np.load(swimdir/"trial_inds.npy")[()]
+        rawdata = np.load(swimdir/"rawdata.npy", allow_pickle=True)[()]
+        swimdata = np.load(swimdir/"swimdata.npy", allow_pickle=True)[()]
+        trial_inds = np.load(swimdir/"trial_inds.npy", allow_pickle=True)[()]
         reclen=len(swimdata['fltCh1'])
         frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
         frame_stimParams=np.zeros((5,len(frame)))
