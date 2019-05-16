@@ -32,6 +32,10 @@ for _, row in dat_xls_file.iterrows():
     folder = row['folder']
     fish = row['fish']
     dat_dir = dir_folder+f'{folder}/{fish}/Data/'
+    if os.path.exists(f'swim_voltr/{folder}_{fish}_swim_voltr_dat.npz'):
+        continue
+    if not os.path.exists(dat_dir+'Voltr_spikes.npz'):
+        continue
     dff = np.load(dat_dir+'Voltr_spikes.npz')['voltrs']
     spk = np.load(dat_dir+'Voltr_spikes.npz')['spk']
     dff = dff - np.nanmedian(dff, axis=1, keepdims=True)
