@@ -4,6 +4,7 @@ import pandas as pd
 from sys import platform
 import matplotlib.pyplot as plt
 import os, sys
+from glob import glob
 
 # Deal with path in windows and unix-like systems (solution only applied to python 3.0)
 dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
@@ -27,6 +28,13 @@ def swim():
         folder = row['folder']
         fish = row['fish']
         swim_chFit = row['rootDir'] + f'{folder}/{fish}.10chFlt'
+        if not os.path.exists(swim_chFit):
+            swim_tmp = glob(row['rootDir']+f'{folder}/{fish[:7]}*.10chFlt')
+            if len(swim_tmp) == 1:
+                swim_chFit = swim_tmp[0]
+            else:
+                print(f'Check existence of file {swim_chFit}')
+                continue
         save_folder = dat_folder + f'{folder}/{fish}'
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
@@ -34,6 +42,7 @@ def swim():
             os.makedirs(save_folder+'/swim')
             print(f'checking file {folder}/{fish}')
             try:
+                print(f'Using matched file {swim_chFit}')
                 process_swim(swim_chFit, save_folder)
             except IOError:
                 os.rmdir(save_folder+'/swim')
@@ -240,8 +249,8 @@ def match_swim_frame(swim_pow, startI, endI, fstart, fend, frame_tcourse):
     for n_t in range(fend-fstart):
         d_swim_pow[n_t] = swim_pow[frame_tcourse == (fstart + n_t)].mean()
     return d_swim_pow
-        
-        
+
+
 def frame_swim_power_series():
     '''
     Calculating frame-by-frame power
