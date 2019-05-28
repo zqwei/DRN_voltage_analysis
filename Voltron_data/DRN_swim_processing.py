@@ -5,6 +5,9 @@ from sys import platform
 import matplotlib.pyplot as plt
 import os, sys
 from glob import glob
+import fnmatch
+import re
+
 
 # Deal with path in windows and unix-like systems (solution only applied to python 3.0)
 dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
@@ -15,6 +18,16 @@ if platform == "linux" or platform == "linux2":
 elif platform == 'win32':
     dir_folder = Path('U:\\Takashi') # put folder for windows system
 noise_thre  = 0.5
+
+
+def findfiles(which, where='.'):
+    '''Returns list of filenames from `where` path matched by 'which'
+       shell pattern. Matching is case-insensitive.'''
+
+    # TODO: recursive param with walk() filtering
+    rule = re.compile(fnmatch.translate(which), re.IGNORECASE)
+    return [name for name in os.listdir(where) if rule.match(name)]
+
 
 def swim():
     '''
@@ -29,12 +42,16 @@ def swim():
         fish = row['fish']
         swim_chFit = row['rootDir'] + f'{folder}/{fish}.10chFlt'
         if not os.path.exists(swim_chFit):
-            swim_tmp = glob(row['rootDir']+f'{folder}/{fish[:7]}*.10chFlt')
-            if len(swim_tmp) == 1:
-                swim_chFit = swim_tmp[0]
+            fish_alt = findfiles(fish+'.10chFlt', row['rootDir']+folder)
+            if len(fish_alt)==1:
+                swim_chFit = row['rootDir'] + f'{folder}/{fish_alt[0]}'
             else:
-                print(f'Check existence of file {swim_chFit}')
-                continue
+                swim_tmp = glob(row['rootDir']+f'{folder}/{fish[:7]}*.10chFlt')
+                if len(swim_tmp) == 1:
+                    swim_chFit = swim_tmp[0]
+                else:
+                    print(f'Check existence of file {swim_chFit}')
+                    continue
         save_folder = dat_folder + f'{folder}/{fish}'
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
