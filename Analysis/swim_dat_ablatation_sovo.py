@@ -20,14 +20,49 @@ t_pre = 100 # time window pre-swim
 t_post = 550 # time window post-swim
 t_len = t_pre+t_post
 gain_stat_len = 100 # time length to examine the gain adaption after swim
+before_ = 'before-swimonly_visualonly'
+after_ = 'after-swimonly_visualonly'
+before_len = len(before_)
+after_len = len(after_)
+
+def search_paired_data_before(row, flist):
+    if 'before GABA ablation' not in row['task']:
+        return False
+    if 'failed' in row['task']:
+        return False
+    fish = row['fish'][:-before_len]
+    for _, row_ in flist.iterrows():
+        if row_['folder'] != row['folder']:
+            continue
+        if row_['fish'] == (fish+after_):
+            return True
+    return False
+
+
+def search_paired_data_after(row, flist):
+    if 'after GABA ablation' not in row['task']:
+        return False
+    if 'failed' in row['task']:
+        return False
+    fish = row['fish'][:-after_len]
+    for _, row_ in flist.iterrows():
+        if row_['folder'] != row['folder']:
+            continue
+        if row_['fish'] == (fish+before_):
+            return True
+    return False
 
 
 def valid_swim(row):
     from scipy.stats import ranksums
+    
+    if not (search_paired_data_before(row, dat_xls_file) or search_paired_data_after(row, dat_xls_file)):
+        return False
+    
     folder = row['folder']
     fish = row['fish']
     task_type = row['task'] # task type names
-    if not 'before ablation' in task_type:
+    if not 'ablation' in task_type:
         return False
 
     swim_dir = dir_folder + f'{folder}/{fish}/swim/'
@@ -119,4 +154,4 @@ if __name__ == "__main__":
         valid_swim_list.append(valid_swim(row))
     
     swim_xls_file = dat_xls_file[valid_swim_list]
-    swim_xls_file.to_csv('depreciated/analysis_sections_ablation_gain_adapted.csv')
+    swim_xls_file.to_csv('depreciated/analysis_sections_ablation_sovo.csv')
