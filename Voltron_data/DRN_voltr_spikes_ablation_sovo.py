@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import os, sys
-from trefide.temporal import TrendFilter
+# from trefide.temporal import TrendFilter
 from matplotlib import pyplot as plt
 
 
@@ -366,25 +366,25 @@ def voltr2spike_(voltrs, window_length, m):
     return spk_list, spkprob_list, spk1_list, spk2_list, voltr_list
 
 
-def tf_filter(_):
-    from trefide.temporal import TrendFilter
-    spk__, voltr_, voltr= _
-    filters = TrendFilter(len(voltr_))
-    tspk = np.where(spk__>0)[0]
-    tspk_win = tspk[:, None] + np.arange(-3, 3)[None, :]
-    tspk_win = tspk_win.reshape(-1)
-    nospike = np.zeros(spk__.shape)
-    nospike[tspk_win] = 1
-    tspk_ = np.where(nospike==0)[0]
-    int_voltr_ = voltr_.copy()
-    int_voltr_[tspk_win] = np.interp(tspk_win, tspk_, voltr_[tspk_])
-    denoised_voltr_ = filters.denoise(int_voltr_)
+# def tf_filter(_):
+#     from trefide.temporal import TrendFilter
+#     spk__, voltr_, voltr= _
+#     filters = TrendFilter(len(voltr_))
+#     tspk = np.where(spk__>0)[0]
+#     tspk_win = tspk[:, None] + np.arange(-3, 3)[None, :]
+#     tspk_win = tspk_win.reshape(-1)
+#     nospike = np.zeros(spk__.shape)
+#     nospike[tspk_win] = 1
+#     tspk_ = np.where(nospike==0)[0]
+#     int_voltr_ = voltr_.copy()
+#     int_voltr_[tspk_win] = np.interp(tspk_win, tspk_, voltr_[tspk_])
+#     denoised_voltr_ = filters.denoise(int_voltr_)
 
-    int_voltr_ = voltr[600:].copy()
-    int_voltr_[tspk_win] = np.interp(tspk_win, tspk_, voltr[600:][tspk_])
-    denoised_voltr = filters.denoise(int_voltr_)
-    out = (denoised_voltr_, denoised_voltr)
-    return np.asarray(out[0])[np.newaxis,:], np.asarray(out[1])[np.newaxis,:]
+#     int_voltr_ = voltr[600:].copy()
+#     int_voltr_[tspk_win] = np.interp(tspk_win, tspk_, voltr[600:][tspk_])
+#     denoised_voltr = filters.denoise(int_voltr_)
+#     out = (denoised_voltr_, denoised_voltr)
+#     return np.asarray(out[0])[np.newaxis,:], np.asarray(out[1])[np.newaxis,:]
 
 
 def voltr2spike(row, fext=''):
@@ -434,53 +434,53 @@ def voltr2spike(row, fext=''):
     Path(save_folder+f'/finished_spikes{fext}.tmp').touch()
     return None
 
-def voltr2subvolt(row, fext=''):
-    '''
-    This one can be benefited from multiple cores.
-    '''
-    from pathlib import Path
-    import multiprocessing as mp
+# def voltr2subvolt(row, fext=''):
+#     '''
+#     This one can be benefited from multiple cores.
+#     '''
+#     from pathlib import Path
+#     import multiprocessing as mp
 
-    folder = row['folder']
-    fish = row['fish']
-    save_folder = dat_folder + f'{folder}/{fish}/Data'
+#     folder = row['folder']
+#     fish = row['fish']
+#     save_folder = dat_folder + f'{folder}/{fish}/Data'
 
-    if os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
-        return None
+#     if os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
+#         return None
 
-    if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
-        print('Spike file does not exist.')
-        return None
+#     if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
+#         print('Spike file does not exist.')
+#         return None
 
-    if os.path.isfile(save_folder+f'/proc_subvolt{fext}.tmp'):
-        print('SubVolt file is already in processing.')
-        return None
+#     if os.path.isfile(save_folder+f'/proc_subvolt{fext}.tmp'):
+#         print('SubVolt file is already in processing.')
+#         return None
 
-    Path(save_folder+f'/proc_subvolt{fext}.tmp').touch()
-    print(f'Processing {save_folder}')
-    _ = np.load(f'{save_folder}/Voltr_spikes.npz')
-    voltrs = _['voltrs']
-    spk = _['spk']
-    spkprob = _['spkprob']
-    spk1 = _['spk1']
-    spk2 = _['spk2']
-    voltr_ = _['voltr_']
-    n_, len_ = voltrs.shape
-    spk__list = spk1+spk2
-    dat_ = [(spk__list[_, :], voltr_[_, :], voltrs[_, :]) for _ in range(n_)]
-    mp_count = min(mp.cpu_count(), n_)
-    pool = mp.Pool(processes=mp_count)
-    individual_results = pool.map(tf_filter, dat_)
-    pool.close()
-    pool.join()
-    results = ()
-    for i_tuple in range(len(individual_results[0])):
-        results = results + (np.concatenate([_[i_tuple] for _ in individual_results]), )
+#     Path(save_folder+f'/proc_subvolt{fext}.tmp').touch()
+#     print(f'Processing {save_folder}')
+#     _ = np.load(f'{save_folder}/Voltr_spikes.npz')
+#     voltrs = _['voltrs']
+#     spk = _['spk']
+#     spkprob = _['spkprob']
+#     spk1 = _['spk1']
+#     spk2 = _['spk2']
+#     voltr_ = _['voltr_']
+#     n_, len_ = voltrs.shape
+#     spk__list = spk1+spk2
+#     dat_ = [(spk__list[_, :], voltr_[_, :], voltrs[_, :]) for _ in range(n_)]
+#     mp_count = min(mp.cpu_count(), n_)
+#     pool = mp.Pool(processes=mp_count)
+#     individual_results = pool.map(tf_filter, dat_)
+#     pool.close()
+#     pool.join()
+#     results = ()
+#     for i_tuple in range(len(individual_results[0])):
+#         results = results + (np.concatenate([_[i_tuple] for _ in individual_results]), )
 
-    np.savez_compressed(f'{save_folder}/Voltr_subvolt', norm_subvolt=results[0], subvolt_=results[1])
-    Path(save_folder+f'/finished_subvolt{fext}.tmp').touch()
+#     np.savez_compressed(f'{save_folder}/Voltr_subvolt', norm_subvolt=results[0], subvolt_=results[1])
+#     Path(save_folder+f'/finished_subvolt{fext}.tmp').touch()
 
-    return None
+#     return None
 
 
 if __name__ == "__main__":
@@ -510,5 +510,5 @@ if __name__ == "__main__":
             save_folder = dat_folder + f'{folder}/{fish}/Data'
             if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
                 voltr2spike(row, fext=fext)
-            if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
-                voltr2subvolt(row, fext=fext)
+#             if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):
+#                 voltr2subvolt(row, fext=fext)
