@@ -5,6 +5,8 @@ SVD_error
 *.out
 *.npz
 *.npy
+plot*
+Plots
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
