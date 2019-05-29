@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import os
 
-vol_file = '../Voltron_data/Voltron_Log_DRN_Exp.csv'
+vol_file = '../Voltron_data/Voltron_Log_DRN_Exp_update.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
@@ -25,8 +25,15 @@ def valid_swim(row):
     folder = row['folder']
     fish = row['fish']
     task_type = row['task'] # task type names
+    
+    # only analysis swim-only visual-only
+    if not 'Swimonly_Visualonly' in task_type:
+        return False
+    # remove after-ablation data
+    if 'after ablation' in task_type:
+        return False
     swim_dir = dir_folder + f'{folder}/{fish}/swim/'
-
+    print(swim_dir)
     frame_stimParams = np.load(swim_dir+'frame_stimParams.npy')
     frame_swim_tcourse = np.load(swim_dir+'frame_swim_tcourse_series.npy')
     rawdata = np.load(swim_dir+"rawdata.npy", allow_pickle=True)[()]
@@ -98,10 +105,7 @@ if __name__ == "__main__":
 
     valid_swim_list = []
     for index, row in dat_xls_file.iterrows():
-        if ('Swimonly' in row['task']) and (not 'ablation' in row['task']): 
-            valid_swim_list.append(valid_swim(row))
-        else:
-            valid_swim_list.append(False)
+        valid_swim_list.append(valid_swim(row))
     
     swim_xls_file = dat_xls_file[valid_swim_list]
-    swim_xls_file.to_csv('depreciated/analysis_sections_based_on_swim_pattern_sovo.csv')
+    swim_xls_file.to_csv('depreciated/analysis_sections_sovo.csv')

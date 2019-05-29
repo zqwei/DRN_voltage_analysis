@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import os
 
-vol_file = '../Voltron_data/Voltron_Log_DRN_Exp.csv'
+vol_file = '../Voltron_data/Voltron_Log_DRN_Exp_update.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
@@ -147,4 +147,4 @@ if __name__ == "__main__":
         valid_swim_list.append(valid_swim(row))
     
     swim_xls_file = dat_xls_file[valid_swim_list]
-    swim_xls_file.to_csv('depreciated/analysis_sections_ablation.csv')
+    swim_xls_file.to_csv('depreciated/analysis_sections_ablation_gain.csv')

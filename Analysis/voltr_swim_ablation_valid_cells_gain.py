@@ -16,7 +16,7 @@ from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
 
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
-vol_file = 'depreciated/analysis_sections_ablation.csv'
+vol_file = 'depreciated/analysis_sections_ablation_gain_update.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 

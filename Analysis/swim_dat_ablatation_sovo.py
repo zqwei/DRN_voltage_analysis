@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import os
 
-vol_file = '../Voltron_data/Voltron_Log_DRN_Exp.csv'
+vol_file = '../Voltron_data/Voltron_Log_DRN_Exp_update.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
@@ -26,7 +26,7 @@ before_len = len(before_)
 after_len = len(after_)
 
 def search_paired_data_before(row, flist):
-    if 'before GABA ablation' not in row['task']:
+    if 'before ablation' not in row['task']:
         return False
     if 'failed' in row['task']:
         return False
@@ -40,7 +40,7 @@ def search_paired_data_before(row, flist):
 
 
 def search_paired_data_after(row, flist):
-    if 'after GABA ablation' not in row['task']:
+    if 'after ablation' not in row['task']:
         return False
     if 'failed' in row['task']:
         return False
@@ -55,33 +55,43 @@ def search_paired_data_after(row, flist):
 
 def valid_swim(row):
     from scipy.stats import ranksums
-    
-    if not (search_paired_data_before(row, dat_xls_file) or search_paired_data_after(row, dat_xls_file)):
-        return False
-    
     folder = row['folder']
     fish = row['fish']
     task_type = row['task'] # task type names
     if not 'ablation' in task_type:
         return False
+    if not 'Swimonly_Visualonly' in task_type:
+        return False
+    
+    if not (search_paired_data_before(row, dat_xls_file) or search_paired_data_after(row, dat_xls_file)):
+        return False
 
     swim_dir = dir_folder + f'{folder}/{fish}/swim/'
-    if not os.path.exists(swim_dir+'frame_stimParams.npy'):
-        return False
+    print(swim_dir)
     frame_stimParams = np.load(swim_dir+'frame_stimParams.npy')
     frame_swim_tcourse = np.load(swim_dir+'frame_swim_tcourse_series.npy')
-    rawdata = np.load(swim_dir+"rawdata.npy")[()]
-    swimdata = np.load(swim_dir+"swimdata.npy")[()]
+    rawdata = np.load(swim_dir+"rawdata.npy", allow_pickle=True)[()]
+    swimdata = np.load(swim_dir+"swimdata.npy", allow_pickle=True)[()]
     reclen=len(swimdata['fltCh1'])
     frame_tcourse=np.zeros((reclen,))
-    frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
+    frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]+1
+    task_tcourse = np.zeros(len(frame))
     for t in range(len(frame)-1):
         frame_tcourse[frame[t]:frame[t+1]]=t
+        task_tcourse[t] = rawdata['stimParam4'][frame[t+1]]
     swim_starts = frame_tcourse[np.where(swimdata['swimStartT']>0)[0]].astype('int')
     swim_ends = frame_tcourse[np.where(swimdata['swimEndT']>0)[0]].astype('int')
     # collect trial within t-pre, and t-post valid range
     swim_ends   = swim_ends[((swim_starts>t_pre) & (swim_starts<(frame_swim_tcourse.shape[1]-t_post)))]
     swim_starts = swim_starts[((swim_starts>t_pre) & (swim_starts<(frame_swim_tcourse.shape[1]-t_post)))]
+
+    vis_starts = np.where((rawdata['stimParam4'][1:]==3) & (rawdata['stimParam4'][:-1]<3))[0] + 1
+    vis_ends = np.where((rawdata['stimParam4'][1:]<3) & (rawdata['stimParam4'][:-1]==3))[0] + 1
+    vis_starts = frame_tcourse[vis_starts].astype('int')
+    vis_ends = frame_tcourse[vis_ends].astype('int')
+
+    swim_starts = np.r_[swim_starts.ravel(), vis_starts.ravel()]
+    swim_ends = np.r_[swim_ends.ravel(), vis_ends.ravel()]
 
     r_swim=np.empty((len(swim_starts), t_len))
     r_swim[:] = 0
@@ -98,51 +108,28 @@ def valid_swim(row):
         visu[i,:]=-frame_stimParams[0,(swim_starts[i]-t_pre):(swim_starts[i]+t_post)]*10000
 
     # remove no power swim bout
-    remove_ind = (r_swim.sum(axis=-1)==0) & (l_swim.sum(axis=-1)==0)
+    remove_ind1 = (r_swim.sum(axis=-1)==0) & (l_swim.sum(axis=-1)==0) & (task_tcourse[swim_starts]<3)
+    remove_ind2 = (((r_swim.sum(axis=-1)>0) | (l_swim.sum(axis=-1)>0)) & (task_tcourse[swim_starts]==3))
+    remove_ind = remove_ind1 | remove_ind2
     r_swim = r_swim[~remove_ind, :]
     l_swim = l_swim[~remove_ind, :]
     visu = visu[~remove_ind, :]
     swim_starts = swim_starts[~remove_ind]
     swim_ends = swim_ends[~remove_ind]
-
-    task_period = frame_stimParams[2,swim_starts]
-    task_index   = frame_stimParams[2,:]+(frame_stimParams[3,:]-1)*4+(frame_stimParams[4,:]-1)*12
-    swim_task_index =  task_index[swim_starts]
+    
+    swim_task_index = np.zeros(len(swim_starts))
+    for n in range(len(swim_starts)):
+        swim_task_index[n] =  np.median(task_tcourse[swim_starts[n]:swim_ends[n]])
     swim_len_list = swim_len_list[~remove_ind]
-    swim_count  = np.zeros((len(swim_starts),))
-
-    ind_old=0
-    for s in range(len(swim_starts)):
-        ind=swim_task_index[s]
-        if (ind>ind_old):
-            swim_count[s]=1
-            ind_old=ind
-        elif (ind==ind_old):
-            swim_count[s]=swim_count[s-1]+1
 
     # remove no swim fish
     if len(swim_starts)==0:
         return False
-#     if (task_period==1).sum()<5:
-#         print((task_period==1).sum())
-#         return False
-
-    ## mean swim ptterns
-    # compare the swim power for the first x frames after swim onset
-    gain_stat = np.zeros(gain_stat_len)
-    gain_sig_stat = np.ones(gain_stat_len)
-    if (task_period==2).sum()>0:
-        for ntime in range(gain_stat_len):
-            val, pval= ranksums(r_swim[task_period==1, t_pre+ntime], r_swim[task_period==2, t_pre+ntime])
-            gain_stat[ntime] = np.sign(val) * pval
-            gain_sig_stat[ntime] = (val>0) and (pval<0.05)
-
-    print(f'{folder} {fish}: average swim difference significance: {gain_sig_stat.mean()}')
 
     np.savez(f'swim_power/{folder}_{fish}_swim_dat', \
             swim_starts=swim_starts, swim_ends=swim_ends, \
             r_swim = r_swim, l_swim=l_swim, visu=visu, \
-            task_period = task_period, swim_task_index=swim_task_index)
+            swim_task_index=swim_task_index)
 
     print('save swim file')
     return True
