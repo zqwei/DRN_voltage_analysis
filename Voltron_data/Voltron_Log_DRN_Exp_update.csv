@@ -131,42 +131,42 @@
 129,5152019,Fish3-3-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
 130,5152019,Fish4-1-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
 131,5152019,Fish4-2-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-132,5162019,Fish1-plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-133,5162019,Fish1-plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-134,5162019,Fish1-plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-135,5162019,Fish1-plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-136,5162019,Fish2-plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-137,5162019,Fish2-plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-138,5162019,Fish2-plane#3-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-139,5162019,Fish2-plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-140,5162019,Fish2-plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-141,5162019,Fish2-plane#3-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+132,5162019,Fish1-plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+133,5162019,Fish1-plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+134,5162019,Fish1-plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+135,5162019,Fish1-plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+136,5162019,Fish2-plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+137,5162019,Fish2-plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+138,5162019,Fish2-plane#3-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+139,5162019,Fish2-plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+140,5162019,Fish2-plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
+141,5162019,Fish2-plane#3-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
 142,5162019,Fish3-plane#1-before-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,/nrs/ahrens/Takashi/
-143,5222019,Fish1-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-144,5222019,Fish1-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-145,5222019,Fish2-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-146,5222019,Fish2-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-147,5222019,Fish2-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-148,5222019,Fish2-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-149,5222019,Fish3-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-150,5222019,Fish3-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-151,5222019,Fish3-Plane#3-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-152,5222019,Fish3-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-153,5222019,Fish3-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-154,5222019,Fish3-Plane#3-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+143,5222019,Fish1-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+144,5222019,Fish1-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+145,5222019,Fish2-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+146,5222019,Fish2-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+147,5222019,Fish2-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+148,5222019,Fish2-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+149,5222019,Fish3-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+150,5222019,Fish3-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+151,5222019,Fish3-Plane#3-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+152,5222019,Fish3-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+153,5222019,Fish3-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+154,5222019,Fish3-Plane#3-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
 155,5232019,Fish1-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
 156,5232019,Fish1-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
 157,5232019,Fish2-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
 158,5232019,Fish2-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly,Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-159,5232019,Fish3-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-160,5232019,Fish3-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-161,5232019,Fish3-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-162,5232019,Fish3-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-163,5232019,Fish4-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-164,5232019,Fish4-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-165,5232019,Fish4-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-166,5232019,Fish4-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-167,5232019,Fish5-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-168,5232019,Fish5-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-169,5232019,Fish5-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
-170,5232019,Fish5-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after GABA ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+159,5232019,Fish3-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+160,5232019,Fish3-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+161,5232019,Fish3-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+162,5232019,Fish3-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+163,5232019,Fish4-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+164,5232019,Fish4-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+165,5232019,Fish4-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+166,5232019,Fish4-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+167,5232019,Fish5-Plane#1-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+168,5232019,Fish5-Plane#2-before-swimonly_visualonly,Swimonly_Visualonly (before ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+169,5232019,Fish5-Plane#1-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
+170,5232019,Fish5-Plane#2-after-swimonly_visualonly,Swimonly_Visualonly (after ablation),Raphe,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,/nrs/ahrens/Takashi/
