@@ -17,7 +17,7 @@ dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 t_pre = 100 # time window pre-swim
-t_post = 550 # time window post-swim
+t_post = 350 # time window post-swim
 t_len = t_pre+t_post
 gain_stat_len = 100 # time length to examine the gain adaption after swim
 
