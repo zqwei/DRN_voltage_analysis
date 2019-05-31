@@ -19,13 +19,17 @@ def sub_process(dff, k_size=51):
         subvolt[n, :] = medfilt(ndff, kernel_size=k_size)
     return subvolt
 
-def sub_input(ave_, c='k', t_min = 0, t_max = 400, t_zero=100, isplot=False):
+def sub_input(ave_, c='k', t_min = 0, t_max = 450, t_zero=100, isplot=False):
     mean_ = ave_[:, t_min:t_max].mean(axis=0)
-    mean_ = mean_ - mean_[:(100-t_min)].max()
+#     mean_ = mean_ - mean_[:(100-t_min)].max()
     max_ = mean_.max()
     min_ = mean_.min()
     std_ = ave_[:, t_min:t_max].std(axis=0)/np.sqrt(ave_.shape[0])
-    act_ = mean_[t_zero-60:t_zero+270].reshape(-1, 30)
+    t_start = -30 # -60
+    t_end = 270 # 270
+    t_step = 10 # 30
+    t_vec = np.arange(t_start, t_end, t_step)/300+t_step/2/300
+    act_ = mean_[t_zero+t_start:t_zero+t_end].reshape(-1, t_step)
 
     if isplot:
         plt.plot(np.arange(t_max-t_min)/300-(t_zero-t_min)/300, mean_, f'-{c}', lw=2)
@@ -37,7 +41,6 @@ def sub_input(ave_, c='k', t_min = 0, t_max = 400, t_zero=100, isplot=False):
     act_pre_ = act_[0]
     dist = act_.max()-act_.min()
     exc_input = []
-    t_vec = np.arange(-60, 270, 30)/300+15/300
     pre_input = 0
     for nperiod in range(act_.shape[0]-1):
         _, p = ttest_ind(act_pre_, act_[nperiod+1])
