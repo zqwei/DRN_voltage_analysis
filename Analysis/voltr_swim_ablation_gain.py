@@ -70,10 +70,12 @@ for _, row in dat_xls_file.iterrows():
     sub_swim = []
     spk_swim = []
     sub_sig_swim = []
+    spk_sum = np.zeros(num_cell)
     # remove low spike cells
     for n_cell in range(num_cell):
         if spk[n_cell].sum()<non_spike_thres:
             continue
+        spk_sum[n_cell] = spk[n_cell].sum()
         n_spk = smooth(spk[n_cell], k_spk)
         n_dff = medfilt(dff[n_cell], kernel_size=k_sub*2+1)
         
@@ -105,6 +107,7 @@ for _, row in dat_xls_file.iterrows():
         sub_sig_swim.append(sub_sig)
     
     np.savez(f'swim_voltr/{folder}_{fish}_swim_voltr_dat', \
-            sub_swim=np.array(sub_swim), \
-            spk_swim=np.array(spk_swim), \
-            sub_sig_swim=np.array(sub_sig_swim), trial_valid=trial_valid_)
+             sub_swim=np.array(sub_swim), \
+             spk_swim=np.array(spk_swim), \
+             sub_sig_swim=np.array(sub_sig_swim), \
+             trial_valid=trial_valid_, spk_sum=spk_sum)
