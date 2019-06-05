@@ -1,0 +1,141 @@
+,folder,fish,task,area,type,rootDir
+0,12262018,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+1,12262018,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+2,12262018,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+3,12262018,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+4,12262018,Fish2-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+5,12262018,Fish3-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+6,12262018,Fish3-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+7,12262018,Fish3-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+8,1022019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+9,1022019,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+10,1022019,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+11,1022019,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+12,1022019,Fish2-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+13,1022019,Fish2-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+14,1162019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+15,1162019,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+16,1162019,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+17,1162019,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+18,1162019,Fish2-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+19,1162019,Fish2-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+20,1302019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+21,1302019,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+22,1302019,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+23,1302019,Fish2-1,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+24,1302019,Fish2-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+25,2062019,Fish1-1,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+26,2062019,Fish1-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+27,2062019,Fish1-3,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+28,2062019,Fish1-4,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+29,2062019,Fish1-5,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+30,2062019,Fish1-6,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+31,2132019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+32,2132019,Fish1-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+33,2132019,Fish1-3,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+34,2132019,Fish1-4,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+35,2132019,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+36,2132019,Fish2-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+37,2132019,Fish2-3,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+38,2132019,Fish2-4,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+39,3062019,Fish1-1,Delayed feedback+Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+40,3062019,Fish1-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+41,3062019,Fish2-1,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+42,3062019,Fish2-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+43,3062019,Fish2-3,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+44,3062019,Fish3-1,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+45,3062019,Fish3-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+46,3072019,Fish1-1,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+47,3072019,Fish1-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+48,3072019,Fish2-1,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+49,3072019,Fish3-1,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+50,3072019,Fish3-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+51,3072019,Fish3-3,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+52,3132019,Fish1-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+53,3132019,Fish1-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+54,3132019,Fish2-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+55,3132019,Fish2-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+56,3132019,Fish3-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+57,3132019,Fish3-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+58,3132019,Fish4-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+59,3132019,Fish4-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+60,3142019,Fish1-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+61,3142019,Fish1-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+62,3142019,Fish2-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+63,3142019,Fish2-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+64,3142019,Fish3-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+65,3142019,Fish3-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+66,3272019,Fish1-1,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+67,3272019,Fish1-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+68,4102019,Fish1-1,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+69,4102019,Fish1-2,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+70,4102019,Fish1-3,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+71,4102019,Fish1-4,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+72,4102019,Fish2-1,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+73,4102019,Fish2-2,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+74,4102019,Fish2-3,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+75,4102019,Fish3-1,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+76,4102019,Fish3-2,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+77,4102019,Fish3-3,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+78,4102019,Fish3-4,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+79,4112019,Fish1-1,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+80,4112019,Fish1-2,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+81,4112019,Fish1-3,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+82,4172019,Fish1-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+83,4172019,Fish1-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+84,4172019,Fish1-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+85,4172019,Fish1-4-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+86,4172019,Fish1-5-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+87,4172019,Fish2-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+88,4172019,Fish2-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+89,4172019,Fish2-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+90,4172019,Fish2-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+91,4172019,Fish2-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+92,4172019,Fish3-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+93,4172019,Fish3-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+94,4172019,Fish3-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+95,4172019,Fish3-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+96,4172019,Fish3-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+97,4182019,Fish1-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+98,4182019,Fish1-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+99,4182019,Fish1-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+100,4182019,Fish1-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+101,4182019,Fish1-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+102,4182019,Fish2-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+103,4182019,Fish2-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+104,4182019,Fish2-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+105,4182019,Fish2-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+106,4182019,Fish2-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+107,5012019,Fish1-1-RandomDelay,Delayed feedback,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+108,5012019,Fish1-2-RandomGain,Random Gain,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+109,5012019,Fish2-1-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+110,5012019,Fish2-2-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+111,5012019,Fish2-3-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+112,5012019,Fish2-4-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+113,5012019,Fish2-5-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+114,5012019,Fish2-6-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+115,5012019,Fish3-1-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+116,5012019,Fish3-2-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+117,5012019,Fish3-3-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+118,5012019,Fish3-4-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+119,5012019,Fish4-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+120,5012019,Fish4-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+121,5022019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+122,5022019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+123,5022019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+124,5082019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+125,5082019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+126,5082019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+127,5082019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+128,5082019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+129,5082019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+130,5082019,Fish3-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+131,5082019,Fish3-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+132,5082019,Fish3-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+133,5092019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+134,5092019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+135,5092019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+136,5092019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+137,5092019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+138,5092019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
+139,5092019,Fish2-4-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/
