@@ -68,14 +68,14 @@ def shift_xy(fix_, move_, x, y):
     if x>0:
         fix_ = fix_[:-x, :, :]
         move_ = move_[x:, :, :]
-    else:
+    elif x<0:
         fix_ = fix_[-x:, :, :]
         move_ = move_[:x, :, :]
     # shift y
     if y>0:
         fix_ = fix_[:, :-y, :]
         move_ = move_[:, y:, :]
-    else:
+    elif y<0:
         fix_ = fix_[:, -y:, :]
         move_ = move_[:, :y, :]
     return fix_, move_
@@ -87,12 +87,12 @@ def shift_xy_before(fix_, x, y):
     # shift x
     if x>0:
         fix_ = fix_[:-x, :, :]
-    else:
+    elif x<0:
         fix_ = fix_[-x:, :, :]
     # shift y
     if y>0:
         fix_ = fix_[:, :-y, :]
-    else:
+    elif y<0:
         fix_ = fix_[:, -y:, :]
     return fix_
 
@@ -103,12 +103,12 @@ def shift_xy_after(move_, x, y):
     # shift x
     if x>0:
         move_ = move_[x:, :, :]
-    else:
+    elif x<0:
         move_ = move_[:x, :, :]
     # shift y
     if y>0:
         move_ = move_[:, y:, :]
-    else:
+    elif y<0:
         move_ = move_[:, :y, :]
     return move_
 
@@ -391,9 +391,9 @@ def voltr2spike(row, fext=''):
     '''
     There seems to be a limitation of cores keras can use, 4 - 8 cores are enough for this one.
     '''
-    import tensorflow as tf
-    from keras import backend as K
-    K.set_session(K.tf.Session(config=K.tf.ConfigProto(intra_op_parallelism_threads=32, inter_op_parallelism_threads=32)))
+#     import tensorflow as tf
+#     from keras import backend as K
+#     K.set_session(K.tf.Session(config=K.tf.ConfigProto(intra_op_parallelism_threads=32, inter_op_parallelism_threads=32)))
     import keras
     from keras.models import load_model
     from fish_proc.spikeDetectionNN.spikeDetector import prepare_sequences_center
@@ -500,6 +500,7 @@ if __name__ == "__main__":
             task_type = row['task']
             save_folder = dat_folder + f'{folder}/{fish}/Data'
             if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
+                align_components(row)
                 x, y = align_components(row)
                 voltron(row, x, y, fext='', is_mask=True)
         

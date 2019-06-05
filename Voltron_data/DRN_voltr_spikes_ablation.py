@@ -68,14 +68,14 @@ def shift_xy(fix_, move_, x, y):
     if x>0:
         fix_ = fix_[:-x, :, :]
         move_ = move_[x:, :, :]
-    else:
+    elif x<0:
         fix_ = fix_[-x:, :, :]
         move_ = move_[:x, :, :]
     # shift y
     if y>0:
         fix_ = fix_[:, :-y, :]
         move_ = move_[:, y:, :]
-    else:
+    elif y<0:
         fix_ = fix_[:, -y:, :]
         move_ = move_[:, :y, :]
     return fix_, move_
@@ -87,12 +87,12 @@ def shift_xy_before(fix_, x, y):
     # shift x
     if x>0:
         fix_ = fix_[:-x, :, :]
-    else:
+    elif x<0:
         fix_ = fix_[-x:, :, :]
     # shift y
     if y>0:
         fix_ = fix_[:, :-y, :]
-    else:
+    elif y<0:
         fix_ = fix_[:, -y:, :]
     return fix_
 
@@ -103,12 +103,12 @@ def shift_xy_after(move_, x, y):
     # shift x
     if x>0:
         move_ = move_[x:, :, :]
-    else:
+    elif x<0:
         move_ = move_[:x, :, :]
     # shift y
     if y>0:
         move_ = move_[:, y:, :]
-    else:
+    elif y<0:
         move_ = move_[:, :y, :]
     return move_
 
