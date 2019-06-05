@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import os
 
-vol_file = '../Voltron_data/Voltron_Log_DRN_Exp_update.csv'
+vol_file = '../Voltron_data/depreciated/Voltron_Log_DRN_Exp_update.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
