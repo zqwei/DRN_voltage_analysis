@@ -1,3 +1,5 @@
+#!/groups/ahrens/home/weiz/anaconda3/envs/myenv/bin/python
+
 from voltr_spike import *
 from voltr_ablation import *
 
