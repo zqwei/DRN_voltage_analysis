@@ -16,7 +16,7 @@ from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
 
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
-vol_file = 'depreciated/analysis_sections_ablation_gain_update.csv'
+vol_file = 'depreciated/analysis_sections_ablation_sovo.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
@@ -45,8 +45,8 @@ for _, row in dat_xls_file.iterrows():
     r_swim = _['r_swim']
     l_swim = _['l_swim']
     visu = _['visu']
-    task_period = _['task_period']
     swim_task_index = _['swim_task_index']
+    task_period = swim_task_index
     p_swim = np.sqrt(r_swim**2+l_swim**2)
 
     n_task = task_period.max().astype('int')

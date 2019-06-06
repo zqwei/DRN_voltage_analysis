@@ -93,9 +93,10 @@ def frame_swim_power(folder, fish, dir_folder):
                 swim_pow1=max(swimdata['fltCh1'][startI:endI].sum()-swimdata['back1'][startI:endI].sum(),0)
                 swim_pow2=max(swimdata['fltCh2'][startI:endI].sum()-swimdata['back2'][startI:endI].sum(),0)
                 swim_pow_sum=swim_pow1+swim_pow2
-                frame_swim_tcourse[0,fstart:fend]=swim_pow_sum/(fend-fstart)
-                frame_swim_tcourse[1,fstart:fend]=swim_pow1/(fend-fstart)
-                frame_swim_tcourse[2,fstart:fend]=swim_pow2/(fend-fstart)
+                if fend!=fstart:
+                    frame_swim_tcourse[0,fstart:fend]=swim_pow_sum/(fend-fstart)
+                    frame_swim_tcourse[1,fstart:fend]=swim_pow1/(fend-fstart)
+                    frame_swim_tcourse[2,fstart:fend]=swim_pow2/(fend-fstart)
     np.save(swimdir/"frame_stimParams.npy",frame_stimParams)
     np.save(swimdir/"frame_tcourse.npy",frame_tcourse)
     np.save(swimdir/"trial_frame_inds.npy",trial_frame_inds)

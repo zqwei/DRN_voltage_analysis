@@ -16,13 +16,17 @@ from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
 
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
-vol_file = 'depreciated/analysis_sections_ablation_gain_update.csv'
+vol_file = 'depreciated/analysis_sections_ablation_sovo.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
 non_spike_thres = 100
 cell_shape_thres = 1.3
 plot_ = False
+before_ = 'before-swimonly_visualonly'
+after_ = 'after-swimonly_visualonly'
+before_len = len(before_)
+after_len = len(after_)
 
 def spk_shape(spk_list, dff):
     spk_ = []
@@ -38,16 +42,16 @@ for _, row in dat_xls_file.iterrows():
     fish = row['fish']
     if not 'before' in fish:
         continue
-    fish = row['fish'][:-6]
+    fish = row['fish'][:-before_len]
     
-    dat_dir = dir_folder+f'{folder}/{fish}before/Data/'
+    dat_dir = dir_folder+f'{folder}/{fish}before-swimonly_visualonly/Data/'
     dff = np.load(dat_dir+'Voltr_spikes.npz')['voltrs']
     spk = np.load(dat_dir+'Voltr_spikes.npz')['spk']
     dff = dff - np.nanmedian(dff, axis=1, keepdims=True)
     num_cell = spk.shape[0]
     spk = np.r_['-1', np.zeros((num_cell, 600)), spk]
     
-    dat_dir = dir_folder+f'{folder}/{fish}after/Data/'
+    dat_dir = dir_folder+f'{folder}/{fish}after-swimonly_visualonly/Data/'
     dff_ = np.load(dat_dir+'Voltr_spikes.npz')['voltrs']
     spk_ = np.load(dat_dir+'Voltr_spikes.npz')['spk']
     dff_ = dff_ - np.nanmedian(dff_, axis=1, keepdims=True)

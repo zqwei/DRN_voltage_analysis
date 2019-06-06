@@ -106,7 +106,7 @@ for _, row in dat_xls_file.iterrows():
         spk_swim.append(spk_list)
         sub_sig_swim.append(sub_sig)
     
-    np.savez(f'swim_voltr/{folder}_{fish}_swim_voltr_dat', \
+    np.savez(f'swim_voltr/{folder}_{fish}_swim_voltr_ablt_dat', \
              sub_swim=np.array(sub_swim), \
              spk_swim=np.array(spk_swim), \
              sub_sig_swim=np.array(sub_sig_swim), \
