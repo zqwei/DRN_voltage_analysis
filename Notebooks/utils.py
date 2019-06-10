@@ -20,9 +20,11 @@ def boxcarKernel(sigma=60):
     kernel = np.ones(sigma)
     return kernel/kernel.sum()
 
+
 def gaussKernel(sigma=20):
     kernel = (1/(np.sqrt(2*np.pi)*sigma))*np.exp(-(np.arange(-sigma*3,sigma*3+1)**2)/(2*sigma**2))
     return kernel/kernel.sum()
+
 
 def bootstrap_p_ABtest(test, ctrl, is_left=True):
     import bootstrapped.bootstrap as bs
@@ -37,7 +39,8 @@ def bootstrap_p_ABtest(test, ctrl, is_left=True):
         return (test_ctrl_dist<0).mean()
     else:
         return (test_ctrl_dist>0).mean()
-    
+
+
 def cont_mode(data, isplot=False):
     from scipy import stats
     kde = stats.gaussian_kde(data)
@@ -47,7 +50,13 @@ def cont_mode(data, isplot=False):
         plt.plot(x, p)
     return x[np.argmax(p)]
 
+
 def plt_raster(spk_list, c='k', f_=300, t_shift=100, mz=10):
     for n, ntrial in enumerate(spk_list):
         t_ = np.where(ntrial==1)[0]-t_shift
         plt.plot(t_/f_, np.ones(len(t_))*n, f'.{c}', markersize=mz)
+        
+
+def shaded_errorbar(x, y, error, ax=plt, color='k'):
+    ax.plot(x, y, '-', lw=1, color=color)
+    ax.fill_between(x, y-error, y+error, facecolor=color, lw=0, alpha=0.8)
