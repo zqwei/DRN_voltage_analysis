@@ -1,4 +1,4 @@
-#!/groups/ahrens/home/weiz/anaconda3/envs/myenv/bin/python
+#!/groups/ahrens/home/weiz/miniconda3/envs/myenv/bin/python
 
 import numpy as np
 from pathlib import Path

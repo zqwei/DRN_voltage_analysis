@@ -1,4 +1,4 @@
-#!/groups/ahrens/home/weiz/anaconda3/envs/trefide/bin/python
+#!/groups/ahrens/home/weiz/miniconda3/envs/trefide/bin/python
 
 import numpy as np
 import pandas as pd
