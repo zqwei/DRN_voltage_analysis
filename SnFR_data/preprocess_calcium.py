@@ -1,7 +1,11 @@
 import numpy as np
 import os, sys
+from fish_proc.utils.memory import get_process_memory, clear_variables
 from pathlib import Path
+from nmf_calcium import *
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+cameraNoiseMat = '/nrs/ahrens/ahrenslab/Ziqiang/gainMat/gainMat20180208'
+
 
 def pixel_denoise(row):
     from fish_proc.pipeline.preprocess import pixel_denoise, pixel_denoise_img_seq
@@ -14,11 +18,11 @@ def pixel_denoise(row):
         if not os.path.exists(save_folder+'/'):
             os.makedirs(save_folder)
         if os.path.exists(save_folder + 'imgDNoMotion.tif'):
-            continue
+            return None
         if os.path.exists(save_folder+'/finished_pixel_denoise.tmp'):
-            continue
+            return None
         if os.path.exists(save_folder+'/proc_pixel_denoise.tmp'):
-            continue
+            return None
         if not os.path.isfile(save_folder + '/motion_fix_.npy'):
             print(f'process file {folder}/{fish}')
             try:
@@ -53,10 +57,10 @@ def registration(row, is_largefile=False):
     save_folder = dat_folder + f'{folder}/{fish}/Data'
     print(f'checking file {folder}/{fish}')
     if os.path.isfile(save_folder+'/finished_registr.tmp'):
-        continue
+        return None
     if os.path.isfile(save_folder+'/finished_detrend.tmp'):
         Path(save_folder+'/finished_registr.tmp').touch()
-        continue
+        return None
     if not os.path.isfile(save_folder+'/imgDMotion.tif') and os.path.isfile(save_folder + '/motion_fix_.npy'):
         if not os.path.isfile(save_folder+'/proc_registr.tmp'):
             try:
@@ -108,7 +112,7 @@ def video_detrend(row):
     save_folder = dat_folder + f'{folder}/{fish}/Data'
     print(f'checking file {folder}/{fish}')
     if os.path.isfile(save_folder+'/finished_detrend.tmp'):
-        continue
+        return None
 
     if not os.path.isfile(save_folder+'/Y_d.tif') and not os.path.isfile(save_folder+'/proc_detrend.tmp'):
         if os.path.isfile(save_folder+'/finished_registr.tmp'):
@@ -139,4 +143,38 @@ def video_detrend(row):
             except Exception as err:
                 print(f'Detrend failed on file {folder}/{fish}: {err}')
                 os.remove(save_folder+'/proc_detrend.tmp')
+    return None
+
+
+def local_pca_demix(row):
+    folder = row['folder']
+    fish = row['fish']
+    save_folder = dat_folder + f'{folder}/{fish}/Data'
+    print(f'checking file {folder}/{fish}')
+    if os.path.isfile(save_folder+'/finished_local_denoise.tmp'):
+        return None
+
+    if not os.path.isfile(save_folder+'/proc_local_denoise_demix.tmp'):
+        if os.path.isfile(save_folder+'/finished_detrend.tmp'):
+            try:
+                Path(save_folder+'/proc_local_denoise.tmp').touch()
+                if os.path.isfile(f'{save_folder}/Y_d.npy'):
+                    Y_d = np.load(f'{save_folder}/Y_d.npy').astype('float32')
+                elif os.path.isfile(f'{save_folder}/Y_d.tif'):
+                    Y_d = imread(f'{save_folder}/Y_d.tif')
+                Y_d_ave = Y_d.mean(axis=-1, keepdims=True) # remove mean
+                Y_d_std = Y_d.std(axis=-1, keepdims=True) # normalization
+                Y_d = (Y_d - Y_d_ave)/Y_d_std
+                Y_d = Y_d.astype('float32')
+                np.savez_compressed(f'{save_folder}/Y_2dnorm', Y_d_ave=Y_d_ave, Y_d_std=Y_d_std)
+                Y_d_ave = None
+                Y_d_std = None
+                clear_variables((Y_d_ave, Y_d_std))
+                dFF = denoise_sig(Y_d)
+                demix_components(dFF, save_folder)
+                get_process_memory();
+                Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
+            except Exception as err:
+                print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
+                os.remove(save_folder+'/proc_local_denoise_demix.tmp')
     return None
