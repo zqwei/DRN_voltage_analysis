@@ -5,7 +5,6 @@ import pandas as pd
 import os
 from pathlib import Path
 from preprocess_calcium import *
-# from nmf_calcium import *
 from utils_swim import *
 
 vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
@@ -33,19 +32,3 @@ for index, row in dat_xls_file.iterrows():
     registration(row)
     video_detrend(row)
     local_pca_demix(row)
-
-    # if not os.path.exists(dff_dir):
-    #     os.makedirs(dff_dir)
-    # if os.path.exists(dff_dir+'components.npz'):
-    #     continue
-    # if os.path.exists(dff_dir+'processing.tmp'):
-    #     continue
-    #
-    # open(dff_dir+'processing.tmp', 'a').close()
-    # print(dff_dir)
-    # dFF = np.load(img_dir+'/dFF_sub.npy')[()]
-    # dFF = dFF.transpose((1, 2, 0))
-    # dFF = denoise_sig(dFF)
-    # demix_components(dFF, dff_dir)
-    #
-    # os.remove(dff_dir+'processing.tmp')
