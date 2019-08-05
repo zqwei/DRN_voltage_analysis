@@ -46,9 +46,9 @@ def demix_components(M, save_root=''):
     A_ = rlt_['fin_rlt']['a']
     C_ = recompute_C_matrix(M, A_)
     
-    with open(save_root+'components_rlt.pkl', 'wb') as f:
+    with open(save_root+'/components_rlt.pkl', 'wb') as f:
             pickle.dump(rlt_, f)
-    np.savez(save_root+'components.npz', A_=A_, C_=C_)
+    np.savez(save_root+'/components.npz', A_=A_, C_=C_)
     
     return None
 
