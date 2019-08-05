@@ -15,8 +15,6 @@ dir_folder = Path(dat_folder)
 
 
 for index, row in dat_xls_file.iterrows():
-    if row['type'] != 'tph2':
-        continue
     folder = row['folder']
     fish = row['fish']
     rootDir = row['rootDir']
@@ -28,7 +26,7 @@ for index, row in dat_xls_file.iterrows():
         trial_swim_power(folder, fish, dir_folder)
         frame_swim_power(folder, fish, dir_folder)
         frame_swim_power_series(folder, fish, dir_folder)
-    pixel_denoise(row)
-    registration(row)
-    video_detrend(row)
-    local_pca_demix(row)
+#     pixel_denoise(row)
+#     registration(row)
+#     video_detrend(row)
+#     local_pca_demix(row)
