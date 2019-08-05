@@ -1,141 +1,143 @@
-,folder,fish,task,area,type,rootDir,pixeldenoise,registration,detrend,demix,denoise
-0,12262018,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-1,12262018,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-2,12262018,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-3,12262018,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-4,12262018,Fish2-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-5,12262018,Fish3-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-6,12262018,Fish3-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-7,12262018,Fish3-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-8,01022019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-9,01022019,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-10,01022019,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-11,01022019,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-12,01022019,Fish2-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-13,01022019,Fish2-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-14,01162019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-15,01162019,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-16,01162019,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-17,01162019,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-18,01162019,Fish2-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-19,01162019,Fish2-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-20,01302019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-21,01302019,Fish1-2,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-22,01302019,Fish1-3,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-23,01302019,Fish2-1,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-24,01302019,Fish2-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-25,02062019,Fish1-1,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-26,02062019,Fish1-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-27,02062019,Fish1-3,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-28,02062019,Fish1-4,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-29,02062019,Fish1-5,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-30,02062019,Fish1-6,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-31,02132019,Fish1-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-32,02132019,Fish1-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-33,02132019,Fish1-3,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-34,02132019,Fish1-4,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-35,02132019,Fish2-1,Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-36,02132019,Fish2-2,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-37,02132019,Fish2-3,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-38,02132019,Fish2-4,Optovin+Gain adaptation,GABA,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-39,03062019,Fish1-1,Delayed feedback+Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-40,03062019,Fish1-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-41,03062019,Fish2-1,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-42,03062019,Fish2-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-43,03062019,Fish2-3,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-44,03062019,Fish3-1,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-45,03062019,Fish3-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-46,03072019,Fish1-1,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-47,03072019,Fish1-2,Gain adaptation,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-48,03072019,Fish2-1,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-49,03072019,Fish3-1,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-50,03072019,Fish3-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-51,03072019,Fish3-3,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-52,03132019,Fish1-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-53,03132019,Fish1-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-54,03132019,Fish2-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-55,03132019,Fish2-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-56,03132019,Fish3-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-57,03132019,Fish3-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-58,03132019,Fish4-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-59,03132019,Fish4-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-60,03142019,Fish1-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-61,03142019,Fish1-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-62,03142019,Fish2-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-63,03142019,Fish2-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-64,03142019,Fish3-1,Prolonged feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-65,03142019,Fish3-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-66,03272019,Fish1-1,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-67,03272019,Fish1-2,Delayed feedback,Glu,HuC,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,False,False,False,False,False
-68,04102019,Fish1-1,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,True,True
-69,04102019,Fish1-2,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,True,True
-70,04102019,Fish1-3,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,True,True
-71,04102019,Fish1-4,Gain adaptation,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,True,True
-72,04102019,Fish2-1,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,True,True
-73,04102019,Fish2-2,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,True,True
-74,04102019,Fish2-3,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-75,04102019,Fish3-1,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-76,04102019,Fish3-2,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-77,04102019,Fish3-3,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-78,04102019,Fish3-4,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-79,04112019,Fish1-1,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-80,04112019,Fish1-2,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-81,04112019,Fish1-3,Gain adaptation,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-82,04172019,Fish1-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-83,04172019,Fish1-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-84,04172019,Fish1-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-85,04172019,Fish1-4-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-86,04172019,Fish1-5-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-87,04172019,Fish2-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-88,04172019,Fish2-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-89,04172019,Fish2-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-90,04172019,Fish2-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-91,04172019,Fish2-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-92,04172019,Fish3-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-93,04172019,Fish3-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-94,04172019,Fish3-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-95,04172019,Fish3-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-96,04172019,Fish3-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-97,04182019,Fish1-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-98,04182019,Fish1-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-99,04182019,Fish1-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-100,04182019,Fish1-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-101,04182019,Fish1-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-102,04182019,Fish2-1-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-103,04182019,Fish2-2-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-104,04182019,Fish2-3-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-105,04182019,Fish2-4-random,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-106,04182019,Fish2-5-delay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-107,05012019,Fish1-1-RandomDelay,Delayed feedback,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-108,05012019,Fish1-2-RandomGain,Random Gain,GABA,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-109,05012019,Fish2-1-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-110,05012019,Fish2-2-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-111,05012019,Fish2-3-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-112,05012019,Fish2-4-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-113,05012019,Fish2-5-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-114,05012019,Fish2-6-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-115,05012019,Fish3-1-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-116,05012019,Fish3-2-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-117,05012019,Fish3-3-RandomGain,Random Gain,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-118,05012019,Fish3-4-RandomDelay,Delayed feedback,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-119,05012019,Fish4-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-120,05012019,Fish4-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-121,05022019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-122,05022019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-123,05022019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-124,05082019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-125,05082019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-126,05082019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-127,05082019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-128,05082019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-129,05082019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-130,05082019,Fish3-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-131,05082019,Fish3-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-132,05082019,Fish3-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-133,05092019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-134,05092019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-135,05092019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-136,05092019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-137,05092019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-138,05092019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
-139,05092019,Fish2-4-swimonly_visualonly,Swimonly_Visualonly,Glu,tph2,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,True,True,True,False,True
+,folder,fish,task,area,rootDir,pixeldenoise,registration,detrend,demix,denoise
+0,4102019,Fish1-1,Gain adaptation,GABA,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+1,4102019,Fish1-2,Gain adaptation,GABA,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+2,4102019,Fish1-3,Gain adaptation,GABA,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+3,4102019,Fish1-4,Gain adaptation,GABA,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+4,4102019,Fish2-1,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+5,4102019,Fish2-2,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+6,4102019,Fish2-3,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+7,4102019,Fish3-1,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+8,4102019,Fish3-2,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+9,4102019,Fish3-3,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+10,4102019,Fish3-4,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+11,4112019,Fish1-1,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+12,4112019,Fish1-2,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+13,4112019,Fish1-3,Gain adaptation,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+14,4172019,Fish1-1-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+15,4172019,Fish1-2-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+16,4172019,Fish1-3-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+17,4172019,Fish1-4-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+18,4172019,Fish1-5-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+19,4172019,Fish2-1-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+20,4172019,Fish2-2-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+21,4172019,Fish2-3-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+22,4172019,Fish2-4-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+23,4172019,Fish2-5-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+24,4172019,Fish3-1-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+25,4172019,Fish3-2-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+26,4172019,Fish3-3-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+27,4172019,Fish3-4-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+28,4172019,Fish3-5-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+29,4182019,Fish1-1-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+30,4182019,Fish1-2-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+31,4182019,Fish1-3-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+32,4182019,Fish1-4-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+33,4182019,Fish1-5-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+34,4182019,Fish2-1-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+35,4182019,Fish2-2-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+36,4182019,Fish2-3-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+37,4182019,Fish2-4-random,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+38,4182019,Fish2-5-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+39,5012019,Fish1-1-RandomDelay,Delayed feedback,GABA,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+40,5012019,Fish1-2-RandomGain,Random Gain,GABA,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+41,5012019,Fish2-1-RandomGain,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+42,5012019,Fish2-2-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+43,5012019,Fish2-3-RandomGain,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+44,5012019,Fish2-4-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+45,5012019,Fish2-5-RandomGain,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+46,5012019,Fish2-6-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+47,5012019,Fish3-1-RandomGain,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+48,5012019,Fish3-2-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+49,5012019,Fish3-3-RandomGain,Random Gain,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+50,5012019,Fish3-4-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+51,5012019,Fish4-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+52,5012019,Fish4-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+53,5022019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+54,5022019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+55,5022019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+56,5082019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+57,5082019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+58,5082019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+59,5082019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+60,5082019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+61,5082019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+62,5082019,Fish3-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+63,5082019,Fish3-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+64,5082019,Fish3-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+65,5092019,Fish1-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+66,5092019,Fish1-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+67,5092019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+68,5092019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+69,5092019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+70,5092019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+71,5092019,Fish2-4-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,FALSE,TRUE
+72,8012019,Fish1-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+73,8012019,Fish1-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+74,8012019,Fish1-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+75,8012019,Fish2-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+76,8012019,Fish2-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+77,8012019,Fish2-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+78,8012019,Fish3-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+79,8012019,Fish3-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+80,8012019,Fish3-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+81,8012019,Fish4-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+82,8012019,Fish4-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+83,8012019,Fish4-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+84,8022019,Fish1-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+85,8022019,Fish1-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+86,8022019,Fish1-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+87,8022019,Fish2-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+88,8022019,Fish2-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+89,8022019,Fish2-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+90,8022019,Fish3-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+91,8022019,Fish3-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+92,8022019,Fish3-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+93,8022019,Fish4-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+94,8022019,Fish4-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+95,8022019,Fish4-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+96,8022019,Fish5-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+97,8022019,Fish5-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+98,8022019,Fish5-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+99,8022019,Fish6-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+100,8022019,Fish6-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+101,8022019,Fish6-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+102,8022019,Fish7-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+103,8022019,Fish7-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+104,8022019,Fish7-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,FALSE,FALSE
+105,8032019,Fish1-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,FALSE,FALSE,FALSE,FALSE
+106,8032019,Fish1-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,FALSE,FALSE,FALSE,FALSE
+107,8032019,Fish1-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,FALSE,FALSE,FALSE,FALSE
+108,8032019,Fish2-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+109,8032019,Fish2-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+110,8032019,Fish2-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+111,8032019,Fish3-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+112,8032019,Fish3-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+113,8032019,Fish3-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+114,8032019,Fish4-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+115,8032019,Fish4-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+116,8032019,Fish4-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+117,8032019,Fish5-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+118,8032019,Fish5-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+119,8032019,Fish5-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+120,8042019,Fish1-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+121,8042019,Fish1-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+122,8042019,Fish1-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+123,8042019,Fish2-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+124,8042019,Fish2-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+125,8042019,Fish2-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+126,8042019,Fish3-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+127,8042019,Fish3-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+128,8042019,Fish3-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+129,8042019,Fish4-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+130,8042019,Fish4-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+131,8042019,Fish4-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+132,8042019,Fish5-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+133,8042019,Fish5-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+134,8042019,Fish5-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+135,8042019,Fish6-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+136,8042019,Fish6-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+137,8042019,Fish6-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+138,8042019,Fish7-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+139,8042019,Fish7-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+140,8042019,Fish7-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
+141,8042019,Fish7-4,GA+Random delay,Glu,/nrs/ahrens/Takashi/,FALSE,FALSE,FALSE,FALSE,FALSE
