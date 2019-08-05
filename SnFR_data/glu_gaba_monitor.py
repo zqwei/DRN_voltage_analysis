@@ -11,8 +11,6 @@ dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
 
 for index, row in dat_xls_file.iterrows():
-    if row['type'] != 'tph2':
-        continue
     folder = row['folder']
     fish = row['fish']
     save_folder = dat_folder + f'{folder}/{fish}/'
