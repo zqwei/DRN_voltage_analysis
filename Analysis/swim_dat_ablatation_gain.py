@@ -63,8 +63,8 @@ def valid_swim(row):
         return False
     frame_stimParams = np.load(swim_dir+'frame_stimParams.npy')
     frame_swim_tcourse = np.load(swim_dir+'frame_swim_tcourse_series.npy')
-    rawdata = np.load(swim_dir+"rawdata.npy")[()]
-    swimdata = np.load(swim_dir+"swimdata.npy")[()]
+    rawdata = np.load(swim_dir+"rawdata.npy",allow_pickle=True)[()]
+    swimdata = np.load(swim_dir+"swimdata.npy",allow_pickle=True)[()]
     reclen=len(swimdata['fltCh1'])
     frame_tcourse=np.zeros((reclen,))
     frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
