@@ -3,6 +3,7 @@ import pandas as pd
 import os, sys
 # from trefide.temporal import TrendFilter
 from matplotlib import pyplot as plt
+from voltr_spike import *
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
 ablt_len = 6
@@ -117,7 +118,7 @@ def shift_xy_after(move_, x, y):
     return move_
 
 
-def get_A_stack(save_folder, is_mask=False, check_stack=False):
+def get_A_stack(save_folder, is_mask=False, check_stack=False, fext=''):
     import pickle
     
     Y_trend_ave = np.load(f'{save_folder}/Y_trend_ave.npy')
@@ -270,8 +271,8 @@ def voltron_ablt(row, pix_x, pix_y, fext='', is_mask=False, ablt_len=1, ablt_sov
 
     print('Combining the components in before and after ablation')
 
-    A_before = get_A_stack(save_folder_before, is_mask=True, check_stack=False)
-    A_after = get_A_stack(save_folder_after, is_mask=True, check_stack=False)
+    A_before = get_A_stack(save_folder_before, is_mask=True, check_stack=False, fext=fext)
+    A_after = get_A_stack(save_folder_after, is_mask=True, check_stack=False, fext=fext)
     A_before, A_after = shift_xy(A_before, A_after, pix_x, pix_y)
     d1, d2, _ = A_before.shape
     A_ = np.concatenate((A_before, A_after), axis=-1)
