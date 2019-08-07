@@ -29,4 +29,4 @@ for index, row in dat_xls_file.iterrows():
     pixel_denoise(row)
     registration(row)
     video_detrend(row)
-#     local_pca_demix(row)
+    local_pca_demix(row)
