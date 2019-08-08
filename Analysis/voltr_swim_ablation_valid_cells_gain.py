@@ -16,12 +16,13 @@ from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
 
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
-vol_file = 'depreciated/analysis_sections_ablation_gain_update.csv'
+# vol_file = 'depreciated/analysis_sections_ablation_gain_update.csv'
+vol_file = 'depreciated/analysis_sections_ablation_gain.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
-non_spike_thres = 100
-cell_shape_thres = 1.3
+non_spike_thres = 60
+cell_shape_thres = 1.5
 plot_ = False
 
 def spk_shape(spk_list, dff):
