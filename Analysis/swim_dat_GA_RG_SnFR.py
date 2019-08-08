@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import os
 
-vol_file = '../SnFR_data/SnFR_Log_DRN_Exp_v2.csv'
+vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
@@ -28,6 +28,10 @@ def valid_swim(row):
     fish = row['fish']
     task_type = row['task'] # task type names
     swim_dir = dir_folder + f'{folder}/{fish}/swim/'
+    
+    if not 'GA+Random gain' in task_type:
+        return False
+    
     if not os.path.exists(swim_dir+'frame_stimParams.npy'):
         return False
     
