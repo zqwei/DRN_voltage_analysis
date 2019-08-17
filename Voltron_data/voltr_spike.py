@@ -58,13 +58,13 @@ def single_x(voltr, window_length=41, win_=50001):
     return voltr_[np.newaxis, :], np.expand_dims(x_, axis=0)
 
 
-def voltr2spike_(voltrs, window_length, m):
+def voltr2spike_(voltrs, window_length, m, win_):
     from fish_proc.utils.np_mp import parallel_to_single
     from fish_proc.spikeDetectionNN.utils import detected_window_max_spike
     from fish_proc.spikeDetectionNN.utils import cluster_spikes
     import time
     start = time.time()
-    voltr_list, x_list = parallel_to_single(single_x, voltrs, window_length=window_length)
+    voltr_list, x_list = parallel_to_single(single_x, voltrs, window_length=window_length, win_=win_)
     print(time.time() - start)
     n_, len_ = voltr_list.shape
     spk1_list = np.empty(voltr_list.shape)
@@ -87,7 +87,7 @@ def voltr2spike_(voltrs, window_length, m):
 
 
 
-def voltr2spike(row, fext='', cpu=False):
+def voltr2spike(row, fext='', cpu=False, win_=50001):
     '''
     There seems to be a limitation of cores keras can use, 4 - 8 cores are enough for this one.
     '''
@@ -138,7 +138,7 @@ def voltr2spike(row, fext='', cpu=False):
     C_ = _['C_']
     base_ = _['base_']
     voltrs = C_/(C_.mean(axis=-1, keepdims=True)+base_)
-    spk_list, spkprob_list, spk1_list, spk2_list, voltr_list = voltr2spike_(voltrs, window_length, m)
+    spk_list, spkprob_list, spk1_list, spk2_list, voltr_list = voltr2spike_(voltrs, window_length, m, win_)
     np.savez_compressed(f'{save_folder}/Voltr_spikes', voltrs=voltrs, \
                         spk=spk_list, spkprob=spkprob_list, spk1=spk1_list, \
                         spk2=spk2_list, voltr_=voltr_list)
