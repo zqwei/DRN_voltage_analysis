@@ -1,5 +1,4 @@
 #!/groups/ahrens/home/weiz/miniconda3/envs/myenv/bin/python
-
 import numpy as np
 import pandas as pd
 import os, sys
@@ -254,6 +253,8 @@ def local_pca():
 
 
 def demix_components(ext=''):
+    import mkl
+    mkl.set_num_threads(8)
     dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
