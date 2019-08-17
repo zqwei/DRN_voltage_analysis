@@ -49,8 +49,13 @@ if __name__ == "__main__":
             folder = row['folder']
             fish = row['fish']
             task_type = row['task']
+            save_folder = dat_folder + f'{folder}/{fish}/Data'
             if row['spikes']:
                 continue
             if not os.path.isfile(save_folder+f'/finished_spikes{fext}.tmp'):
                 print([folder, fish, task_type])
-                voltr2spike(row, fext=fext, cpu=True)
+                if 'dendrite' in fish:
+                    win_=10001
+                else:
+                    win_=50001
+                voltr2spike(row, fext=fext, cpu=True, win_=win_)
