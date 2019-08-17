@@ -277,6 +277,7 @@ def voltron_ablt(row, pix_x, pix_y, fext='', is_mask=False, ablt_len=1, ablt_sov
     d1, d2, _ = A_before.shape
     A_ = np.concatenate((A_before, A_after), axis=-1)
     A_ = A_.reshape((d1*d2, -1), order='F')
+    A_ = A_[:, A_.sum(axis=0)>0] # remove zeros-sum components
     
     Y_trend_before = np.load(f'{save_folder_before}/Y_trend_ave.npy')
     Y_trend_after = np.load(f'{save_folder_after}/Y_trend_ave.npy')
