@@ -225,43 +225,41 @@
 223,08062019,Fish3-2-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
 224,08062019,Fish3-3-before,Gain adaptation (before ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
 225,08062019,Fish3-3-after,Gain adaptation (after ablation),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
-226,08112019,Fish1-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-227,08112019,Fish1-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-228,08112019,Fish2-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-229,08112019,Fish2-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-230,08112019,Fish3-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-231,08112019,Fish3-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-232,08112019,Fish3-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-233,08112019,Fish3-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-234,08112019,Fish4-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-235,08112019,Fish4-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-236,08112019,Fish4-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-237,08112019,Fish4-2-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-238,08112019,Fish5-1-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-239,08112019,Fish5-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-240,08112019,Fish6-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-241,08112019,Fish6-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-242,08112019,Fish6-1-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-243,08122019,Fish1-1-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-244,08122019,Fish1-2-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-245,08122019,Fish1-1-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-246,08122019,Fish1-2-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-247,08122019,Fish2-1-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-248,08122019,Fish2-2-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-249,08122019,Fish2-1-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-250,08122019,Fish2-2-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-251,08122019,Fish3-1-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-252,08122019,Fish3-2-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-253,08122019,Fish3-1-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-254,08122019,Fish3-2-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-255,08122019,Fish4-1-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-256,08122019,Fish4-2-before,Gain adaptation (before ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-257,08122019,Fish4-1-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-258,08122019,Fish4-2-after,Gain adaptation (after ablation control),Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-259,08122019,Fish5-dendrite-1,Gain adaptation,Raphe,True,True,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-260,08122019,Fish5-dendrite-2,Gain adaptation,Raphe,True,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-261,08122019,Fish6-dendrite-1,Gain adaptation,Raphe,True,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-262,08122019,Fish6-dendrite-2,Gain adaptation,Raphe,True,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-263,08122019,Fish6-1-before,Gain adaptation (before ablation control),Raphe,True,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-264,08122019,Fish6-2-before,Gain adaptation (before ablation control),Raphe,True,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
-266,08122019,Fish6-2-after,Gain adaptation (after ablation control),Raphe,True,False,False,False,False,False,False,False,False,/nrs/ahrens/Takashi/
+226,08112019,Fish1-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+227,08112019,Fish1-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+228,08112019,Fish2-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+229,08112019,Fish2-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+230,08112019,Fish3-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+231,08112019,Fish3-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+232,08112019,Fish3-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+233,08112019,Fish3-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+234,08112019,Fish4-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+235,08112019,Fish4-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+236,08112019,Fish4-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+237,08112019,Fish4-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+238,08112019,Fish5-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+239,08112019,Fish5-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+240,08112019,Fish6-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+241,08112019,Fish6-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+242,08112019,Fish6-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+243,08122019,Fish1-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+244,08122019,Fish1-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+245,08122019,Fish1-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+246,08122019,Fish1-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+247,08122019,Fish2-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+248,08122019,Fish2-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+249,08122019,Fish2-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+250,08122019,Fish2-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+251,08122019,Fish3-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+252,08122019,Fish3-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+253,08122019,Fish3-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+254,08122019,Fish3-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+255,08122019,Fish4-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+256,08122019,Fish4-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+257,08122019,Fish4-1-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,False,/nrs/ahrens/Takashi/
+258,08122019,Fish4-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+259,08122019,Fish6-dendrite-1,Gain adaptation,Raphe,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
+260,08122019,Fish6-dendrite-2,Gain adaptation,Raphe,True,True,True,True,True,True,True,False,False,/nrs/ahrens/Takashi/
+261,08122019,Fish6-1-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+262,08122019,Fish6-2-before,Gain adaptation (before ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
+263,08122019,Fish6-2-after,Gain adaptation (after ablation control),Raphe,True,True,True,True,True,True,True,True,True,/nrs/ahrens/Takashi/
