@@ -38,6 +38,7 @@ for _, row in dat_xls_file.iterrows():
     spk = np.load(dat_dir+'Voltr_spikes.npz')['spk']
     dff = dff - np.nanmedian(dff, axis=1, keepdims=True)
     num_cell = spk.shape[0]
+    print([folder, fish, num_cell])
     spk = np.r_['-1', np.zeros((num_cell, 600)), spk]
 
     _ = np.load(f'swim_power/{folder}_{fish}_swim_dat.npz')
@@ -48,7 +49,7 @@ for _, row in dat_xls_file.iterrows():
     visu = _['visu']
     task_period = _['task_period']
     swim_task_index = _['swim_task_index']
-    p_swim = np.sqrt(r_swim**2+l_swim**2)
+    p_swim = r_swim+l_swim#np.sqrt(r_swim**2+l_swim**2)
 
     n_task = task_period.max().astype('int')
     swim_task_index_ = (swim_task_index-1)%n_task+1
