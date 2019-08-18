@@ -30,4 +30,4 @@ for index, row in dat_xls_file.iterrows():
     registration(row)
     video_detrend(row)
     local_pca(row)
-#     local_pca_demix(row)
+    local_pca_demix(row)

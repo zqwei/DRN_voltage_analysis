@@ -136,52 +136,6 @@ def video_detrend(row):
     return None
 
 
-def local_pca_demix(row):
-    from skimage.io import imsave, imread
-    folder = row['folder']
-    fish = row['fish']
-    save_folder = dat_folder + f'{folder}/{fish}/Data'
-    print(f'checking file {folder}/{fish}')
-    if os.path.isfile(save_folder+'/finished_local_denoise_demix.tmp'):
-        return None
-
-    if not os.path.isfile(save_folder+'/proc_local_denoise_demix.tmp'):
-        if os.path.isfile(save_folder+'/finished_detrend.tmp'):
-            try:
-                Path(save_folder+'/proc_local_denoise_demix.tmp').touch()
-                if os.path.isfile(f'{save_folder}/Y_d.npy'):
-                    Y_d = np.load(f'{save_folder}/Y_d.npy').astype('float32')
-                elif os.path.isfile(f'{save_folder}/Y_d.tif'):
-                    Y_d = imread(f'{save_folder}/Y_d.tif')
-                Y_d_ave = Y_d.mean(axis=-1, keepdims=True) # remove mean
-                Y_d_std = Y_d.std(axis=-1, keepdims=True) # normalization
-                Y_d = (Y_d - Y_d_ave)/Y_d_std
-                Y_d = Y_d.astype('float32')
-                np.savez_compressed(f'{save_folder}/Y_2dnorm', Y_d_ave=Y_d_ave, Y_d_std=Y_d_std)
-                if not os.path.exists(f'{save_folder}/Y_local.npz'):
-                    dFF, U, S, Va, dimsM = denoise_sig(Y_d)
-                    np.savez(f'{save_folder}/Y_local', U=U, S=S, Va=Va, dimsM=dimsM)
-                    print(f'Save local pca on file {folder}/{fish}')
-                else:
-                    tmp = np.load(f'{save_folder}/Y_local.npz')
-                    U = tmp['U']
-                    S = tmp['S']
-                    Va = tmp['Va']
-                    dimsM = tmp['dimsM']
-                    dFF = U.dot(np.diag(S).dot(Va))
-                    dFF = dFF.T.reshape(dimsM, order='F')
-                Y_d = None
-                clear_variables(Y_d)
-                demix_components(dFF*Y_d_std, save_folder)
-                get_process_memory();
-                Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
-            except Exception as err:
-                print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
-                os.remove(save_folder+'/proc_local_denoise_demix.tmp')
-    return None
-
-
-
 def local_pca(row):
     from skimage.io import imsave, imread
     folder = row['folder']
@@ -204,3 +158,44 @@ def local_pca(row):
         np.savez(f'{save_folder}/Y_local', U=U, S=S, Va=Va, dimsM=dimsM)
         print(f'Save local pca on file {folder}/{fish}')
     return None
+
+
+def local_pca_demix(row):
+    from skimage.io import imsave, imread
+    folder = row['folder']
+    fish = row['fish']
+    save_folder = dat_folder + f'{folder}/{fish}/Data'
+    print(f'checking file {folder}/{fish}')
+    if os.path.isfile(save_folder+'/finished_local_denoise_demix.tmp'):
+        return None
+
+    if not os.path.exists(save_folder+'/proc_local_denoise_demix.tmp'):
+        if os.path.exists(save_folder+'/finished_detrend.tmp'):
+            try:
+                Path(save_folder+'/proc_local_denoise_demix.tmp').touch()
+                tmp = np.load(f'{save_folder}/Y_local.npz')
+                U = tmp['U']
+                S = tmp['S']
+                Va = tmp['Va']
+                dimsM = tmp['dimsM']
+                dFF = U.dot(np.diag(S).dot(Va))
+                dFF = dFF.T.reshape(dimsM, order='F')
+                if not os.path.exists(f'{save_folder}/Y_local_std.npy'):
+                    np.save(save_folder+'/Y_local_std', dFF.std(axis=-1))
+                Y_std = np.load(save_folder+'/Y_local_std.npy')
+                Y_std[:20, :]=0
+                Y_std[-20:, :]=0
+                Y_std[:, :20]=0
+                Y_std[:, -20:]=0
+                _ = np.load(f'{save_folder}/Y_2dnorm.npz')
+                Y_d_std=_['Y_d_std']
+                Y_d_std[(Y_d_std.squeeze()*Y_std)<.7] = 0 # remove low variance pixel
+                demix_components(dFF*Y_d_std, save_folder)
+                get_process_memory();
+                Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
+            except Exception as err:
+                print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
+                os.remove(save_folder+'/proc_local_denoise_demix.tmp')
+    return None
+
+
