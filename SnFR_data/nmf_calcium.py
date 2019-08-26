@@ -33,10 +33,10 @@ def demix_components(M, save_root=''):
         try:
             rlt_= sup.demix_whole_data(M, cut_off_point[pass_num_max-pass_num:], length_cut=[20, 20, 40, 40],
                                        th=[1,1,1,1], pass_num=pass_num, residual_cut = [0.6,0.6,0.6,0.6],
-                                       corr_th_fix=0.3, max_allow_neuron_size=0.3, merge_corr_thr=0.90,
+                                       corr_th_fix=0.3, max_allow_neuron_size=0.3, merge_corr_thr=cut_off_point[-1],
                                        merge_overlap_thr=0.6, num_plane=1, patch_size=[10, 10], plot_en=False,
-                                       TF=False, fudge_factor=1, text=False, bg=False, max_iter=50,
-                                       max_iter_fin=90, update_after=40)
+                                       TF=False, fudge_factor=1, text=False, bg=False, max_iter=0,
+                                       max_iter_fin=10, update_after=4)
             is_demix = True
         except:
             print(f'fail at pass_num {pass_num}', flush=True)
