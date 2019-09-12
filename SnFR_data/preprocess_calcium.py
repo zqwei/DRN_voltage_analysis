@@ -160,75 +160,75 @@ def local_pca(row):
     return None
 
 
-# def local_pca_demix(row):
-#     from skimage.io import imsave, imread
-#     folder = row['folder']
-#     fish = row['fish']
-#     save_folder = dat_folder + f'{folder}/{fish}/Data'
-#     print(f'checking file {folder}/{fish}')
-#     if os.path.isfile(save_folder+'/finished_local_denoise_demix.tmp'):
-#         return None
-
-#     if not os.path.exists(save_folder+'/proc_local_denoise_demix.tmp'):
-#         if os.path.exists(save_folder+'/finished_detrend.tmp'):
-#             try:
-#                 Path(save_folder+'/proc_local_denoise_demix.tmp').touch()
-#                 tmp = np.load(f'{save_folder}/Y_local.npz')
-#                 U = tmp['U']
-#                 S = tmp['S']
-#                 Va = tmp['Va']
-#                 dimsM = tmp['dimsM']
-#                 dFF = U.dot(np.diag(S).dot(Va))
-#                 dFF = dFF.T.reshape(dimsM, order='F')
-#                 if not os.path.exists(f'{save_folder}/Y_local_std.npy'):
-#                     np.save(save_folder+'/Y_local_std', dFF.std(axis=-1))
-#                 Y_std = np.load(save_folder+'/Y_local_std.npy')
-#                 Y_std[:20, :]=0
-#                 Y_std[-20:, :]=0
-#                 Y_std[:, :20]=0
-#                 Y_std[:, -20:]=0
-#                 _ = np.load(f'{save_folder}/Y_2dnorm.npz')
-#                 Y_d_std=_['Y_d_std']
-#                 Y_d_std[(Y_d_std.squeeze()*Y_std)<.7] = 0 # remove low variance pixel
-#                 demix_components(dFF*Y_d_std, save_folder)
-#                 get_process_memory();
-#                 Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
-#             except Exception as err:
-#                 print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
-#                 os.remove(save_folder+'/proc_local_denoise_demix.tmp')
-#     return None
-
-
 def local_pca_demix(row):
     from skimage.io import imsave, imread
     folder = row['folder']
     fish = row['fish']
     save_folder = dat_folder + f'{folder}/{fish}/Data'
     print(f'checking file {folder}/{fish}')
+    if os.path.isfile(save_folder+'/finished_local_denoise_demix.tmp'):
+        return None
 
-    try:
-        Path(save_folder+'/proc_local_denoise_demix.tmp').touch()
-        tmp = np.load(f'{save_folder}/Y_local.npz')
-        U = tmp['U']
-        S = tmp['S']
-        Va = tmp['Va']
-        dimsM = tmp['dimsM']
-        dFF = U.dot(np.diag(S).dot(Va))
-        dFF = dFF.T.reshape(dimsM, order='F')
-        if not os.path.exists(f'{save_folder}/Y_local_std.npy'):
-            np.save(save_folder+'/Y_local_std', dFF.std(axis=-1))
-        Y_std = np.load(save_folder+'/Y_local_std.npy')
-        Y_std[:20, :]=0
-        Y_std[-20:, :]=0
-        Y_std[:, :20]=0
-        Y_std[:, -20:]=0
-        _ = np.load(f'{save_folder}/Y_2dnorm.npz')
-        Y_d_std=_['Y_d_std']
-        Y_d_std[(Y_d_std.squeeze()*Y_std)<.7] = 0 # remove low variance pixel
-        demix_components(dFF*Y_d_std, save_folder)
-        get_process_memory();
-        Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
-    except Exception as err:
-        print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
-        os.remove(save_folder+'/proc_local_denoise_demix.tmp')     
+    if not os.path.exists(save_folder+'/proc_local_denoise_demix.tmp'):
+        if os.path.exists(save_folder+'/finished_detrend.tmp'):
+            try:
+                Path(save_folder+'/proc_local_denoise_demix.tmp').touch()
+                tmp = np.load(f'{save_folder}/Y_local.npz')
+                U = tmp['U']
+                S = tmp['S']
+                Va = tmp['Va']
+                dimsM = tmp['dimsM']
+                dFF = U.dot(np.diag(S).dot(Va))
+                dFF = dFF.T.reshape(dimsM, order='F')
+                if not os.path.exists(f'{save_folder}/Y_local_std.npy'):
+                    np.save(save_folder+'/Y_local_std', dFF.std(axis=-1))
+                Y_std = np.load(save_folder+'/Y_local_std.npy')
+                Y_std[:20, :]=0
+                Y_std[-20:, :]=0
+                Y_std[:, :20]=0
+                Y_std[:, -20:]=0
+                _ = np.load(f'{save_folder}/Y_2dnorm.npz')
+                Y_d_std=_['Y_d_std']
+                Y_d_std[(Y_d_std.squeeze()*Y_std)<.7] = 0 # remove low variance pixel
+                demix_components(dFF*Y_d_std, save_folder)
+                get_process_memory();
+                Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
+            except Exception as err:
+                print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
+                os.remove(save_folder+'/proc_local_denoise_demix.tmp')
     return None
+
+
+# def local_pca_demix(row):
+#     from skimage.io import imsave, imread
+#     folder = row['folder']
+#     fish = row['fish']
+#     save_folder = dat_folder + f'{folder}/{fish}/Data'
+#     print(f'checking file {folder}/{fish}')
+
+#     try:
+#         Path(save_folder+'/proc_local_denoise_demix.tmp').touch()
+#         tmp = np.load(f'{save_folder}/Y_local.npz')
+#         U = tmp['U']
+#         S = tmp['S']
+#         Va = tmp['Va']
+#         dimsM = tmp['dimsM']
+#         dFF = U.dot(np.diag(S).dot(Va))
+#         dFF = dFF.T.reshape(dimsM, order='F')
+#         if not os.path.exists(f'{save_folder}/Y_local_std.npy'):
+#             np.save(save_folder+'/Y_local_std', dFF.std(axis=-1))
+#         Y_std = np.load(save_folder+'/Y_local_std.npy')
+#         Y_std[:20, :]=0
+#         Y_std[-20:, :]=0
+#         Y_std[:, :20]=0
+#         Y_std[:, -20:]=0
+#         _ = np.load(f'{save_folder}/Y_2dnorm.npz')
+#         Y_d_std=_['Y_d_std']
+#         Y_d_std[(Y_d_std.squeeze()*Y_std)<.7] = 0 # remove low variance pixel
+#         demix_components(dFF*Y_d_std, save_folder)
+#         get_process_memory();
+#         Path(save_folder+'/finished_local_denoise_demix.tmp').touch()
+#     except Exception as err:
+#         print(f'Local pca and demix failed on file {folder}/{fish}: {err}')
+#         os.remove(save_folder+'/proc_local_denoise_demix.tmp')     
+#     return None
