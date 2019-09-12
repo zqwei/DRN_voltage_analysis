@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import os
 from pathlib import Path
+import datetime
 
 vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
@@ -24,5 +25,17 @@ for index, row in dat_xls_file.iterrows():
         dat_xls_file.at[index, 'denoise'] = True
     if os.path.isfile(save_folder+'Data/finished_local_denoise_demix.tmp'):
         dat_xls_file.at[index, 'demix'] = True
+    if os.path.isfile(save_folder+'Data/proc_local_denoise_demix.tmp'):
+        if not os.path.isfile(save_folder+'Data/finished_local_denoise_demix.tmp'):
+            print(save_folder)
+#         create_date = datetime.datetime.fromtimestamp(os.path.getctime(save_folder+'Data/finished_local_denoise_demix.tmp')).day
+#         if create_date<26:
+#             print(f'remove {save_folder} finish file')
+#             os.remove(save_folder+'Data/finished_local_denoise_demix.tmp')
+#             try:
+#                 os.remove(save_folder+'Data/proc_local_denoise_demix.tmp')
+#                 print(f'remove {save_folder} proc file')
+#             except:
+#                 pass
 print(dat_xls_file.sum(numeric_only=True))
 dat_xls_file.to_csv(vol_file)
