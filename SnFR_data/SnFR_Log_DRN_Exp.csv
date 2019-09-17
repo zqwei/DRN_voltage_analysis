@@ -96,7 +96,7 @@
 94,08022019,Fish4-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
 95,08022019,Fish4-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
 96,08022019,Fish5-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
-97,08022019,Fish5-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,False,True
+97,08022019,Fish5-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
 98,08022019,Fish5-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
 99,08022019,Fish6-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
 100,08022019,Fish6-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
@@ -133,39 +133,39 @@
 131,08042019,Fish4-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
 132,08042019,Fish5-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
 133,08042019,Fish5-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
-134,08042019,Fish5-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-135,08042019,Fish6-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-136,08042019,Fish6-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-137,08042019,Fish6-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-138,08042019,Fish7-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-139,08042019,Fish7-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-140,08042019,Fish7-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-141,08042019,Fish7-4,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-142,08072019,Fish1-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-143,08072019,Fish1-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-144,08072019,Fish1-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-145,08072019,Fish2-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-146,08072019,Fish2-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-147,08072019,Fish2-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-148,08072019,Fish3-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-149,08072019,Fish3-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-150,08072019,Fish3-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-151,08082019,Fish1-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,False,True
-152,08082019,Fish1-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,False,True
-153,08082019,Fish1-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,False,True
-154,08082019,Fish2-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-155,08082019,Fish2-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-156,08092019,Fish1-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-157,08092019,Fish1-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-158,08092019,Fish2-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-159,08092019,Fish2-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-160,08092019,Fish2-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-161,08092019,Fish3-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-162,08092019,Fish3-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-163,08092019,Fish3-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-164,08092019,Fish4-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-165,08092019,Fish4-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-166,08092019,Fish4-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-167,08102019,Fish1-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-168,08102019,Fish1-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
-169,08102019,Fish1-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,False,True
+134,08042019,Fish5-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+135,08042019,Fish6-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+136,08042019,Fish6-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+137,08042019,Fish6-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+138,08042019,Fish7-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+139,08042019,Fish7-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+140,08042019,Fish7-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+141,08042019,Fish7-4,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+142,08072019,Fish1-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+143,08072019,Fish1-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+144,08072019,Fish1-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+145,08072019,Fish2-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+146,08072019,Fish2-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+147,08072019,Fish2-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+148,08072019,Fish3-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+149,08072019,Fish3-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+150,08072019,Fish3-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+151,08082019,Fish1-1,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
+152,08082019,Fish1-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
+153,08082019,Fish1-3,GA+Random gain,GABA,/nrs/ahrens/Takashi/,True,True,True,True,True
+154,08082019,Fish2-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+155,08082019,Fish2-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+156,08092019,Fish1-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+157,08092019,Fish1-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+158,08092019,Fish2-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+159,08092019,Fish2-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+160,08092019,Fish2-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+161,08092019,Fish3-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+162,08092019,Fish3-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+163,08092019,Fish3-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+164,08092019,Fish4-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+165,08092019,Fish4-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+166,08092019,Fish4-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+167,08102019,Fish1-1,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+168,08102019,Fish1-2,GA+SOVO,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
+169,08102019,Fish1-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,True,True,True,True,True
