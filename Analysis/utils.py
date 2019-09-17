@@ -44,3 +44,36 @@ def plt_raster(spk_list, c='k', f_=300, t_shift=100, mz=10):
     for n, ntrial in enumerate(spk_list):
         t_ = np.where(ntrial==1)[0]-t_shift
         plt.plot(t_/f_, np.ones(len(t_))*n, f'.{c}', markersize=mz)
+        
+
+def baseline(data, window=100, percentile=15, downsample=1, axis=-1):
+    """
+    Get the baseline of a numpy array using a windowed percentile filter with optional downsampling
+    data : Numpy array
+        Data from which baseline is calculated
+    window : int
+        Window size for baseline estimation. If downsampling is used, window shrinks proportionally
+    percentile : int
+        Percentile of data used as baseline
+    downsample : int
+        Rate of downsampling used before estimating baseline. Defaults to 1 (no downsampling).
+    axis : int
+        For ndarrays, this specifies the axis to estimate baseline along. Default is -1.
+    """
+    from scipy.ndimage.filters import percentile_filter
+    from scipy.interpolate import interp1d
+    from numpy import ones
+
+    size = ones(data.ndim, dtype='int')
+    size[axis] *= window//downsample
+
+    if downsample == 1:
+        bl = percentile_filter(data, percentile=percentile, size=size)
+    else:
+        slices = [slice(None)] * data.ndim
+        slices[axis] = slice(0, None, downsample)
+        data_ds = data[slices]
+        baseline_ds = percentile_filter(data_ds, percentile=percentile, size=size)
+        interper = interp1d(range(0, data.shape[axis], downsample), baseline_ds, axis=axis, fill_value='extrapolate')
+        bl = interper(range(data.shape[axis]))
+    return bl
