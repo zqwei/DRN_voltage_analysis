@@ -1,24 +1,42 @@
-import matplotlib
 import numpy as np
 import pandas as pd
-import os
-import matplotlib.pyplot as plt
-import seaborn as sns
+from skimage.io import imread
 from utils import *
-from scipy.signal import medfilt
-from scipy.stats import sem, ranksums, spearmanr, f_oneway, kruskal
-from pathlib import Path
+
 vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
-dir_folder = Path(dat_folder)
-frame_rate = 30
-t_pre = 20
-t_post = 30 # 1 sec according to frame-rate
-t_flat = 15
-t_valid = 16
-color_list = ['k', 'r', 'b']
 
-## save average image df/f
 ## save component df/f
+
+
+for index, row in dat_xls_file.iterrows():
+    folder = row['folder']
+    fish = row['fish']
+    dff_dir = dat_folder+f'{folder}/{fish}/Data/'
+    A = np.load(dff_dir+'components.npz', allow_pickle=True)['A_']
+    Y_ = imread(dff_dir+'imgDMotion.tif')
+    t, x, y = Y_.shape
+    
+    ## save average image df/f
+    valid_pix = Y_.mean(axis=0)>100
+    F = Y_[:, valid_pix].mean(axis=-1)
+    F_b = baseline(F, window=1000, percentile=20)
+    dFF_ave = F/F_b-1
+    dFF_ave[:100] = 0
+    F_mean=Y_.mean(axis=0)
+    
+    A_new = A.copy()
+    for n, a_ in enumerate(A.T):
+        _ = a_
+        _[a_<a_.max()*.2] = 0
+        A_new[:, n]=_
+    F = np.matmul(Y_.reshape(t, x*y, order='F'), A_new)
+    F_b = baseline(F, window=1000, percentile=20, axis=0)
+    dFF = F/F_b-1
+    dFF[:100, :] = 0
+    
+    np.savez(f'snfr_dff/{folder}_{fish}_snfr_dff_dat', \
+        dFF_ave=dFF_ave, A=A_new, F=F, dFF=dFF, Y_mean=F_mean)
+    
