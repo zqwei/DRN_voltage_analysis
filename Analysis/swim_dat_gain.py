@@ -12,7 +12,8 @@ import numpy as np
 import pandas as pd
 import os
 
-vol_file = '../Voltron_data/depreciated/Voltron_Log_DRN_Exp_update.csv'
+# vol_file = '../Voltron_data/depreciated/Voltron_Log_DRN_Exp_update.csv'
+vol_file = '../Voltron_data/Voltron_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dir_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
@@ -43,8 +44,8 @@ def valid_swim(row, sig_thres=0.5):
     
     frame_stimParams = np.load(swim_dir+'frame_stimParams.npy')
     frame_swim_tcourse = np.load(swim_dir+'frame_swim_tcourse_series.npy')
-    rawdata = np.load(swim_dir+"rawdata.npy")[()]
-    swimdata = np.load(swim_dir+"swimdata.npy")[()]
+    rawdata = np.load(swim_dir+"rawdata.npy", allow_pickle=True)[()]
+    swimdata = np.load(swim_dir+"swimdata.npy", allow_pickle=True)[()]
     reclen=len(swimdata['fltCh1'])
     frame_tcourse=np.zeros((reclen,))
     frame=np.where(np.diff((rawdata['ch3']>3).astype('int'))==1)[0]
