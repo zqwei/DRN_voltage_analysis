@@ -17,3 +17,9 @@
 
 
 ## Population analysis using complicated dynamical model with binary or poisson output
+
+
+## TODO -- 2020/01/28
+* spike rate vs visual input on single trials (this could comfounded with swim power)
+* 2d plot with velocity rho and swim-power rho with activity -- GLM model
+* per-swim event vector
