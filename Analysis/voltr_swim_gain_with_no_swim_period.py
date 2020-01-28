@@ -27,6 +27,9 @@ t_sig = 300 # time used for significance test after swim
 non_spike_thres = 100
 k_spk = boxcarKernel(sigma=61)
 k_sub = 10
+interswim_thres=1000
+
+os.system('rm swim_voltr_no_swim/*.npz')
 
 for _, row in dat_xls_file.iterrows():
     folder = row['folder']
@@ -41,6 +44,10 @@ for _, row in dat_xls_file.iterrows():
     _ = np.load(f'swim_power/{folder}_{fish}_swim_dat.npz')
     swim_starts = _['swim_starts']
     swim_ends = _['swim_ends']
+    interswim = swim_starts[1:]-swim_ends[:-1]
+    if (interswim>interswim_thres).sum()<15:
+        continue
+    
     r_swim = _['r_swim']
     l_swim = _['l_swim']
     visu = _['visu']
@@ -69,6 +76,16 @@ for _, row in dat_xls_file.iterrows():
     sub_swim = []
     spk_swim = []
     sub_sig_swim = []
+    sub_noswim = []
+    spk_noswim = []
+    no_swim_list = []
+    for n_ in range(len(swim_ends)-1):
+        if (swim_starts[n_+1]-swim_ends[n_])<interswim_thres:
+            continue
+        no_swim_list.append([swim_ends[n_], swim_starts[n_+1], task_period[n_]])
+        
+    no_swim_list=np.array(no_swim_list).astype('int')
+    
     # remove low spike cells
     for n_cell in range(num_cell):
         if spk[n_cell].sum()<non_spike_thres:
@@ -82,7 +99,8 @@ for _, row in dat_xls_file.iterrows():
         spk_list = np.empty((r_swim.shape[0], t_len))
         spk_list[:] = np.nan
         sub_sig = np.ones(t_sig)
-        
+
+        # swim trials
         for n, n_swim in enumerate(swim_starts):
             if (n_swim>t_pre) and (n_swim+t_post<len(n_dff)):
                 # get sub and spk for each swim
@@ -91,6 +109,20 @@ for _, row in dat_xls_file.iterrows():
                 spk_list[n, :] = n_spk[n_swim-t_pre:n_swim+t_post]
             else:
                 trial_valid_[n] = False
+        
+        
+        # no-swim trials
+        sub_nolist = np.empty((no_swim_list.shape[0], interswim_thres))
+        sub_nolist[:] = np.nan
+        spk_nolist = np.empty((no_swim_list.shape[0], interswim_thres))
+        spk_nolist[:] = np.nan
+        
+        for n, n_swim_ in enumerate(no_swim_list):
+            n_swim = n_swim_[0]
+            if (n_swim>0) and (n_swim+interswim_thres<len(n_dff)):
+                sub_nolist[n, :] = n_dff[n_swim:n_swim+interswim_thres]
+                spk_nolist[n, :] = n_spk[n_swim:n_swim+interswim_thres]
+            
             
         ave_low = sub_list_[(task_period==1) & trial_valid_, :]
         ave_high = sub_list_[(task_period==2) & trial_valid_, :]
@@ -102,8 +134,15 @@ for _, row in dat_xls_file.iterrows():
         sub_swim.append(sub_list)
         spk_swim.append(spk_list)
         sub_sig_swim.append(sub_sig)
+        sub_noswim.append(sub_nolist)
+        spk_noswim.append(spk_nolist)
     
-    np.savez(f'swim_voltr/{folder}_{fish}_swim_voltr_dat', \
+    np.savez(f'swim_voltr_no_swim/{folder}_{fish}_swim_voltr_dat', \
             sub_swim=np.array(sub_swim), \
             spk_swim=np.array(spk_swim), \
-            sub_sig_swim=np.array(sub_sig_swim), trial_valid=trial_valid_)
+            sub_sig_swim=np.array(sub_sig_swim), \
+            trial_valid=trial_valid_, \
+            task_period=task_period, \
+            sub_noswim=np.array(sub_noswim), \
+            spk_noswim=np.array(spk_noswim), \
+            no_swim_list=no_swim_list)
