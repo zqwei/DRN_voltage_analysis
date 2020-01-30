@@ -68,6 +68,7 @@ for _, row in dat_xls_file.iterrows():
     
     sub_swim = []
     spk_swim = []
+    raw_spk_swim=[]
     sub_sig_swim = []
     # remove low spike cells
     for n_cell in range(num_cell):
@@ -81,6 +82,8 @@ for _, row in dat_xls_file.iterrows():
         sub_list_ = np.zeros((r_swim.shape[0], t_len))
         spk_list = np.empty((r_swim.shape[0], t_len))
         spk_list[:] = np.nan
+        raw_spk_list = np.empty((r_swim.shape[0], t_len))
+        raw_spk_list[:] = np.nan
         sub_sig = np.ones(t_sig)
         
         for n, n_swim in enumerate(swim_starts):
@@ -89,6 +92,7 @@ for _, row in dat_xls_file.iterrows():
                 sub_list[n, :] = n_dff[n_swim-t_pre:n_swim+t_post] 
                 sub_list_[n, :] = sub_list[n, :] - sub_list[n, (t_pre-30):t_pre].mean()
                 spk_list[n, :] = n_spk[n_swim-t_pre:n_swim+t_post]
+                raw_spk_list[n, :] = spk[n_cell][n_swim-t_pre:n_swim+t_post]
             else:
                 trial_valid_[n] = False
             
@@ -102,8 +106,11 @@ for _, row in dat_xls_file.iterrows():
         sub_swim.append(sub_list)
         spk_swim.append(spk_list)
         sub_sig_swim.append(sub_sig)
+        raw_spk_swim.append(raw_spk_list)
     
     np.savez(f'swim_voltr/{folder}_{fish}_swim_voltr_dat', \
             sub_swim=np.array(sub_swim), \
             spk_swim=np.array(spk_swim), \
-            sub_sig_swim=np.array(sub_sig_swim), trial_valid=trial_valid_)
+            raw_spk_swim=np.array(raw_spk_swim), \
+            sub_sig_swim=np.array(sub_sig_swim), \
+            trial_valid=trial_valid_)
