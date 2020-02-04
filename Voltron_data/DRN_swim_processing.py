@@ -66,6 +66,9 @@ def swim():
             except IOError:
                 os.rmdir(save_folder+'/swim')
                 print(f'Check existence of file {swim_chFit}')
+            except:
+                os.rmdir(save_folder+'/swim')
+                print(f'Check problem of file {swim_chFit}')
     return None
 
 
@@ -206,6 +209,8 @@ def frame_swim_power():
         folder = row['folder']
         fish = row['fish']
         swimdir = dir_folder/f'{folder}/{fish}/swim'
+        if row['area']!='Raphe':
+            continue
         if os.path.isfile(swimdir/"frame_stimParams.npy"):
             continue
         if not os.path.isfile(swimdir/"rawdata.npy"):
@@ -278,6 +283,8 @@ def frame_swim_power_series():
         folder = row['folder']
         fish = row['fish']
         swimdir = dir_folder/f'{folder}/{fish}/swim'
+        if row['area']!='Raphe':
+            continue
         # if os.path.isfile(swimdir/"frame_swim_tcourse_series.npy"):
         #     continue
         if not os.path.isfile(swimdir/"rawdata.npy"):
