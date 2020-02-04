@@ -6,7 +6,6 @@ import seaborn as sns
 from scipy.signal import medfilt
 from scipy.stats import sem, ranksums
 sns.set(font_scale=2, style='ticks')
-from scipy.optimize import nnls
 from sklearn.linear_model import LinearRegression
 
 # def smooth(a, kernel):
