@@ -1,5 +1,12 @@
 import numpy as np
+import pandas as pd
+import os
 import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.signal import medfilt
+from scipy.stats import sem, ranksums
+from scipy.stats import ttest_1samp, trim_mean
+sns.set(font_scale=2, style='ticks')
 
 # def smooth(a, kernel):
 #     b=np.convolve(a,kernel,'same')/np.convolve(np.ones(a.shape),kernel,'same')
