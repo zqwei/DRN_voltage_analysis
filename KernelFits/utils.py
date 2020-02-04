@@ -67,8 +67,8 @@ def plt_raster(spk_list, c='k', f_=300, t_shift=100, mz=10):
 def shaded_errorbar(x, y, error, ax=plt, color='k'):
     ax.plot(x, y, '-', lw=1, color=color)
     ax.fill_between(x, y-error, y+error, facecolor=color, lw=0, alpha=0.8)
-    
-    
+
+
 def explained_variance(y, y_hat):
     return 1 - ((y-y_hat)**2).sum()/((y-y.mean())**2).sum()
 
