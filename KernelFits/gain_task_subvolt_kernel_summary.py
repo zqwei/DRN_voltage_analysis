@@ -27,6 +27,7 @@ ev_visual_list=[]
 for ind, row in dat_xls_file.iterrows():
     folder = row['folder']
     fish = row['fish']
+    print(f'{folder}_{fish}')
     _ = np.load(f'../Analysis/swim_power/{folder}_{fish}_swim_dat.npz')
     swim_starts = _['swim_starts']
     swim_ends = _['swim_ends']
@@ -54,14 +55,15 @@ for ind, row in dat_xls_file.iterrows():
         continue
     
     for ncell_ in range(num_cell):
+        print(ncell_)
         sub_swim = sub_swim_list[ncell_]
         spk_list = spk_list_list[ncell_]
         sub_list = sub_swim-sub_swim[:, 70:75].mean(axis=-1, keepdims=True)
         behavior_dat = [spk_list, p_swim, visu]
         pad_list = [spike_pad, swim_pad, visu_pad]
-        w_list, ev_list, comp = subvolt_fit(sub_list, behavior_dat, pad_list, trial_valid_fit, t_pre=t_pre, reg=3)
-        w0, w, w_ = w_list
-        ev_model_, ev_model, ev_spike, ev_swim, ev_visual = ev_list
+        w_all, ev_all, comp = subvolt_fit(sub_list, behavior_dat, pad_list, trial_valid_fit, t_pre=t_pre, reg=3)
+        w0, w, w_ = w_all
+        ev_model_, ev_model, ev_spike, ev_swim, ev_visual = ev_all
         w0_list.append(w0)
         w_list.append(w)
         w_list_.append(w_)
