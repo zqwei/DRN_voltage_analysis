@@ -88,6 +88,8 @@ if __name__ == "__main__":
             task_type = row['task']
             if 'Social' in task_type[0]: # skip spike detection on social water task
                 continue
+            if row['subvolt']:
+                continue
             save_folder = dat_folder + f'{folder}/{fish}/Data'
             save_image_folder = dat_folder + f'{folder}/{fish}/Results'
             if not os.path.isfile(save_folder+f'/finished_subvolt{fext}.tmp'):

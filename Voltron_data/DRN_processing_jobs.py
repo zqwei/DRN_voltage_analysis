@@ -63,6 +63,8 @@ def pixel_denoise():
     dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
+        if row['pixeldenoise']:
+            continue
         folder = row['folder']
         fish = row['fish']
         image_folder = row['rootDir'] + f'{folder}/{fish}/'
@@ -111,6 +113,8 @@ def registration(is_largefile=True):
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
+        if row['registration']:
+            continue
         folder = row['folder']
         fish = row['fish']
         save_folder = dat_folder + f'{folder}/{fish}/Data'
@@ -169,6 +173,8 @@ def video_detrend():
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
+        if row['detrend']:
+            continue
         folder = row['folder']
         fish = row['fish']
         save_folder = dat_folder + f'{folder}/{fish}/Data'
@@ -215,6 +221,8 @@ def local_pca():
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
     for index, row in dat_xls_file.iterrows():
+        if row['localdenoise']:
+            continue
         folder = row['folder']
         fish = row['fish']
         save_folder = dat_folder + f'{folder}/{fish}/Data'
@@ -254,10 +262,12 @@ def local_pca():
 
 def demix_components(ext=''):
     import mkl
-    mkl.set_num_threads(8)
+    mkl.set_num_threads(96)
     dat_xls_file = pd.read_csv(dat_csv, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for index, row in dat_xls_file.iterrows():
+        if row['demix']:
+            continue
         try:
             demix_middle_data_with_mask(row, ext=ext)
         except Exception as err:
