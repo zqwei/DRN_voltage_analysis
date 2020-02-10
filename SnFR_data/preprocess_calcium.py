@@ -3,7 +3,8 @@ import os, sys
 from fish_proc.utils.memory import get_process_memory, clear_variables
 from pathlib import Path
 from nmf_calcium import *
-dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+# dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+dat_folder = '/scratch/weiz/Takashi_DRN_project/SnFRData/'
 cameraNoiseMat = '/nrs/ahrens/ahrenslab/Ziqiang/gainMat/gainMat20180208'
 
 

@@ -10,12 +10,15 @@ from utils_swim import *
 vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
-dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+# dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+dat_folder = '/scratch/weiz/Takashi_DRN_project/SnFRData/'
 dir_folder = Path(dat_folder)
 
 
 for index, row in dat_xls_file.iterrows():
     folder = row['folder']
+    if '2020' not in folder:
+        continue
     fish = row['fish']
     rootDir = row['rootDir']
     dff_dir = dat_folder+f'{folder}/{fish}/Data/'

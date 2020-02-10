@@ -16,7 +16,8 @@ dat_xls_file = pd.read_csv('Voltron_Log_DRN_Exp.csv', index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 # using Path to handle switches filesystems
 if platform == "linux" or platform == "linux2":
-    dir_folder = Path('/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/')
+    # dir_folder = Path('/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/')
+    dir_folder = Path('/scratch/weiz/Takashi_DRN_project/ProcessedData/')
 elif platform == 'win32':
     dir_folder = Path('U:\\Takashi') # put folder for windows system
 noise_thre  = 0.5
@@ -35,7 +36,8 @@ def swim():
     '''
     Processing swim using TK's code
     '''
-    dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+    # dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+    dir_folder = Path('/scratch/weiz/Takashi_DRN_project/ProcessedData/')
     from fish_proc.utils.ep import process_swim
     for _, row in dat_xls_file.iterrows():
         if row['swim']:

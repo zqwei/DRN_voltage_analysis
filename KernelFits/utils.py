@@ -70,6 +70,9 @@ def shaded_errorbar(x, y, error, ax=plt, color='k'):
 
 
 def explained_variance(y, y_hat):
+    """
+    r2 for linear model
+    """
     return 1 - ((y-y_hat)**2).sum()/((y-y.mean())**2).sum()
 
 

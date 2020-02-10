@@ -28,14 +28,6 @@ for index, row in dat_xls_file.iterrows():
     if os.path.isfile(save_folder+'Data/proc_local_denoise_demix.tmp'):
         if not os.path.isfile(save_folder+'Data/finished_local_denoise_demix.tmp'):
             print(save_folder)
-#         create_date = datetime.datetime.fromtimestamp(os.path.getctime(save_folder+'Data/finished_local_denoise_demix.tmp')).day
-#         if create_date<26:
-#             print(f'remove {save_folder} finish file')
-#             os.remove(save_folder+'Data/finished_local_denoise_demix.tmp')
-#             try:
-#                 os.remove(save_folder+'Data/proc_local_denoise_demix.tmp')
-#                 print(f'remove {save_folder} proc file')
-#             except:
-#                 pass
+
 print(dat_xls_file.sum(numeric_only=True))
 dat_xls_file.to_csv(vol_file)
