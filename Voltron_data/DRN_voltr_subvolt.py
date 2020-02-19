@@ -6,6 +6,7 @@ import os, sys
 from trefide.temporal import TrendFilter
 # this requires conda env trefide
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+# dat_folder = '/scratch/weiz/Takashi_DRN_project/ProcessedData/'
 
 
 def tf_filter(_):

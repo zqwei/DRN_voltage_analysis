@@ -61,10 +61,10 @@ def voltr2spike(row):
     There seems to be a limitation of cores keras can use, 4 - 8 cores are enough for this one.
     '''
     import tensorflow as tf
-    from keras import backend as K
-    K.set_session(K.tf.Session(config=K.tf.ConfigProto(intra_op_parallelism_threads=32, inter_op_parallelism_threads=32)))
-    import keras
-    from keras.models import load_model
+#     from keras import backend as K
+#     K.set_session(K.tf.Session(config=K.tf.ConfigProto(intra_op_parallelism_threads=32, inter_op_parallelism_threads=32)))
+#     import keras
+    from tensorflow.keras.models import load_model
     from fish_proc.spikeDetectionNN.spikeDetector import prepare_sequences_center
     from fish_proc.spikeDetectionNN.utils import detected_window_max_spike
     from fish_proc.spikeDetectionNN.utils import roll_scale
@@ -99,7 +99,9 @@ def voltr2spike(row):
 if __name__ == '__main__':
     # vol_file = Path('depreciated/analysis_sections_based_on_swim_pattern.csv')
     # vol_file = Path('depreciated/analysis_sections_ablation_unmatched.csv')
-    vol_file = Path('depreciated/analysis_sections_ablation.csv')
+    # vol_file = Path('depreciated/analysis_sections_ablation.csv')
+    vol_file = Path('depreciated/analysis_sections_ablation_gain.csv')
+    
     dat_xls_file = pd.read_csv(vol_file, index_col=0)
     dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
     for _, row in dat_xls_file.iterrows():

@@ -26,6 +26,8 @@ if __name__ == "__main__":
                 fish = row['fish']
                 task_type = row['task']
                 save_folder = dat_folder + f'{folder}/{fish}/Data'
+                if not os.path.exists(save_folder):
+                    continue
                 if not os.path.isfile(save_folder+f'/finished_voltr{fext}.tmp'):
                     x, y = align_components(row, ablt_len=ablt_len_, ablt_sovo_str_alt=ablt_sovo_str_alt)
                     voltron_ablt(row, x, y, fext='', is_mask=True, ablt_len=ablt_len_, ablt_sovo_str_alt=ablt_sovo_str_alt)

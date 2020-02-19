@@ -9,7 +9,8 @@ import datetime
 vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file, index_col=0)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
-dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+# dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+dat_folder = '/scratch/weiz/Takashi_DRN_project/SnFRData/'
 
 for index, row in dat_xls_file.iterrows():
     folder = row['folder']
@@ -25,6 +26,7 @@ for index, row in dat_xls_file.iterrows():
         dat_xls_file.at[index, 'denoise'] = True
     if os.path.isfile(save_folder+'Data/finished_local_denoise_demix.tmp'):
         dat_xls_file.at[index, 'demix'] = True
+        dat_xls_file.at[index, 'denoise'] = True
     if os.path.isfile(save_folder+'Data/proc_local_denoise_demix.tmp'):
         if not os.path.isfile(save_folder+'Data/finished_local_denoise_demix.tmp'):
             print(save_folder)

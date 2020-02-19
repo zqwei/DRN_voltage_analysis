@@ -5,8 +5,8 @@ import os, sys
 from fish_proc.utils.memory import get_process_memory, clear_variables
 from pathlib import Path
 
-# dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
-dat_folder = '/scratch/weiz/Takashi_DRN_project/ProcessedData/'
+dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+# dat_folder = '/scratch/weiz/Takashi_DRN_project/ProcessedData/'
 cameraNoiseMat = '/nrs/ahrens/ahrenslab/Ziqiang/gainMat/gainMat20180208'
 dat_csv = '/groups/ahrens/home/weiz/Projects/DRN_voltage_analysis/Voltron_data/Voltron_Log_DRN_Exp.csv'
 

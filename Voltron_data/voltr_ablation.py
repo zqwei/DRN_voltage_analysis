@@ -6,6 +6,7 @@ from matplotlib import pyplot as plt
 from voltr_spike import *
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+# dat_folder = '/scratch/weiz/Takashi_DRN_project/ProcessedData/'
 ablt_len = 6
 ablt_sovo_len = 26
 # ablt_str = 'after'

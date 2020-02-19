@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 
 
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/ProcessedData/'
+# dat_folder = '/scratch/weiz/Takashi_DRN_project/ProcessedData/'
 
 
 def plot_components(A_, Y_trend_ave, fext='', save_folder='', save_image_folder=''):
@@ -91,22 +92,9 @@ def voltr2spike(row, fext='', cpu=False, win_=50001):
     '''
     There seems to be a limitation of cores keras can use, 4 - 8 cores are enough for this one.
     '''
-    if cpu:
-        import tensorflow as tf
-        from keras import backend as K
-        num_cores = 32
-        if cpu:
-            num_CPU = 1
-            num_GPU = 0
-        else:
-            num_GPU = 1
-            num_CPU = 1
-        config = tf.ConfigProto(intra_op_parallelism_threads=num_cores,\
-                                inter_op_parallelism_threads=num_cores, allow_soft_placement=True,\
-                                device_count = {'CPU' : num_CPU, 'GPU' : num_GPU})
-        K.set_session(tf.Session(config=config))
-    import keras
-    from keras.models import load_model
+    import tensorflow as tf
+    # tf.config.set_visible_devices([], 'GPU')
+    from tensorflow.keras.models import load_model
     from fish_proc.spikeDetectionNN.spikeDetector import prepare_sequences_center
     from fish_proc.spikeDetectionNN.utils import detected_window_max_spike
     from fish_proc.spikeDetectionNN.utils import roll_scale
