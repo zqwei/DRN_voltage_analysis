@@ -148,6 +148,8 @@ plt.close('all')
 print('Generate plot for average spikes for selective population')
 sig_mat = np.abs(p_mat)[:, t_pre-30:(t_pre+300)]<0.05
 sel_ind = sig_mat.sum(axis=-1)>10
+print(f'number of cells {sel_ind.sum()}')
+print(f'number of fish {len(np.unique(np.array(fish_id)[sel_ind]))}')
 plt.figure(figsize=(4, 3))
 # low gain
 ave_act = np.array(ave_low_list)[sel_ind].mean(axis=0)

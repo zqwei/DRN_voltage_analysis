@@ -141,7 +141,7 @@ def process(task=True, task_str='_control'):
     high_list_ = []
     fish_id = []
     for _, row in dat_xls_file.iterrows():
-        if (not 'control' in row['task']) and task:
+        if (not 'control' in row['task'])==task:
             continue  
         if search_paired_data(row, dat_xls_file):
             try:
