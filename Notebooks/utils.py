@@ -6,7 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.signal import medfilt
-from scipy.stats import sem, ranksums
+from scipy.stats import sem, ranksums, ttest_ind
 from scipy.stats import ttest_1samp, trim_mean
 sns.set(font_scale=2, style='ticks')
 
@@ -69,3 +69,50 @@ def plt_raster(spk_list, c='k', f_=300, t_shift=100, mz=10):
 def shaded_errorbar(x, y, error, ax=plt, color='k'):
     ax.plot(x, y, '-', lw=1, color=color)
     ax.fill_between(x, y-error, y+error, facecolor=color, lw=0, alpha=0.8)
+
+
+def search_paired_data(row, flist):
+    if 'before' not in row['fish']:
+        return False
+    fish = row['fish'][:-6]
+    for _, row_ in flist.iterrows():
+        if row_['folder'] != row['folder']:
+            continue
+        if row_['fish'] == fish+'after':
+            return True
+    return False
+
+
+def search_paired_data_before(row, flist):
+    if 'before ablation' not in row['task']:
+        return False
+    if 'failed' in row['task']:
+        return False
+    fish = row['fish'][:-before_len]
+    for _, row_ in flist.iterrows():
+        if row_['folder'] != row['folder']:
+            continue
+        if row_['fish'] == (fish+after_):
+            return True
+    return False
+
+
+def spk_shape(spk_list, dff):
+    spk_ = []
+    for t_ in spk_list:
+        if t_+30<len(dff):
+            spk_.append(dff[t_-30:t_+30])
+    spk_ = np.array(spk_)
+    return spk_.mean(axis=0)
+
+
+def search_paired_data(row, flist):
+    if 'before' not in row['fish']:
+        return False
+    fish = row['fish'][:-6]
+    for _, row_ in flist.iterrows():
+        if row_['folder'] != row['folder']:
+            continue
+        if row_['fish'] == fish+'after':
+            return True
+    return False
