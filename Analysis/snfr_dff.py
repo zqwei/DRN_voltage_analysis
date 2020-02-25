@@ -1,12 +1,14 @@
 import numpy as np
 import pandas as pd
 from skimage.io import imread
+import os
 from utils import *
 
 vol_file = '../SnFR_data/SnFR_Log_DRN_Exp.csv'
 dat_xls_file = pd.read_csv(vol_file)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+dat_folder_ = '/nearline/ahrens/Ziqiang_tmp/SnFRData/'
 
 ## save component df/f
 
@@ -14,9 +16,12 @@ dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
 for index, row in dat_xls_file.iterrows():
     folder = row['folder']
     fish = row['fish']
+    if os.path.exists(f'snfr_dff/{folder}_{fish}_snfr_dff_dat.npz'):
+        continue
     dff_dir = dat_folder+f'{folder}/{fish}/Data/'
+    dff_dir_ = dat_folder_+f'{folder}/{fish}/Data/'
     A = np.load(dff_dir+'components.npz', allow_pickle=True)['A_']
-    Y_ = imread(dff_dir+'imgDMotion.tif')
+    Y_ = imread(dff_dir_+'imgDMotion.tif')
     t, x, y = Y_.shape
     
     ## save average image df/f

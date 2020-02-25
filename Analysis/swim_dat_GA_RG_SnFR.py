@@ -73,7 +73,7 @@ def valid_swim(row):
     visu = visu[~remove_ind, :]
     swim_starts = swim_starts[~remove_ind]
     swim_ends = swim_ends[~remove_ind]
-
+    
     task_period = (frame_stimParams[3,swim_starts]-1)*3+ frame_stimParams[2,swim_starts]# task
     swim_task_index =  (frame_stimParams[3,swim_starts]-1)*3+frame_stimParams[2,swim_starts+2] #random gain
     swim_len_list = swim_len_list[~remove_ind]
