@@ -6,7 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.signal import medfilt
-from scipy.stats import sem, ranksums, ttest_ind
+from scipy.stats import sem, ranksums, ttest_ind, spearmanr
 from scipy.stats import ttest_1samp, trim_mean, wilcoxon
 sns.set(font_scale=2, style='ticks')
 
