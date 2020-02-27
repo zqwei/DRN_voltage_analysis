@@ -8,6 +8,7 @@ import seaborn as sns
 from scipy.signal import medfilt
 from scipy.stats import sem, ranksums, ttest_ind, spearmanr
 from scipy.stats import ttest_1samp, trim_mean, wilcoxon
+from scipy.stats import f_oneway
 sns.set(font_scale=2, style='ticks')
 
 # def smooth(a, kernel):

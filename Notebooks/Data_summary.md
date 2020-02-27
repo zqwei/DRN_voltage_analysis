@@ -44,17 +44,36 @@
 * ablt: 12 fish
 
 
+## SnFR example sessions
+### First peak of GABA and Glu release are correlated with swim vigor
+* GABA in GA task
+    * Example recording session
+    * dFF vs vel: SpearmanrResult(correlation=0.2652916073968705, pvalue=0.11253461250288342)
+    * dFF vs swim: SpearmanrResult(correlation=0.46181753356771355, pvalue=1.696806854832783e-06)
+* Glu in GA task
+    * Example recording session
+    * dFF vs vel: SpearmanrResult(correlation=0.14786023732119238, pvalue=0.037631589644074995)
+    * dFF vs swim: SpearmanrResult(correlation=0.6869998353558286, pvalue=5.451578330971371e-29)
+    
+### Second peak of Glu release are correlated with visual feedback
+* Glu in Random Gain (RG) task (motor-clamp trials)
+    * Example recording session
+    * dFF 2nd peak vs vel: SpearmanrResult(correlation=0.5143954480796585, pvalue=2.347997075262531e-06)
+* Glu in Random Delay (RD) task (motor-clamp trials)
+    * Example recording session (the same as the RG task)
+    * dFF 2nd peak time vs vel onset time: F_onewayResult(statistic=54.78951858020245, pvalue=3.396881689204097e-17)
+
 ## GABASnFR
 ### GA
 
-### GA + Random Gain (RG) -- encoding of swim vigor vs visual feedback
+### GA + RG -- encoding of swim vigor vs visual feedback
 * 
 * 
 
 ## GluSnFR
 ### GA
 ### RG-only
-### Random Delay (RD)
+### RD
 ### SOVO
 ### GA+RG
 ### GA+RD -- visual feedback
