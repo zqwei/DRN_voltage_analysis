@@ -73,8 +73,12 @@ def valid_swim(row):
     visu = visu[~remove_ind, :]
     swim_starts = swim_starts[~remove_ind]
     swim_ends = swim_ends[~remove_ind]
-    task_period = frame_stimParams[2,swim_starts]# task % 1 low gain, 3 high gain, 2 random delay
-    swim_task_index = frame_stimParams[3,swim_starts+1] #random delay 0 GA, 1 no delay 
+    frame_stimParams_=frame_stimParams[2]
+    frame_stimParams_[frame_stimParams_==2]=frame_stimParams[3,frame_stimParams_==2]+3
+#     task_period = frame_stimParams[2,swim_starts]# task % 1 low gain, 3 high gain, 2 random delay
+#     swim_task_index = frame_stimParams[3,swim_starts+1] #random delay 0 GA, 1 no delay 
+    task_period = frame_stimParams_[swim_starts]
+    swim_task_index = frame_stimParams_[swim_starts+1]
     swim_len_list = swim_len_list[~remove_ind]
     swim_count  = np.zeros((len(swim_starts),))
 
@@ -104,7 +108,7 @@ def valid_swim(row):
 
     print(f'{folder} {fish}: average swim difference significance: {gain_sig_stat.mean()}')
 
-    np.savez(f'swim_power/{folder}_{fish}_swim_dat', \
+    np.savez(f'swim_power/{folder}_{fish}_swim_dat', frame_stimParams_=frame_stimParams_, \
             swim_starts=swim_starts, swim_ends=swim_ends, \
             r_swim = r_swim, l_swim=l_swim, visu=visu, \
             task_period = task_period, swim_task_index=swim_task_index)
