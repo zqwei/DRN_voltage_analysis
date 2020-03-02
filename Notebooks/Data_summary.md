@@ -23,6 +23,8 @@
 ### SOVO
 * Behavior example from `['05022019', 'Fish2-1-swimonly_visualonly']`
 * Selective neuron average: 21 cells, 6 fish
+* Glu: 1069 comps, 5 fish
+* Although visual is encoded, it is not able to trigger spike increases from baseline.
 
 ### Population
 * GA: 20 sessions, 15 fish
@@ -63,23 +65,19 @@
     * Example recording session (the same as the RG task)
     * dFF 2nd peak time vs vel onset time: F_onewayResult(statistic=54.78951858020245, pvalue=3.396881689204097e-17)
 
-## GABASnFR
-### GA
+## SnFR
+### GA+RG (motor-clamp trials-only) -- encoding of swim vigor vs visual feedback
+* GABA encodes swim vigor (GA), and has no signficant info in visual feedback (RG)
+    * 1 fish, 14 comps
+* Glu encodes swim vigor (GA), and visual feedback (RG)
+    * 6 fish, 66 comps
 
-### GA + RG -- encoding of swim vigor vs visual feedback
-* 
-* 
-
-## GluSnFR
-### GA
-### RG-only
-### RD
-### SOVO
-### GA+RG
 ### GA+RD -- visual feedback
-### GA+SOVO
+* Glu:
+    * GA+RD -- 2 fish, 10 comps
+    * RD-only -- 3 fish, 458 comps
 ### GA+Replay
-* Glu: 6 planes, 6 fish
+* Glu: 6 fish,65 comps
 
 
 ## Model
@@ -88,7 +86,6 @@
 
 ## Single-cell tracing + upstream
 * (**Can TK fill this part?**)
-
 
 # Manuscript outline
 ## Figures
@@ -115,6 +112,13 @@
 * Model confirms the gating effect.
 * (for Fig 5) Analysis of HCN4l-knockout fish.
 * (for Fig 5) Optogenetic activation. This may be for revision.
+
+## Supp. Figures
+### Figure 1
+* Imaging proessing pipeline
+    * Voltron -- spike and subvolt
+    * SnFR data
+
 
 
 
