@@ -17,8 +17,6 @@ dir_folder = Path(dat_folder)
 
 for index, row in dat_xls_file.iterrows():
     folder = row['folder']
-    if '2020' not in folder:
-        continue
     fish = row['fish']
     rootDir = row['rootDir']
     dff_dir = dat_folder+f'{folder}/{fish}/Data/'

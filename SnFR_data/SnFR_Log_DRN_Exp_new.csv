@@ -1,0 +1,25 @@
+,folder,fish,task,area,rootDir,pixeldenoise,registration,detrend,demix,denoise
+0,8042019,Fish7-4,GA+Random delay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+1,8092019,Fish2-3,GA+Random delay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+2,8022019,Fish6-2,GA+Random gain,GABA,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+3,8032019,Fish2-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+4,8032019,Fish4-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+5,8032019,Fish5-1,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+6,8042019,Fish1-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+7,8042019,Fish2-2,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+8,8042019,Fish2-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+9,8042019,Fish3-3,GA+Random gain,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+10,4182019,Fish1-3-delay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+11,5012019,Fish2-2-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+12,5012019,Fish2-4-RandomDelay,Delayed feedback,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+13,5022019,Fish1-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+14,5092019,Fish2-1-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+15,5092019,Fish2-2-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+16,5092019,Fish2-3-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+17,5092019,Fish2-4-swimonly_visualonly,Swimonly_Visualonly,Glu,/mnt/Dali/Takashi/Cezanne/SPIM_newPC/,TRUE,TRUE,TRUE,TRUE,TRUE
+18,2042020,Fish2-1,GA+Replay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+19,2042020,Fish3-1,GA+Replay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+20,2052020,Fish1-1,GA+Replay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+21,2052020,Fish3-1,GA+Replay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+22,2052020,Fish5-1,GA+Replay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
+23,2052020,Fish6-1,GA+Replay,Glu,/nrs/ahrens/Takashi/,TRUE,TRUE,TRUE,TRUE,TRUE
