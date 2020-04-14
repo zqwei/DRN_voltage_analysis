@@ -96,7 +96,7 @@ def NNLR_w(X_dat, Y_dat, Y_dat_, ind_, w0=None, wl=0.3, reg=0.3):
 #     lb[ind_[0]:ind_[0]+visu_pad//2]=0
 #     ub[ind_[0]:ind_[0]+visu_pad//2]=0
     res = minimize(nll, w0, args=(X_dat, Y_dat, Y_dat_,ind_,wl,reg), method='L-BFGS-B', \
-                   jac=nllgrad, bounds=Bounds(lb, ub), options={'disp':True}) # 
+                   jac=nllgrad, bounds=Bounds(lb, ub), options={'disp':False}) # 
     return w0, res.x
 
 

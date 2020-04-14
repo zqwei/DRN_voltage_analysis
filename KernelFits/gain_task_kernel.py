@@ -46,7 +46,7 @@ def kernel_fit(sub_list, behavior_dat, pad_list, trial_valid_fit, reg=100000, t_
         X_dat_ = X_dat.copy()
         X_dat_[:, ind_[1]:ind_[2]]=sig_i*X_dat_[:, ind_[1]:ind_[2]]
         X_dat_[:, ind_[2]:ind_[3]]=sig_j*X_dat_[:, ind_[2]:ind_[3]]
-        lr = LogisticRegression(penalty='l2',fit_intercept=False, C=1, solver='lbfgs', max_iter=5000).fit(X_dat, Y_dat)
+        lr = LogisticRegression(penalty='l2',fit_intercept=False, C=1, solver='lbfgs', max_iter=5000).fit(X_dat_, Y_dat)
         w0 = lr.coef_.copy().T
         nn_indx = w0<0
         nn_indx[:ind_[0], 0]=False
@@ -55,7 +55,7 @@ def kernel_fit(sub_list, behavior_dat, pad_list, trial_valid_fit, reg=100000, t_
         # alternating optimization
         for n in range(10):
             w0, w_ = NNLR_w(X_dat_, Y_dat, Y_dat_, ind_, w0=w0, wl=1/s, reg=reg)
-            s=((Y_dat_-X_dat.dot(w_))**2).mean()
+            s=((Y_dat_-X_dat_.dot(w_))**2).mean()
             w0 = w_.copy()
         w.append(w_)
         ll_model.append(ll_func(w_, X_dat_, Y_dat, Y_dat_, wl=1/s))
