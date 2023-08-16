@@ -80,8 +80,12 @@ valid = (ave_list_max - ave_list_min) >0
 ave_list = (ave_list - ave_list_min)/(ave_list_max - ave_list_min)
 
 ave_list_ = ave_list[valid[:,0], :]
-max_ind = np.nanargmax(ave_list_, axis=-1)
-sort_max_ind = np.argsort(max_ind)
+# max_ind = np.nanargmax(ave_list_, axis=-1)
+# sort_max_ind = np.argsort(max_ind)
+##########################
+# center of mass
+ave_list__ = np.concatenate([np.array(ave_low_list)[:, t_pre:], np.array(ave_high_list)[:, t_pre:]], axis=-1)[valid[:,0]]
+sort_max_ind= np.argsort(np.dot(ave_list__, np.arange(ave_list__.shape[1]))/ave_list__.sum(axis=1))
 plt.figure(figsize=(8, 3))
 plt.imshow(ave_list_[sort_max_ind, :], aspect='auto', origin='lower')
 plt.vlines([t_pre, t_pre*2+t_post+nan_line_wid], [0], [len(sort_max_ind)], linestyles='--', colors='w')
@@ -92,7 +96,8 @@ plt.xticks([t_pre, t_pre+300, t_pre*2+t_post+nan_line_wid, t_pre*2+t_post+300+na
 plt.yticks([0, len(sort_max_ind)-1], [1, len(sort_max_ind)])
 plt.colorbar()
 sns.despine()
-plt.savefig('../Plots/gain/pop_act_max.pdf')
+# plt.savefig('../Plots/gain/pop_act_max.pdf')
+plt.savefig('../Plots/gain/pop_act_center_mass.pdf')
 plt.close('all')
 
 print('Generate plot for population p-values')
