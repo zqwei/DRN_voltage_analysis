@@ -41,14 +41,14 @@ for index, row in dat_xls_file.iterrows():
     block_img = ave_img.copy()
     block_img[ave_img<20]=0
     img_adapteq = clahe(block_img/block_img.max(), clip_limit=0.03)
-    segments_fz = felzenszwalb(img_adapteq, scale=100, sigma=0.5, min_size=100)
+    segments_fz = felzenszwalb(img_adapteq, scale=100, sigma=0.5, min_size=3000)
     seg = segments_fz.copy()+1
     seg[~valid_pix]=0
     dFF_ = np.zeros((t, seg.max()))
     seg_list=[]
     for n in range(seg.max()):
         seg_pix = seg==(n+1)
-        if seg_pix.sum()<300:
+        if seg_pix.sum()<3000:
             continue
         F = Y_[:, seg_pix].mean(axis=-1)
         F_b = baseline(F, window=1000, percentile=20)
