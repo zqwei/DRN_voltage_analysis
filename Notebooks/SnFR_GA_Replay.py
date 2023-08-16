@@ -4,7 +4,7 @@ vol_file = '../Analysis/depreciated/analysis_sections_GA_Replay_SnFR.csv'
 dat_xls_file = pd.read_csv(vol_file)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
-dff_dat_folder = '../Analysis/snfr_dff_simple/'
+dff_dat_folder = '../Analysis/snfr_dff_simple_center/'
 frame_rate = 30
 t_pre = 10 # time window pre-swim
 t_post = 35 # time window post-swim
@@ -14,7 +14,6 @@ t_flat = 5
 t_valid = 21
 color_list = ['k', 'r', 'b']
 
-dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
 k_sub = gaussKernel(sigma=0.3)
 dat_list=[]
 fish_list=[]
@@ -59,7 +58,7 @@ for _, row in dat_xls_file.iterrows():
         
     _ = np.load(dff_dat_folder+f'{folder}_{fish}_snfr_dff_dat.npz', allow_pickle=True)
     ave = _['Y_mean']
-    dFF_ = _['dFF']#_['dFF_ave'][:, np.newaxis]
+    dFF_ = _['dFF_ave'][:, np.newaxis]
     n_pix=dFF_.shape[-1]
     num_swim = len(swim_starts)
     num_comp = dFF_.shape[-1]
@@ -81,35 +80,19 @@ for _, row in dat_xls_file.iterrows():
 
         if gain_sig_stat.mean()<0.2:
             continue
-
-        for n in [1, 2, 6]:
+        
+        plt.figure(figsize=(4, 3))
+        for n_, n in enumerate([1, 2, 6]):
             idx = valid_trial & (task_period==n)
-            c_dat.append(np.mean(dff_[idx], axis=0).T)
+            mean_=np.mean(dff_[idx], axis=0)
+            sem_ = sem(dff_[idx], axis=0)
+            shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color=color_list[n_])
+        plt.title('Gain adaptation')
+        plt.xlim([-0.1, 1.0])
+        # plt.ylim([-0.3, 1.0])
+        sns.despine()
+        plt.xlabel('Time from swim (s)')
+        plt.ylabel('Glu release Norm. $\Delta$F/F')
+        plt.savefig(f'../Plots/snfr/GA_RG/glu-GA-Replay_{folder}_{fish}.pdf')
+        plt.close('all')
             
-        dat_list.append(np.array(c_dat))
-        fish_list.append(folder+fish[:5])
-
-dat_list=np.array(dat_list)*100
-ff = dat_list[:,0].max(axis=-1, keepdims=True)
-dat_list = dat_list/ff[:,None,:]
-
-plt.figure(figsize=(4, 3))
-mean_ = np.mean(dat_list[:,0], axis=0)
-sem_ = sem(dat_list[:,0])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='k')
-mean_ = np.mean(dat_list[:,1], axis=0)
-sem_ = sem(dat_list[:,1])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='r')
-mean_ = np.mean(dat_list[:,2], axis=0)
-sem_ = sem(dat_list[:,1])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='b')
-plt.title('Replay')
-plt.xlim([-0.1, 1.0])
-plt.ylim([-0.3, 1.0])
-sns.despine()
-plt.xlabel('Time from swim (s)')
-plt.ylabel('GABA release Norm. $\Delta$F/F')
-plt.savefig('../Plots/snfr/GA_RG/glu-GA-Replay.pdf')
-
-print(np.unique(fish_list))
-print(dat_list.shape)

@@ -4,7 +4,7 @@ vol_file = '../Analysis/depreciated/analysis_sections_GA_RD_SnFR.csv'
 dat_xls_file = pd.read_csv(vol_file)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
 
-dff_dat_folder = '../Analysis/snfr_dff_simple/'
+dff_dat_folder = '../Analysis/snfr_dff_simple_center/'
 frame_rate = 30
 t_pre = 10 # time window pre-swim
 t_post = 35 # time window post-swim
@@ -67,10 +67,13 @@ for _, row in dat_xls_file.iterrows():
         gain_sig_stat[ntime] = (val>0) and (pval<0.05)
     if gain_sig_stat.mean()>0:
         continue
-        
+
+    if not os.path.exists(dff_dat_folder+f'{folder}_{fish}_snfr_dff_dat.npz'):
+        continue
+
     _ = np.load(dff_dat_folder+f'{folder}_{fish}_snfr_dff_dat.npz', allow_pickle=True)
     ave = _['Y_mean']
-    dFF_ = _['dFF']#_['dFF_ave'][:, np.newaxis] ##
+    dFF_ = _['dFF_ave'][:, np.newaxis]
     n_pix=dFF_.shape[-1]
     num_swim = len(swim_starts)
     num_comp = dFF_.shape[-1]
@@ -92,53 +95,88 @@ for _, row in dat_xls_file.iterrows():
         if gain_sig_stat.mean()<=0:
             continue
 
+
+        color_=['k', 'r', 'r']
+        plt.figure(figsize=(4, 3))
         for n in [1, 3]:
             idx = valid_trial & (task_period==n)
-            c_dat.append(np.mean(dff_[idx], axis=0).T) #-np.mean(dff_[idx, (t_pre-5):t_pre])
+            mean_=np.mean(dff_[idx], axis=0)
+            sem_ = sem(dff_[idx], axis=0)
+            shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color=color_[n-1])
+        plt.title('Gain adaptation')
+        plt.xlim([-0.1, 1.0])
+        # plt.ylim([-0.3, 1.0])
+        sns.despine()
+        plt.xlabel('Time from swim (s)')
+        plt.ylabel('Glu release Norm. $\Delta$F/F')
+        plt.savefig(f'../Plots/snfr/GA_RG/glu_GA_RD-GA_{folder}_{fish}.pdf')
+        plt.close('all')
+        
+        color_=['k', 'r', 'b']
+        plt.figure(figsize=(4, 3))
         for n in [4, 5, 6]:
             idx = valid_trial & (task_period_==n)
-            c_dat.append(np.mean(dff_[idx], axis=0).T)
-        dat_list.append(np.array(c_dat))
-        fish_list.append(folder+fish[:5])
+            mean_=np.mean(dff_[idx], axis=0)
+            sem_ = sem(dff_[idx], axis=0)
+            shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color=color_[n-4])
+        plt.title('Gain adaptation')
+        plt.xlim([-0.1, 1.0])
+        # plt.ylim([-0.3, 1.0])
+        sns.despine()
+        plt.xlabel('Time from swim (s)')
+        plt.ylabel('Glu release Norm. $\Delta$F/F')
+        plt.savefig(f'../Plots/snfr/GA_RG/glu_GA_RD-RD_{folder}_{fish}.pdf')
+        plt.close('all')
+        
+#         for n in [1, 3]:
+#             idx = valid_trial & (task_period==n)
+#             c_dat.append(np.mean(dff_[idx], axis=0).T) #-np.mean(dff_[idx, (t_pre-5):t_pre])
+#         for n in [4, 5, 6]:
+#             idx = valid_trial & (task_period_==n)
+#             c_dat.append(np.mean(dff_[idx], axis=0).T)
+#         dat_list.append(np.array(c_dat))
+#         fish_list.append(folder+fish) #[:5]
 
-dat_list=np.array(dat_list)
-ff = dat_list[:,0].max(axis=-1, keepdims=True)
-dat_list = dat_list/ff[:,None,:]
-ff_idx = np.argmax(dat_list[:,0],axis=-1)
-idx=(ff_idx<t_pre+20) & (dat_list[:,0].min(axis=-1)>-0.8)
+# print(np.unique(fish_list).T)
 
-plt.figure(figsize=(4, 3))
-mean_ = np.mean(dat_list[idx,0], axis=0)
-sem_ = sem(dat_list[idx,0])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='k')
-mean_ = np.mean(dat_list[idx,1], axis=0)
-sem_ = sem(dat_list[idx,1])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='r')
-plt.title('Gain adaptation')
-plt.xlim([-0.1, 1.0])
-plt.ylim([-0.3, 1.0])
-sns.despine()
-plt.xlabel('Time from swim (s)')
-plt.ylabel('Glu release Norm. $\Delta$F/F')
-plt.savefig('../Plots/snfr/GA_RG/glu_GA_RD-GA.pdf')
-plt.close('all')
+# dat_list=np.array(dat_list)
+# ff = dat_list[:,0].max(axis=-1, keepdims=True)
+# dat_list = dat_list/ff[:,None,:]
+# ff_idx = np.argmax(dat_list[:,0],axis=-1)
+# idx=(ff_idx<t_pre+20) & (dat_list[:,0].min(axis=-1)>-0.8)
 
-plt.figure(figsize=(4, 3))
-idx=(ff_idx<t_pre+20)
-mean_ = np.mean(dat_list[idx,2], axis=0)
-sem_ = sem(dat_list[idx,2])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='k')
-mean_ = np.mean(dat_list[idx,3], axis=0)
-sem_ = sem(dat_list[idx,3])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='r')
-mean_ = np.mean(dat_list[idx,4], axis=0)
-sem_ = sem(dat_list[idx,4])
-shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='b')
-plt.title('Random gain')
-plt.xlim([-0.1, 1.0])
-plt.ylim([-0.3, 1.0])
-sns.despine()
-plt.xlabel('Time from swim (s)')
-plt.ylabel('Glu release Norm. $\Delta$F/F')
-plt.savefig('../Plots/snfr/GA_RG/glu_GA_RD-RD.pdf')
-plt.close('all')
+# plt.figure(figsize=(4, 3))
+# mean_ = np.mean(dat_list[idx,0], axis=0)
+# sem_ = sem(dat_list[idx,0])
+# shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='k')
+# mean_ = np.mean(dat_list[idx,1], axis=0)
+# sem_ = sem(dat_list[idx,1])
+# shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='r')
+# plt.title('Gain adaptation')
+# plt.xlim([-0.1, 1.0])
+# plt.ylim([-0.3, 1.0])
+# sns.despine()
+# plt.xlabel('Time from swim (s)')
+# plt.ylabel('Glu release Norm. $\Delta$F/F')
+# plt.savefig('../Plots/snfr/GA_RG/glu_GA_RD-GA.pdf')
+# plt.close('all')
+
+# plt.figure(figsize=(4, 3))
+# idx=(ff_idx<t_pre+20)
+# mean_ = np.mean(dat_list[idx,2], axis=0)
+# sem_ = sem(dat_list[idx,2])
+# shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='k')
+# mean_ = np.mean(dat_list[idx,3], axis=0)
+# sem_ = sem(dat_list[idx,3])
+# shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='r')
+# mean_ = np.mean(dat_list[idx,4], axis=0)
+# sem_ = sem(dat_list[idx,4])
+# shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color='b')
+# plt.title('Random gain')
+# plt.xlim([-0.1, 1.0])
+# plt.ylim([-0.3, 1.0])
+# sns.despine()
+# plt.xlabel('Time from swim (s)')
+# plt.ylabel('Glu release Norm. $\Delta$F/F')
+# plt.savefig('../Plots/snfr/GA_RG/glu_GA_RD-RD.pdf')
+# plt.close('all')
