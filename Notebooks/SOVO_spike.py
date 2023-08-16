@@ -107,7 +107,7 @@ valid_cell = (np.abs(min_sub)>1.5*np.abs(max_sub)) & (min_sub<0) & (min_sub_ind<
 
 inh_spk_ = spk_ave[:, 0, :]
 valid_spk = inh_spk_[:, t_pre:t_pre+100].mean(axis=-1)<inh_spk_[:, t_pre+150:t_pre+300].mean(axis=-1)
-valid_spk_ = inh_spk_.max(axis=-1)>0.5
+valid_spk_ = inh_spk_.max(axis=-1)>0.3
 valid_cell = valid_cell & valid_spk & valid_spk_
 print(valid_cell.sum())
 print(np.unique(np.array(fish_id)[valid_cell]).shape)
