@@ -22,6 +22,8 @@ comp_list=[]
 ev_spike_list=[]
 ev_swim_list=[]
 ev_visual_list=[]
+ev_sub_list=[]
+ev_spk_list=[]
 
 
 for ind, row in dat_xls_file.iterrows():
@@ -61,25 +63,13 @@ for ind, row in dat_xls_file.iterrows():
         sub_list = sub_swim-sub_swim[:, 70:75].mean(axis=-1, keepdims=True)
         behavior_dat = [spk_list, p_swim, visu]
         pad_list = [spike_pad, swim_pad, visu_pad]
-        w_all, ev_all, comp = kernel_fit(sub_list, behavior_dat, pad_list, trial_valid_fit, t_pre=t_pre, reg=100000)
-        w, w_ = w_all
-        ev_model_, ev_model, ev_spike, ev_swim, ev_visual = ev_all
-        print(comp, ev_model, ev_spike, ev_swim, ev_visual)
-        w_list.append(w)
-        w_list_.append(w_)
-        ev_model_list_.append(ev_model_)
-        ev_model_list.append(ev_model)
-        comp_list.append(comp)
-        ev_spike_list.append(ev_spike)
-        ev_swim_list.append(ev_swim)
-        ev_visual_list.append(ev_visual)
+        w_, ev_sub, ev_spike = kernel_fit(sub_list, behavior_dat, pad_list, trial_valid_fit, t_pre=t_pre, reg=100000)
+        print(ev_sub, ev_spike)
+        w_list.append(w_)
+        ev_sub_list.append(ev_sub)
+        ev_spk_list.append(ev_spike)
 
-np.savez('depreciated/kernel_fit.npz', \
+np.savez('depreciated/kernel_fit_v3.npz', \
          w_list=np.array(w_list), \
-         w_list_=np.array(w_list_), \
-         ev_model_list_=np.array(ev_model_list_), \
-         ev_model_list=np.array(ev_model_list), \
-         comp_list=np.array(comp_list), \
-         ev_spike_list=np.array(ev_spike_list), \
-         ev_swim_list=np.array(ev_swim_list), \
-         ev_visual_list=np.array(ev_visual_list))
+         ev_sub_list=np.array(ev_sub_list), \
+         ev_spk_list=np.array(ev_spk_list))
