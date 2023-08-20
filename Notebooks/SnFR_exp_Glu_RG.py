@@ -2,7 +2,7 @@ from utils import *
 
 rootDir = '/mnt/Dali/Takashi/Cezanne/SPIM_newPC/'
 folder = '04182019'
-fish = 'Fish1-2-random'
+fish = 'Fish1-4-random' #'Fish1-2-random'
 dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
 
 # pamamters
@@ -127,10 +127,10 @@ plt.xlabel('Backward grating vel')
 plt.ylabel('dF/F')
 # plt.legend()
 sns.despine()
-plt.xlim([-0.2, 4])
-plt.ylim([-0.2, 0.43])
-plt.xticks(np.arange(0, 6, 2))
-plt.yticks(np.arange(0, 0.6, 0.2))
+plt.xlim([-0.2, 5.1])
+plt.ylim([-0.22, 0.3])
+plt.xticks(np.arange(0, 6, 1))
+plt.yticks(np.arange(-0.2, 0.4, 0.1))
 plt.savefig('../Plots/snfr/glu_RG_visual_onset_sess_exp.pdf')
 plt.close('all')
 print(spearmanr(np.concatenate(tmp1), np.concatenate(tmp2)))

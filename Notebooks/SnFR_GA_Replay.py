@@ -23,6 +23,10 @@ for _, row in dat_xls_file.iterrows():
     fish = row['fish']
     task_type = row['task']
     _ = np.load(f'../Analysis/swim_power/{folder}_{fish}_swim_dat.npz')
+    dat_folder = '/nrs/ahrens/Ziqiang/Takashi_DRN_project/SnFRData/'
+    swm_dir = dat_folder+f'{folder}/{fish}/swim/'
+    frame_swim_tcourse = np.load(swm_dir+"frame_swim_tcourse_series.npy", allow_pickle=True)[()];
+    frame_stimParams = np.load(swm_dir+'frame_stimParams.npy', allow_pickle=True)[()];
     r_swim = _['r_swim']
     l_swim = _['l_swim']
     task_period = _['task_period'].astype('int')
@@ -37,7 +41,7 @@ for _, row in dat_xls_file.iterrows():
     valid_trial = valid_trial & (p_swim[:, -t_valid:].sum(axis=-1)==0)
     valid_trial = valid_trial & (p_swim[:, :t_pre].sum(axis=-1)==0)
     valid_trial = valid_trial & ~((task_period==6) & (p_swim.sum(axis=-1)>0))
-    
+        
     ## GA filter
     gain_stat_len = 10
     gain_sig_stat = np.ones(gain_stat_len)
@@ -69,8 +73,14 @@ for _, row in dat_xls_file.iterrows():
     for n_c in range(num_comp):
         c_dat=[]
         dff_ = np.zeros((num_swim, t_len))
+        pswim_ = np.zeros((num_swim, t_len))
+        vis_ = np.zeros((num_swim, t_len))
         for ns, s in enumerate(swim_starts):
             dff_[ns] = dFF_[(s-t_pre):(s+t_post), n_c] - dFF_[(s-t_flat):s, n_c].mean(axis=0, keepdims=True)
+            l_swim_ = frame_swim_tcourse[1,(s-t_pre):(s+t_post)]
+            r_swim_ = frame_swim_tcourse[2,(s-t_pre):(s+t_post)]
+            pswim_[ns] = np.sqrt(l_swim_**2 + r_swim_**2)*100000 # TK: 10000
+            vis_[ns] = -frame_stimParams[0,(s-t_pre):(s+t_post)]*10000
 
         gain_stat_len = 10
         gain_sig_stat = np.ones(gain_stat_len)
@@ -81,12 +91,21 @@ for _, row in dat_xls_file.iterrows():
         if gain_sig_stat.mean()<0.2:
             continue
         
-        plt.figure(figsize=(4, 3))
+        fig, ax = plt.subplots(1, 3, figsize=(10, 3))
+        ax = ax.flatten()
         for n_, n in enumerate([1, 2, 6]):
             idx = valid_trial & (task_period==n)
-            mean_=np.mean(dff_[idx], axis=0)
-            sem_ = sem(dff_[idx], axis=0)
-            shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color=color_list[n_])
+            # mean_=np.mean(dff_[idx], axis=0)
+            # sem_ = sem(dff_[idx], axis=0)
+            # shaded_errorbar(np.arange(-t_pre, t_post)/frame_rate, mean_, sem_, ax=plt, color=color_list[n_])
+            ax[0].plot(np.arange(-t_pre, t_post)/frame_rate, pswim_[idx].mean(axis=0), color_list[n_])
+            ax[1].plot(np.arange(-t_pre, t_post)/frame_rate, vis_[idx].mean(axis=0), color_list[n_])
+            ave_ = dff_[idx].mean(axis=0)*100
+            sem_ = sem(dff_[idx], axis=0)*100
+            ax[2].plot(np.arange(-t_pre, t_post)/frame_rate, ave_, color_list[n_])
+            ax[2].plot(np.arange(-t_pre, t_post)/frame_rate, ave_-sem_, color_list[n_], lw=0.5)
+            ax[2].plot(np.arange(-t_pre, t_post)/frame_rate, ave_+sem_, color_list[n_], lw=0.5)
+            sns.despine()
         plt.title('Gain adaptation')
         plt.xlim([-0.1, 1.0])
         # plt.ylim([-0.3, 1.0])
