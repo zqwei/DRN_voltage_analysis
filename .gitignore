@@ -1,4 +1,5 @@
 depreciated*
+*.ipynb
 SVD_error
 *.png
 *.err
