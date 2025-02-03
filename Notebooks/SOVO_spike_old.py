@@ -2,9 +2,9 @@ from utils import *
 from utils_sovo import *
 
 vol_file = '../Analysis/depreciated/analysis_sections_sovo.csv'
-dat_xls_file = pd.read_csv(vol_file, index_col=0)
+dat_xls_file = pd.read_csv(vol_file)
 dat_xls_file['folder'] = dat_xls_file['folder'].apply(lambda x: f'{x:0>8}')
-# dat_xls_file = dat_xls_file.reset_index()
+dat_xls_file = dat_xls_file.reset_index()
 
 t_pre = 100 # time window pre-swim
 t_post = 350 # time window post-swim
@@ -13,8 +13,7 @@ c_list = ['k', 'r', 'b']
 labels = ['CL', 'Swim-only', 'Visual-only']
 # swim_power_thres = 10
 t_swim_CL = t_pre + 100
-# t_swim_OL = t_pre + 200
-t_swim_OL = t_pre + 150
+t_swim_OL = t_pre + 200
 
 for ind, row in dat_xls_file.iterrows():
     folder = row['folder']
@@ -77,7 +76,7 @@ for ind, row in dat_xls_file.iterrows():
     plt.savefig(f'../Plots/sovo/exp_swim_visual.pdf')
     plt.close('all')
     print([folder, fish])
-    # break
+    break
     
 
 c_list = ['k', 'r', 'b']
@@ -87,8 +86,6 @@ spk_ave = []
 fish_id = []
 
 for ind, row in dat_xls_file.iterrows():
-    # if ind not in [122, 123, 126]:
-    #     continue
     folder = row['folder']
     fish = row['fish']
     _ = sovo_act(folder, fish)
@@ -110,7 +107,7 @@ valid_cell = (np.abs(min_sub)>1.5*np.abs(max_sub)) & (min_sub<0) & (min_sub_ind<
 
 inh_spk_ = spk_ave[:, 0, :]
 valid_spk = inh_spk_[:, t_pre:t_pre+100].mean(axis=-1)<inh_spk_[:, t_pre+150:t_pre+300].mean(axis=-1)
-valid_spk_ = inh_spk_.max(axis=-1)>0.1
+valid_spk_ = inh_spk_.max(axis=-1)>0.3
 valid_cell = valid_cell & valid_spk & valid_spk_
 print(valid_cell.sum())
 print(np.unique(np.array(fish_id)[valid_cell]).shape)
@@ -132,8 +129,7 @@ for n in range(3):
     plt.xlabel('Time (sec)')
     plt.ylabel('dF/F')
     sns.despine()
-# plt.savefig('../Plots/sovo/pop_ave_sub.pdf')
-plt.savefig('pop_ave_sub.pdf')
+plt.savefig('../Plots/sovo/pop_ave_sub.pdf')
 
 plt.figure(figsize=(4, 3))
 for n in range(3):
@@ -147,5 +143,4 @@ for n in range(3):
     plt.xlabel('Time (sec)')
     plt.ylabel('Spikes (/sec)')
     sns.despine()
-# plt.savefig('../Plots/sovo/pop_ave_spk.pdf')
-plt.savefig('pop_ave_spk.pdf')
+plt.savefig('../Plots/sovo/pop_ave_spk.pdf')

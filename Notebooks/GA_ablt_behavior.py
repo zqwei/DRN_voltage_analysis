@@ -81,6 +81,7 @@ def behave_compare(control_=False, c_str=''):
     print(f'number of fish: {valid_list.sum()}')
     before_ = mean_data[mean_data['ablt_id']=='before']['swim_sig'].values*gain_stat_len/300
     after_ = mean_data[mean_data['ablt_id']=='after']['swim_sig'].values*gain_stat_len/300
+    print(wilcoxon(before_, after_))
     plt.plot(['before', 'after'], [before_, after_], '-ok', lw=2, ms=15)
     plt.xticks(rotation=-80)
     plt.ylabel('Period of signficance (sec)')

@@ -5,12 +5,12 @@ from utils import *
 from scipy.stats import sem, ranksums
 
 k_spk = gaussKernel(sigma=1)
-k_sub = gaussKernel(sigma=1)
+k_sub = gaussKernel(sigma=11)
 t_pre = 100 # time window pre-swim
 t_post = 350 # time window post-swim
-swim_power_thres = 100
+swim_power_thres = 10
 t_swim_CL = t_pre + 100
-t_swim_OL = t_pre + 150 #200
+t_swim_OL = t_pre + 150
 t_label = np.arange(-t_pre, t_post)/300
 c_list = ['k', 'r', 'b']
 labels = ['CL', 'Swim-only', 'Visual-only']
@@ -40,38 +40,32 @@ def sovo_act(folder, fish, is_plot=False):
 #     trial_valid_OL = trial_valid_OL & trial_pre & ((p_swim[:, t_swim_OL:t_pre+300]>1).sum(axis=-1)==0)
 #     # trial_valid_OL = trial_valid_OL & ((p_swim[:, t_swim_OL:t_swim_OL+150]>0).sum(axis=-1)==0)
 #     trial_valid_VL = (p_swim[:, t_pre:t_pre+300]>0).sum(axis=-1)==0
+
 #     if np.percentile(p_swim[(task_period==1) & trial_valid].mean(axis=0), 95)>swim_power_thres:
 #         return None
+    
 #     if np.percentile(p_swim[(task_period==2) & trial_valid].mean(axis=0), 95)>swim_power_thres:
 #         return None
+        
 #     if ((task_period==2) & trial_valid & trial_valid_OL).sum()<5:
 #         return None
 
     trial_pre = (p_swim[:, :t_pre]>0).sum(axis=-1)==0
-    # trial_valid_CL = (p_swim[:, t_swim_CL:t_swim_CL+150]>0).sum(axis=-1)==0
-    trial_valid_CL = (p_swim[:, t_swim_CL:t_pre+300]>0).sum(axis=-1)==0
+    trial_valid_CL = (p_swim[:, t_swim_CL:t_swim_CL+150]>0).sum(axis=-1)==0
     trial_valid_CL = trial_valid_CL & trial_pre
     trial_valid_OL = ((visu.max(axis=-1, keepdims=True)-visu)[:, :-50]>0).sum(axis=-1)==0
-    # trial_valid_OL = trial_valid_OL & (p_swim[:, t_swim_CL:t_pre+300].max(axis=-1)<swim_power_thres)
-    trial_valid_OL = trial_valid_OL & trial_pre & ((p_swim[:, t_swim_OL:t_pre+300]>1).sum(axis=-1)==0)
+    trial_valid_OL = trial_valid_OL & (p_swim[:, t_swim_CL:t_pre+300].max(axis=-1)<swim_power_thres)
     trial_valid_OL = trial_valid_OL & trial_pre
     # trial_valid_OL = trial_valid_OL & ((p_swim[:, t_swim_OL:t_pre+300]>1).sum(axis=-1)==0)
     # trial_valid_OL = trial_valid_OL & ((p_swim[:, t_swim_OL:t_swim_OL+150]>0).sum(axis=-1)==0)
     trial_valid_VL = (p_swim[:, t_pre:t_pre+300]>0).sum(axis=-1)==0
-    # trial_valid_VL = trial_valid_VL & (visu[:, t_swim_OL:t_pre+300].min(axis=-1)>=0)
-    # trial_valid_VL = trial_valid_VL & (visu[:, -150:].min(axis=-1)>=0)
-    visu_peak = visu[:, t_pre:].min(axis=-1)
-    trial_valid_VL = trial_valid_VL & (visu_peak<np.percentile(visu_peak, 40))
+    trial_valid_VL = trial_valid_VL & (visu[:, t_swim_OL:t_pre+300].min(axis=-1)>=0)
     trial_valid_VL = trial_valid_VL & trial_pre
-    print(trial_valid_VL.sum())
-    
-    if np.percentile(p_swim[(task_period==1) & trial_valid].mean(axis=0), 95)>swim_power_thres:
-        return None
     
     if np.percentile(p_swim[(task_period==2) & trial_valid].mean(axis=0), 95)>swim_power_thres:
         return None
         
-    if ((task_period==2) & trial_valid & trial_valid_OL).sum()<5: #trial_valid_OL).sum()<5
+    if ((task_period==2) & trial_valid & trial_valid_OL).sum()<5:
         return None
     
     sub_ave = []
@@ -106,7 +100,7 @@ def sovo_act(folder, fish, is_plot=False):
             if n==2:
                 trial_valid_ = trial_valid & trial_valid_VL
             ave_ = sub_list[(task_period==n+1) & trial_valid_, :]*100
-            mean_ = np.mean(ave_, axis=0)
+            mean_ = np.median(ave_, axis=0)
             if is_plot:
                 std_ = sem(ave_, axis=0, nan_policy='omit')
                 ax[0].plot(t_label, mean_, f'-{c_list[n]}', lw=2)

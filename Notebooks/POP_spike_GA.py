@@ -262,6 +262,7 @@ def memory_trace(row):
     valid_memory_trial = valid_memory_trial[:,0]>valid_memory_trial[:,2]
     if valid_memory_trial.sum() ==0:
         return None, None
+    print(spk_smooth.shape)
     return lda_mem[memory_task==1][valid_memory_trial].mean(axis=0), lda_mem[memory_task==3][valid_memory_trial].mean(axis=0)
 
 
