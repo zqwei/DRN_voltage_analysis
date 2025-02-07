@@ -8,6 +8,7 @@ SVD_error
 *.npy
 plot*
 Plots
+*.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
